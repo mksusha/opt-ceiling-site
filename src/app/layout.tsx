@@ -7,12 +7,12 @@ export const metadata = {
 
 export default function RootLayout({
                                        children,
-                                   }: Readonly<{
+                                   }: {
     children: React.ReactNode;
-}>) {
+}) {
     return (
         <html lang="ru">
-        <body className="font-Inter antialiased">{children}</body>
+        <body className="font-space-grotesk antialiased">{children}</body>
         </html>
     );
 }

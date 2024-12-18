@@ -12,6 +12,9 @@ i18n
             loadPath: "/locales/{{lng}}.json", // Путь к файлам перевода
         },
         interpolation: { escapeValue: false },
+        react: {
+            useSuspense: false, // Отключение suspense для SSR
+        },
     });
 
 export default i18n;

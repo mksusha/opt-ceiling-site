@@ -2,32 +2,38 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Flag from "react-world-flags";
+import dynamic from "next/dynamic";
+// import Flag from "react-world-flags";
 import { Search, Menu, X as Close } from "lucide-react"; // Иконки
 import Image from "next/image";
-import "../i18n"; // Инициализация i18n
+
+
+const Flag = dynamic(() => import("react-world-flags"), { ssr: false });
 
 const Header: React.FC = () => {
     const { t, i18n } = useTranslation();
-    const [currentLang, setCurrentLang] = useState(i18n.language);
+    const [currentLang, setCurrentLang] = useState("ru");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const savedLang = localStorage.getItem("lang") || i18n.language;
-        i18n.changeLanguage(savedLang);
-        setCurrentLang(savedLang);
+        if (typeof window !== "undefined") {
+            const savedLang = localStorage.getItem("lang") || i18n.language;
+            i18n.changeLanguage(savedLang);
+            setCurrentLang(savedLang);
+        }
     }, []);
 
     const toggleLanguage = () => {
         const newLang = currentLang === "ru" ? "en" : "ru";
         i18n.changeLanguage(newLang);
         setCurrentLang(newLang);
-        localStorage.setItem("lang", newLang);
+        if (typeof window !== "undefined") {
+            localStorage.setItem("lang", newLang);
+        }
     };
 
-    const toggleMobileMenu = () => {
-        setIsMobileMenuOpen((prevState) => !prevState);
-    };
+
+    const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
     const currentFlag = currentLang === "ru" ? "GB" : "RU";
 
@@ -77,16 +83,16 @@ const Header: React.FC = () => {
 
                     {/* Кнопка для открытия мобильного меню */}
                     <button className="block md:hidden text-black" onClick={toggleMobileMenu}>
-                        <Menu size={28} />
+                        <Menu size={28}/>
                     </button>
                 </div>
             </div>
 
-            {/* низ шапка, скрыт на мобильных */}
-            <div className="hidden md:flex bg-darkGray text-white text-lg py-2">
+            {/* низ шапка */}
+            <div className="hidden md:block bg-darkGray text-white text-lg py-2">
                 <div className="max-w-[1350px] container mx-auto flex justify-between items-center px-4">
                     {/* Справочный центр */}
-                    <div className="font-normal text-lg">
+                    <div className="font-normal text-lg hidden md:block">
                         {t("Справочный центр")}:{" "}
                         <a
                             href="tel:+78007073799"
@@ -97,7 +103,7 @@ const Header: React.FC = () => {
                     </div>
 
                     {/* Навигация */}
-                    <nav className="flex items-center space-x-8">
+                    <nav className="hidden md:flex items-center space-x-8">
                         <a
                             href="#"
                             className="hover:bg-lightGray hover:bg-opacity-10 px-2 py-1 rounded-xl transition-all duration-300 ease-in-out"
@@ -116,6 +122,7 @@ const Header: React.FC = () => {
                         >
                             {t("Контакты")}
                         </a>
+
                         {/* Поиск */}
                         <div className="flex items-center space-x-2">
                             <Search
@@ -132,7 +139,7 @@ const Header: React.FC = () => {
                             <div className="w-8 h-8 rounded-full border-2 border-gray-300 overflow-hidden">
                                 <Flag
                                     code={currentFlag}
-                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                    style={{width: "100%", height: "100%", objectFit: "cover"}}
                                 />
                             </div>
                             <span className="text-lg">{currentLang === "ru" ? "EN" : "RU"}</span>
@@ -141,27 +148,18 @@ const Header: React.FC = () => {
                 </div>
             </div>
 
+
             {/* Мобильное меню */}
             {isMobileMenuOpen && (
-                <div className="bg-white text-black fixed top-0 left-0 w-full h-screen z-50 overflow-y-auto flex flex-col">
-                    <div className="flex justify-between items-center px-4 py-4 shadow-md">
-                        {/* Логотип */}
-                        <Image
-                            src="/logo4.svg"
-                            alt="Логотип Экспоцентр"
-                            width={120}
-                            height={100}
-                            priority
-                        />
-                        {/* Кнопка закрытия меню */}
-                        <button
-                            className="text-black"
-                            onClick={toggleMobileMenu}
-                        >
-                            <Close size={28} />
-                        </button>
-                    </div>
-                    <nav className="flex flex-col items-center space-y-6 text-lg font-medium mt-6">
+                <div
+                    className="bg-white text-black fixed top-0 left-0 w-full h-screen z-50 flex flex-col items-center justify-center">
+                    <button
+                        className="absolute top-4 right-4 text-black"
+                        onClick={toggleMobileMenu}
+                    >
+                        <Close size={28}/>
+                    </button>
+                    <nav className="flex flex-col items-center space-y-6 text-lg font-medium">
                         <a href="#" onClick={toggleMobileMenu}>
                             {t("Календарь мероприятий")}
                         </a>
@@ -183,19 +181,6 @@ const Header: React.FC = () => {
                         <a href="#" onClick={toggleMobileMenu}>
                             {t("Контакты")}
                         </a>
-                        {/* Кнопка переключения языка */}
-                        <button
-                            onClick={toggleLanguage}
-                            className="flex items-center space-x-2 bg-gray-400 text-white px-4 py-2 font-semibold rounded-3xl hover:bg-lightGray hover:bg-opacity-10 transition-all duration-300 ease-in-out"
-                        >
-                            <div className="w-8 h-8 rounded-full border-2 border-gray-300 overflow-hidden">
-                                <Flag
-                                    code={currentFlag}
-                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                                />
-                            </div>
-                            <span className="text-lg">{currentLang === "ru" ? "EN" : "RU"}</span>
-                        </button>
                     </nav>
                 </div>
             )}

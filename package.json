@@ -10,10 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "i18next": "^24.1.0",
+    "i18next": "^24.1.2",
     "i18next-http-backend": "^3.0.1",
     "lucide-react": "^0.468.0",
-    "next": "15.1.0",
+    "next": "15.1.1",
     "react": "^19.0.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
@@ -21,7 +21,7 @@
     "react-world-flags": "^1.6.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22.10.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
