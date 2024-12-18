@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vystavkis",
+  "info": {
+    "singularName": "vystavki",
+    "pluralName": "vystavkis",
+    "displayName": "Выставки"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "enumeration",
+      "enum": [
+        "Гостевые выставки",
+        "Конгрессные мероприятия"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "organizer": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "isCurrent": {
+      "type": "boolean"
+    }
+  }
+}
