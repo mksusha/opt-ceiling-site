@@ -17,6 +17,7 @@ const config: Config = {
         darkGray: "#232323",
         midGray: "#333333",
         lightGray: "#ECECEC",
+        lightOrange: "#ff884d",
       },
       fontFamily: {
         "space-grotesk": ["Space Grotesk", "sans-serif"],

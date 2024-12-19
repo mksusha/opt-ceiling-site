@@ -39,22 +39,21 @@ const Header: React.FC = () => {
 
     return (
         <header>
-            {/* Верх шапка */}
-            <div className="bg-white text-black py-3 shadow-md">
+            <div className="bg-white text-black py-3 shadow-md fixed top-0 left-0 w-full z-50">
                 <div className="max-w-[1350px] container mx-auto flex justify-between items-center px-4">
                     {/* Логотип */}
                     <div className="flex items-center space-x-2">
                         <Image
                             src="/logo4.svg"
                             alt="Логотип Экспоцентр"
-                            width={150}
-                            height={128}
+                            width={120}
+                            height={100}
                             priority
                         />
                     </div>
 
-                    {/* Навигация для десктопа */}
-                    <nav className="hidden md:flex space-x-8 text-lg font-medium">
+                    {/* Навигация скрыта на всех устройствах до desktop */}
+                    <nav className="hidden lg:flex space-x-8 text-lg font-medium">
                         <a
                             href="#"
                             className="hover:bg-lightGray hover:bg-opacity-50 px-4 py-2 rounded-xl transition-all duration-300 ease-in-out inline-block"
@@ -82,14 +81,14 @@ const Header: React.FC = () => {
                     </nav>
 
                     {/* Кнопка для открытия мобильного меню */}
-                    <button className="block md:hidden text-black" onClick={toggleMobileMenu}>
+                    <button className="block lg:hidden text-black" onClick={toggleMobileMenu}>
                         <Menu size={28}/>
                     </button>
                 </div>
             </div>
 
             {/* низ шапка */}
-            <div className="hidden md:block bg-darkGray text-white text-lg py-2">
+            <div className="hidden lg:block bg-darkGray text-white text-lg py-2">
                 <div className="max-w-[1350px] container mx-auto flex justify-between items-center px-4">
                     {/* Справочный центр */}
                     <div className="font-normal text-lg hidden md:block">
@@ -139,7 +138,7 @@ const Header: React.FC = () => {
                             <div className="w-8 h-8 rounded-full border-2 border-gray-300 overflow-hidden">
                                 <Flag
                                     code={currentFlag}
-                                    style={{width: "100%", height: "100%", objectFit: "cover"}}
+                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                 />
                             </div>
                             <span className="text-lg">{currentLang === "ru" ? "EN" : "RU"}</span>
@@ -182,8 +181,26 @@ const Header: React.FC = () => {
                             {t("Контакты")}
                         </a>
                     </nav>
+                    {/* Кнопка переключения языка */}
+                    <button
+                        onClick={toggleLanguage}
+                        className="flex items-center space-x-2 bg-gray-400 text-black px-4 py-2 font-semibold rounded-3xl hover:bg-lightGray hover:bg-opacity-10 transition-all duration-300 ease-in-out"
+                    >
+                        <div className="w-8 h-8 rounded-full border-2 border-lightGray overflow-hidden">
+                            <Flag
+                                code={currentFlag}
+                                style={{width: "100%", height: "100%", objectFit: "cover"}}
+                            />
+                        </div>
+                        <div className="flex flex-col items-start">
+                            <span className="text-lg font-bold">{currentLang === "ru" ? "EN" : "RU"}</span>
+
+                        </div>
+                    </button>
+
                 </div>
             )}
+
         </header>
     );
 };

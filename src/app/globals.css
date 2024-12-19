@@ -18,4 +18,27 @@
 
 body {
   font-family: "Space Grotesk", sans-serif;
+  padding-top: 68px; /* Высота хедера */
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE и Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.01); /* Увеличение на 2% для более мягкого эффекта */
+
+}
+
+
+
+

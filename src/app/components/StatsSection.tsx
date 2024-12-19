@@ -5,11 +5,15 @@ import CountUp from "react-countup";
 import Image from "next/image";
 import { useTranslation } from "react-i18next"; // Хук для переводов
 
-const StatsSection: React.FC = () => {
+interface StatsSectionProps {
+    onNavigateToExhibitions: () => void; // Пропс для обработки перехода
+}
+
+const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) => {
     const { t } = useTranslation(); // Инициализация перевода
 
     return (
-        <section className="bg-white text-black py-10 sm:py-16 md:py-20 relative">
+        <section data-aos="fade-up" className="bg-white text-black py-10 sm:py-16 md:py-20 relative">
             <div className="max-w-[1350px] container mx-auto px-4 flex flex-col md:flex-row items-center">
                 {/* Левая часть: Текст и кнопка */}
                 <div className="md:w-1/2 text-left mb-8 md:mb-0">
@@ -22,6 +26,7 @@ const StatsSection: React.FC = () => {
                     </p>
                     <div className="flex justify-center md:justify-start">
                         <button
+                            onClick={onNavigateToExhibitions} // Обработчик клика
                             className="w-[100%] sm:w-auto bg-darkGray text-white text-lg sm:text-base sm:font-normal hover:text-orange hover:bg-white border-2 border-darkGray hover:border-orange px-4 sm:px-6 py-2 sm:py-3 rounded-2xl transition-all duration-300 ease-in-out"
                         >
                             {t("Перейти к выставкам")}
