@@ -33,9 +33,13 @@ const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
 
     const fetchExhibitions = async (locale: string) => {
         try {
-            const res = await fetch(
-                `https://strapi-project-51fl.onrender.com/api/vystavkis?populate=image&_locale=${locale}`
-            );
+            const token = '2f2deca0a76e16c920496ae51a0b44b1c71d497618e30693c2a843f4d73770724977c99b9a496b4b2224e21108a99749bffd9456ec9adb8db414e8641c3608ef6de21fb9a35b4f7d7a8bf8917a1048b0573a83c852ce67c9aaaddb392b364f3f81382db6c526176f0b574fac59cb16a80e6b2e13ac4ed6c5b376bf56b4c3430d';
+            const res = await fetch('https://strapi-project-51fl.onrender.com/api/vystavkis?populate=image', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
