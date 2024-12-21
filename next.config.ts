@@ -1,7 +1,8 @@
+import BuilderDevTools from "@builder.io/dev-tools/next";
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+    env: {
+        SANITY_TOKEN: process.env.SANITY_TOKEN,
+    },
 };
-
-export default nextConfig;
