@@ -39,7 +39,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                 <div className="md:w-1/2 flex justify-center">
                     <div className="relative w-full h-full">
                         <video
-                            src="/video-opt.mp4" // Замените на ваш путь к видео
+                            src="/video-opt1.mp4" // Замените на ваш путь к видео
                             autoPlay
                             loop
                             muted
