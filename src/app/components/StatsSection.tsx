@@ -41,14 +41,18 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                 {/* Правая часть: Видео */}
                 <div className="md:w-1/2 flex justify-center">
                     <video
-                        src="/video-opt1.mp4"
                         autoPlay
                         loop
                         muted
                         playsInline
                         className="w-full h-auto object-cover rounded-3xl shadow-lg"
-                    />
+                    >
+                        <source src="/video-opt1-optimized.webm" type="video/webm" />
+                        <source src="/video-opt1-optimized.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
+
             </div>
 
             {/* Карточки */}
