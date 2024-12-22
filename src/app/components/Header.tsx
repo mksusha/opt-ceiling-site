@@ -45,10 +45,11 @@ const Header: React.FC = () => {
                     <Image
                         src="/logo4.svg"
                         alt="Логотип Экспоцентр"
-                        width={120}
+                        width={120} // Ширина
+                        height={43} // Высота
                         priority
-                        style={{ height: "auto" }} // Высота рассчитывается автоматически
                     />
+
 
 
                     {/* Навигация скрыта на всех устройствах до desktop */}
