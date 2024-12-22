@@ -42,15 +42,14 @@ const Header: React.FC = () => {
             <div className="bg-white text-black py-3 shadow-md fixed top-0 left-0 w-full z-50">
                 <div className="max-w-[1350px] container mx-auto flex justify-between items-center px-4">
                     {/* Логотип */}
-                    <div className="flex items-center space-x-2">
-                        <Image
-                            src="/logo4.svg"
-                            alt="Логотип Экспоцентр"
-                            width={120}
-                            height={100}
-                            priority
-                        />
-                    </div>
+                    <Image
+                        src="/logo4.svg"
+                        alt="Логотип Экспоцентр"
+                        width={120}
+                        priority
+                        style={{ height: "auto" }} // Высота рассчитывается автоматически
+                    />
+
 
                     {/* Навигация скрыта на всех устройствах до desktop */}
                     <nav className="hidden lg:flex space-x-8 text-lg font-medium">

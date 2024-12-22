@@ -39,6 +39,13 @@ body {
 
 }
 
+.scroll-offset {
+  scroll-margin-top: 80px; /* Высота вашего фиксированного хедера */
+}
+.logo-image {
+  width: 120px; /* Задайте ширину */
+  height: auto; /* Сохраняет пропорции */
+}
 
 
 

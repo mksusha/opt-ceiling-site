@@ -23,9 +23,6 @@ export interface Exhibition {
     image?: string; // Ссылка на изображение
 }
 
-
-
-
 const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
     const { i18n, t } = useTranslation();
     const [currentExhibitions, setCurrentExhibitions] = useState<Exhibition[]>([]);
@@ -91,7 +88,6 @@ const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
             console.error("Ошибка при загрузке данных:", (error as Error).message);
         }
     };
-
 
 
     useEffect(() => {

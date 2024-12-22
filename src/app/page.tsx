@@ -30,7 +30,10 @@ export default function Home() {
         <div>
             <Header />
             <StatsSection onNavigateToExhibitions={handleNavigateToExhibitions} />
-            <Exhibitions ref={exhibitionsRef} />
+            <div ref={exhibitionsRef} className="scroll-offset">
+                <Exhibitions/>
+            </div>
+
         </div>
     );
 }

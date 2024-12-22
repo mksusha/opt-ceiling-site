@@ -16,7 +16,8 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
             data-aos="fade-up"
             className="bg-white text-black py-10 sm:py-16 md:py-20 relative"
         >
-            <div className="max-w-[1350px] container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div
+                className="max-w-[1350px] container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 {/* Левая часть: Текст и кнопка */}
                 <div className="md:w-1/2 text-left">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal sm:font-bold mb-6 sm:mb-8 leading-tight">
@@ -38,8 +39,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                     </div>
                 </div>
 
-                {/* Правая часть: Видео */}
-                <div className="md:w-1/2 flex justify-center">
+                <div className="w-full md:w-1/2 flex justify-center">
                     <video
                         autoPlay
                         loop
@@ -47,11 +47,12 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                         playsInline
                         className="w-full h-auto object-cover rounded-3xl shadow-lg"
                     >
-                        <source src="/video-opt1-optimized.webm" type="video/webm" />
-                        <source src="/video-opt1-optimized.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
+                        <source src="/video-opt1-optimized.webm" type="video/webm"/>
+                        <source src="/video-opt1-optimized.mp4" type="video/mp4"/>
+                        <p>Your browser does not support the video tag.</p>
                     </video>
                 </div>
+
 
             </div>
 
