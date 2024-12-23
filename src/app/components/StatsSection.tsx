@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
 
@@ -10,6 +10,15 @@ interface StatsSectionProps {
 
 const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) => {
     const { t } = useTranslation();
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Определяем, мобильное устройство или нет, только на клиенте
+    useEffect(() => {
+        const checkIsMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkIsMobile();
+        window.addEventListener("resize", checkIsMobile);
+        return () => window.removeEventListener("resize", checkIsMobile);
+    }, []);
 
     return (
         <section
@@ -46,10 +55,19 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                         muted
                         playsInline
                         className="w-full h-auto object-cover rounded-3xl shadow-lg"
-                        poster="/video-poster.jpg" // Превью
+                        poster="/video-poster.jpg"
                     >
-                        <source src="/video-opt1-optimized.webm" type="video/webm" />
-                        <source src="/video-opt1-optimized.mp4" type="video/mp4" />
+                        {isMobile ? (
+                            <>
+                                <source src="/video-opt1-mobile.webm" type="video/webm" />
+                                <source src="/video-opt1-mobile.mp4" type="video/mp4" />
+                            </>
+                        ) : (
+                            <>
+                                <source src="/video-opt1-optimized.webm" type="video/webm" />
+                                <source src="/video-opt1-optimized.mp4" type="video/mp4" />
+                            </>
+                        )}
                         <p>Your browser does not support the video tag.</p>
                     </video>
                 </div>
