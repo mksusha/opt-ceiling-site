@@ -55,7 +55,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                         muted
                         playsInline
                         className="w-full h-auto object-cover rounded-3xl shadow-lg"
-                        poster="/video-poster.jpg"
+                        poster="/video-poster.png"
                     >
                         {isMobile ? (
                             <>
