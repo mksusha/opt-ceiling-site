@@ -2,23 +2,22 @@
 
 import React from "react";
 import CountUp from "react-countup";
-import { useTranslation } from "react-i18next"; // Хук для переводов
+import { useTranslation } from "react-i18next";
 
 interface StatsSectionProps {
-    onNavigateToExhibitions: () => void; // Пропс для обработки перехода
+    onNavigateToExhibitions: () => void;
 }
 
 const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) => {
-    const { t } = useTranslation(); // Инициализация перевода
+    const { t } = useTranslation();
 
     return (
         <section
             data-aos="fade-up"
             className="bg-white text-black py-10 sm:py-16 md:py-20 relative"
         >
-            <div
-                className="max-w-[1350px] container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                {/* Левая часть: Текст и кнопка */}
+            <div className="max-w-[1350px] container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                {/* Левая часть */}
                 <div className="md:w-1/2 text-left">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal sm:font-bold mb-6 sm:mb-8 leading-tight">
                         {t("OptCeilingEvents")}
@@ -31,7 +30,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
 
                     <div className="flex justify-center md:justify-start">
                         <button
-                            onClick={onNavigateToExhibitions} // Обработчик клика
+                            onClick={onNavigateToExhibitions}
                             className="w-full sm:w-auto bg-darkGray text-white text-lg sm:text-base hover:text-orange hover:bg-white border-2 border-darkGray hover:border-orange px-4 sm:px-6 py-2 sm:py-3 rounded-2xl transition-all duration-300 ease-in-out"
                         >
                             {t("Перейти к мероприятиям")}
@@ -39,6 +38,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                     </div>
                 </div>
 
+                {/* Видео */}
                 <div className="w-full md:w-1/2 flex justify-center">
                     <video
                         autoPlay
@@ -46,14 +46,13 @@ const StatsSection: React.FC<StatsSectionProps> = ({ onNavigateToExhibitions }) 
                         muted
                         playsInline
                         className="w-full h-auto object-cover rounded-3xl shadow-lg"
+                        poster="/video-poster.jpg" // Превью
                     >
-                        <source src="/video-opt1-optimized.webm" type="video/webm"/>
-                        <source src="/video-opt1-optimized.mp4" type="video/mp4"/>
+                        <source src="/video-opt1-optimized.webm" type="video/webm" />
+                        <source src="/video-opt1-optimized.mp4" type="video/mp4" />
                         <p>Your browser does not support the video tag.</p>
                     </video>
                 </div>
-
-
             </div>
 
             {/* Карточки */}

@@ -43,12 +43,7 @@ export default defineType({
             type: 'datetime',
             description: 'Дата окончания выставки',
         },
-        {
-            name: 'isCurrent',
-            title: 'Is Current',
-            type: 'boolean',
-            description: 'Выставка проходит в настоящее время',
-        },
+
         {
             name: 'organizer',
             title: 'Organizer',

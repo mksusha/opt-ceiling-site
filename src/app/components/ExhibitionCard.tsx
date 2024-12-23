@@ -7,7 +7,6 @@ interface Exhibition {
     description: string;
     startDate: string;
     endDate: string;
-    isCurrent: boolean;
     organizer: string;
     eventType: string;
     image?: string; // URL изображения из Sanity
@@ -27,8 +26,11 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
         });
     };
 
-    return exhibition.isCurrent ? (
-        // Карточка, если isCurrent = true
+    const now = new Date();
+    const isFutureOrCurrent = new Date(exhibition.endDate) >= now;
+
+    return isFutureOrCurrent ? (
+        // Карточка для текущей или будущей выставки
         <div className="card rounded-2xl shadow-lg overflow-hidden bg-white max-w-sm m-4 transition-shadow duration-500 hover:shadow-2xl">
             {imageUrl && (
                 <img
@@ -66,6 +68,7 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
             </div>
         </div>
     ) : (
+        // Карточка для прошедшей выставки
         <div className="flex flex-col md:flex-row w-full bg-white rounded-3xl shadow-md transition-shadow duration-500 border border-b-8 hover:shadow-orange">
             {/* Левая часть с изображением и текстом */}
             <div className="flex flex-col md:flex-row w-full md:w-3/5 p-4">
