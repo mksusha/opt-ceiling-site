@@ -5,11 +5,7 @@ export const metadata = {
     description: "Сайт компании OPT Ceiling",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="ru">
         <body className="font-space-grotesk antialiased">{children}</body>

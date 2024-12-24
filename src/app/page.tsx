@@ -5,9 +5,11 @@ import Header from "./components/Header";
 import StatsSection from "@/app/components/StatsSection";
 import Exhibitions from "@/app/components/Exhibitions";
 import { useTranslation } from "react-i18next";
+import ClientWrapper from "@/app/components/ClientWrapper";
 import "./i18n";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import Footer from "@/app/components/Footer";
 
 export default function Home() {
     const { t } = useTranslation();
@@ -27,13 +29,13 @@ export default function Home() {
     };
 
     return (
-        <div>
+        <ClientWrapper>
             <Header />
             <StatsSection onNavigateToExhibitions={handleNavigateToExhibitions} />
             <div ref={exhibitionsRef} className="scroll-offset">
                 <Exhibitions/>
             </div>
-
-        </div>
+<Footer />
+        </ClientWrapper>
     );
 }

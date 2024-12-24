@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 
 interface Exhibition {
@@ -14,6 +17,7 @@ interface Exhibition {
 
 const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) => {
     const { t } = useTranslation(); // Подключение i18next
+    const router = useRouter(); // Использование маршрутизатора для перехода
 
     const imageUrl = exhibition.image || "/default-placeholder.png";
 
@@ -29,9 +33,16 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
     const now = new Date();
     const isFutureOrCurrent = new Date(exhibition.endDate) >= now;
 
+    const handleClick = () => {
+        router.push(`/exhibition/${exhibition.id}`);
+    };
+
     return isFutureOrCurrent ? (
         // Карточка для текущей или будущей выставки
-        <div className="card rounded-2xl shadow-lg overflow-hidden bg-white max-w-sm m-4 transition-shadow duration-500 hover:shadow-2xl">
+        <div
+            onClick={handleClick}
+            className="card rounded-2xl shadow-lg overflow-hidden bg-white max-w-sm m-4 transition-shadow duration-500 hover:shadow-2xl cursor-pointer"
+        >
             {imageUrl && (
                 <img
                     src={imageUrl}
@@ -69,7 +80,10 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
         </div>
     ) : (
         // Карточка для прошедшей выставки
-        <div className="flex flex-col md:flex-row w-full bg-white rounded-3xl shadow-md transition-shadow duration-500 border border-b-8 hover:shadow-orange">
+        <div
+            onClick={handleClick}
+            className="flex flex-col md:flex-row w-full bg-white rounded-3xl shadow-md transition-shadow duration-500 border border-b-8 hover:shadow-orange cursor-pointer"
+        >
             {/* Левая часть с изображением и текстом */}
             <div className="flex flex-col md:flex-row w-full md:w-3/5 p-4">
                 {imageUrl && (

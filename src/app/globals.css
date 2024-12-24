@@ -49,5 +49,17 @@ body {
   height: auto; /* Сохраняет пропорции */
 }
 
+html {
+  scroll-behavior: smooth !important;
+}
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    scroll-behavior: auto; /* Отключаем встроенное поведение для Safari */
+  }
 
+  body {
+    scroll-behavior: smooth; /* Включаем плавное поведение для Safari */
+  }
+
+}
 
