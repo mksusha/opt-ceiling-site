@@ -117,6 +117,16 @@ const CalendarPage: React.FC = () => {
             image: event.image || "/default-placeholder.png",
         }));
     };
+
+    const mapEventTypeToRussian = (type: string): string => {
+        const typeMap: { [key: string]: string } = {
+            "large-scale": "Масштабное",
+            "master-class": "Мастер-класс",
+            "webinar": "Вебинар",
+        };
+        return typeMap[type] || "";
+    };
+
     useEffect(() => {
         filterEvents();
         setCurrentPage(1); // Сбрасываем текущую страницу при изменении фильтров
@@ -259,10 +269,22 @@ const CalendarPage: React.FC = () => {
                                 }}
                             >
                                 <option value="all">{t("Все типы")}</option>
-                                <option value="large-scale">{t("Масштабные")}</option>
-                                <option value="master-class">{t("Мастер-класс")}</option>
-                                <option value="webinar">{t("Вебинар")}</option>
+                                {locale === "en" ? (
+                                    <>
+                                        <option value="webinar">{t("Webinar")}</option>
+                                        <option value="large-scale">{t("Large-scale")}</option>
+                                        <option value="master-class">{t("Master class")}</option>
+                                    </>
+                                ) : (
+                                    <>
+                                        <option value="Вебинар">{t("Вебинар")}</option>
+                                        <option value="Масштабное">{t("Масштабное")}</option>
+                                        <option value="Мастер-класс">{t("Мастер-класс")}</option>
+                                    </>
+                                )}
                             </select>
+
+
                         </div>
 
                         <div className="relative flex flex-col w-full lg:w-1/3">
@@ -278,7 +300,7 @@ const CalendarPage: React.FC = () => {
                                     backgroundSize: "1.5em 1.5em",
                                 }}
                             >
-                                {selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
+                            {selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
                             </button>
 
                             {showCalendar && (
