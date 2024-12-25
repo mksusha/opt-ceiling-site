@@ -58,16 +58,16 @@ export default defineType({
         },
         {
             name: 'eventType',
-            title: 'Event Type',
+            title: 'Тип мероприятия',
             type: 'string',
             options: {
                 list: [
-                    { title: 'Conference', value: 'conference' },
-                    { title: 'Art', value: 'art' },
-                    { title: 'Technology', value: 'technology' },
-                    { title: 'Other', value: 'other' },
+                    { title: 'Масштабное', value: 'Масштабное' },
+                    { title: 'Мастер-класс', value: 'Мастер-класс' },
+                    { title: 'Вебинар', value: 'Вебинар' },
                 ],
             },
+
             description: 'Тип мероприятия',
         },
         {
@@ -76,12 +76,12 @@ export default defineType({
             type: 'string',
             options: {
                 list: [
-                    { title: 'Conference', value: 'conference' },
-                    { title: 'Art', value: 'art' },
-                    { title: 'Technology', value: 'technology' },
-                    { title: 'Other', value: 'other' },
+                    { title: 'Large-scale', value: 'large-scale' },
+                    { title: 'Master class', value: 'master-class' },
+                    { title: 'Webinar', value: 'webinar' },
                 ],
             },
+
             description: 'Тип мероприятия на английском языке',
         },
         {

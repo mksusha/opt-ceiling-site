@@ -52,9 +52,13 @@ const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
                 startDate: item.startDate,
                 endDate: item.endDate,
                 organizer: locale === "en" ? item.organizer_en : item.organizer,
-                eventType: locale === "en" ? item.eventType_en : item.eventType,
+                eventType: locale === "en"
+                    ? item.eventType_en
+                    : (item.eventType || item.eventType_en),
+
                 image: item.image || undefined,
             }));
+            console.log(exhibitions);
 
             // Фильтруем актуальные (текущие + будущие) и прошедшие выставки
             const active = exhibitions.filter(

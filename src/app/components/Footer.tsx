@@ -4,7 +4,7 @@ import { FaTelegramPlane, FaVk } from "react-icons/fa"; // Иконки для T
 export default function Footer() {
     return (
         <footer className=" max-w-[1350px] m-auto bg-midGray text-white rounded-t-[45px]">
-            <div className=" mt-24 mx-auto px-6 py-6 lg:px-[60px] lg:py-[30px]">
+            <div className=" mt-10 mx-auto px-6 py-6 lg:px-[60px] lg:py-[30px]">
                 {/* Верхний блок: логотип, навигация и соцсети */}
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center text-center lg:text-left mb-6">
                     {/* Логотип */}
