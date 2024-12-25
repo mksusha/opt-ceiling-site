@@ -174,34 +174,31 @@ const CalendarPage: React.FC = () => {
     // }
 
     return (
-        <div data-aos="fade-up"  className="bg-gray-100 min-h-screen">
-            <div className="max-w-[1350px] mx-auto py-8 px-4">
+        <div className="bg-gray-100 min-h-screen">
+            <div className="max-w-[1350px] mx-auto px-4">
                 {/* Заголовок страницы */}
                 <div
-                    className="flex flex-col md:flex-row items-center md:items-center justify-start mb-8 md:mb-16 mt-10 relative">
+                    className="flex flex-col md:flex-row items-center md:items-center justify-start mb-10 mt-10 lg:mt-16 lg:mb-14  relative">
                     {/* Заголовок */}
                     <div className="flex items-center">
-                        <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
+                        <h1 className="text-3xl font-bold rounded-2xl text-white lg:text-3xl md:text-2xl inline-block px-4 py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
                             {t("Календарь мероприятий")}
-                            <CalendarDays
-                                className="w-10 h-10 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white ml-3" />
+                            <CalendarDays className="w-12 h-12 text-white ml-3"/>
                         </h1>
                     </div>
 
                     {/* Текст рядом с заголовком */}
-                    <div className="flex items-center mt-2 ml-4 md:mt-0">
-                        <p className="text-black text-sm md:text-base text-center md:text-left leading-tight max-w-full md:max-w-[300px]">
+                    <div className="flex items-center mt-6 ml-4 md:mt-0">
+                        <p className="text-black  text-sm md:text-base ml-0 md:ml-4 text-center md:text-left leading-tight lg:max-w-80">
                             {t("Используйте фильтры ниже, чтобы найти интересующие вас мероприятия.")}
+
                         </p>
                         {/*<Search className="w-9 h-9 text-black ml-2 mt-[2px]" />*/}
                     </div>
                 </div>
 
 
-
-
-
-    {/* Панель фильтров */}
+                {/* Панель фильтров */}
                 <div className="bg-lightGray p-4 md:p-6 rounded-3xl shadow-xl mb-16">
                     {/* Фильтры */}
                     <div className="flex flex-wrap justify-between text-center gap-4">
