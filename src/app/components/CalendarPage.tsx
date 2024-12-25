@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+
 import { client } from "@/sanity/lib/client";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
@@ -41,6 +42,7 @@ const CalendarPage: React.FC = () => {
     const eventsPerPage = 3;
     const [loading, setLoading] = useState(true);
     const [showCalendar, setShowCalendar] = useState(false);
+    const calendarRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -79,6 +81,21 @@ const CalendarPage: React.FC = () => {
         fetchEvents();
     }, [locale, t]);
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                calendarRef.current &&
+                !calendarRef.current.contains(event.target as Node)
+            ) {
+                setShowCalendar(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
     // Функция для форматирования данных
     const formatData = (data: any[], locale: string): Event[] => {
         return data.map((event: any) => ({
@@ -180,7 +197,7 @@ const CalendarPage: React.FC = () => {
             <div className="max-w-[1350px] mx-auto py-8 px-4">
                 {/* Заголовок страницы */}
                 <div
-                    className="flex flex-col md:flex-row items-center md:items-center justify-start mb-8 md:mb-16 mt-10 relative">
+                    className="flex flex-col md:flex-row items-center md:items-center justify-start mb-8 md:mb-16 mt-6 relative ">
                     {/* Заголовок */}
                     <div className="flex items-center">
                         <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
@@ -192,7 +209,7 @@ const CalendarPage: React.FC = () => {
 
                     {/* Текст рядом с заголовком */}
                     <div className="flex items-center mt-2 ml-4 md:mt-0">
-                        <p className="text-black text-sm md:text-base text-center md:text-left leading-tight max-w-full md:max-w-[300px]">
+                        <p className=" text-black text-sm md:text-base text-center md:text-left leading-tight max-w-full md:max-w-[300px]">
                             {t("Используйте фильтры ниже, чтобы найти интересующие вас мероприятия.")}
                         </p>
                         {/*<Search className="w-9 h-9 text-black ml-2 mt-[2px]" />*/}
@@ -249,25 +266,28 @@ const CalendarPage: React.FC = () => {
                         </div>
 
                         <div className="relative flex flex-col w-full lg:w-1/3">
-                            <label className="text-midGray font-semibold mb-1">{t("Выберите дату")}</label> {/* Уменьшен отступ */}
+                            <label className="text-midGray font-semibold mb-1">Выберите дату</label>
                             <button
                                 onClick={() => setShowCalendar(!showCalendar)}
                                 className="px-4 py-3 bg-midGray text-left text-white rounded-2xl border border-white hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-white appearance-none"
                                 style={{
-                                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'white\' viewBox=\'0 0 20 20\'%3e%3cpath d=\'M10 12l-5-5h10l-5 5z\'/%3e%3c/svg%3e")',
+                                    backgroundImage:
+                                        'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'white\' viewBox=\'0 0 20 20\'%3e%3cpath d=\'M10 12l-5-5h10l-5 5z\'/%3e%3c/svg%3e")',
                                     backgroundRepeat: "no-repeat",
                                     backgroundPosition: "right 0.75rem center",
                                     backgroundSize: "1.5em 1.5em",
                                 }}
                             >
-                                {selectedDate ? selectedDate.toLocaleDateString() : t("Выберите дату")}
+                                {selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
                             </button>
 
                             {showCalendar && (
                                 <div
-                                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-lg p-4 w-full lg:max-w-full sm:max-w-[75%] max-w-[95%] z-[10]">
-                                    <div className="flex justify-between items-center mb-3"> {/* Уменьшен отступ */}
-                                        <h2 className="text-md font-semibold">{t("Выберите дату")}</h2> {/* Уменьшен текст */}
+                                    ref={calendarRef} // Ссылка на контейнер календаря
+                                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-lg p-4 w-full lg:max-w-full sm:max-w-[75%] max-w-[95%] z-[10]"
+                                >
+                                    <div className="flex justify-between items-center mb-3">
+                                        <h2 className="text-md font-semibold">Выберите дату</h2>
                                         <button
                                             onClick={() => setShowCalendar(false)}
                                             className="text-gray hover:text-gray-700"
@@ -281,8 +301,10 @@ const CalendarPage: React.FC = () => {
                                             setSelectedDate(date);
                                             setShowCalendar(false);
                                         }}
+                                        onClose={() => setShowCalendar(false)} // Добавлено onClose
                                         className="border rounded-lg shadow-md text-sm"
                                     />
+
                                 </div>
                             )}
                         </div>

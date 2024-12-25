@@ -9,9 +9,11 @@ interface CalendarProps {
     selectedDate: Date | null;
     onSelect: (date: Date | null) => void;
     className?: string;
+    onClose: () => void; // Добавляем коллбек для закрытия календаря
 }
 
-function Calendar({ selectedDate, onSelect, className }: CalendarProps) {
+function Calendar({ selectedDate, onSelect, className, onClose }: CalendarProps) {
+    const calendarRef = React.useRef<HTMLDivElement>(null);
     const [currentDate, setCurrentDate] = React.useState(
         selectedDate || new Date()
     );
@@ -21,6 +23,22 @@ function Calendar({ selectedDate, onSelect, className }: CalendarProps) {
     const [currentYear, setCurrentYear] = React.useState(
         selectedDate ? selectedDate.getFullYear() : new Date().getFullYear()
     );
+
+    React.useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                calendarRef.current &&
+                !calendarRef.current.contains(event.target as Node)
+            ) {
+                onClose(); // Закрываем календарь при клике вне
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [onClose]);
 
     React.useEffect(() => {
         const savedDate = localStorage.getItem("lastSelectedDate");
@@ -93,8 +111,8 @@ function Calendar({ selectedDate, onSelect, className }: CalendarProps) {
                     className={cn(
                         "w-10 h-10 flex items-center justify-center rounded-full text-sm transition",
                         isSelected
-                            ? "bg-orange text-white" // Оранжевый для выбранного числа
-                            : "hover:bg-lightGray" // Оранжевый ховер
+                            ? "bg-orange text-white"
+                            : "hover:bg-lightGray"
                     )}
                     onClick={() => handleSelectDate(day)}
                 >
@@ -108,9 +126,10 @@ function Calendar({ selectedDate, onSelect, className }: CalendarProps) {
 
     return (
         <div
+            ref={calendarRef}
             className={cn(
                 "p-4 shadow-md rounded-lg bg-white",
-                "lg:h-[400px]", // Уменьшенный размер на десктопе
+                "lg:h-[400px]",
                 className
             )}
         >
