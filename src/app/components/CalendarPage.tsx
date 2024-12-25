@@ -105,6 +105,8 @@ const CalendarPage: React.FC = () => {
         setCurrentPage(1); // Сбрасываем текущую страницу при изменении фильтров
     }, [eventType, timeFilter, selectedDate, searchQuery]);
 
+
+
     const filterEvents = () => {
         let filtered = events;
 
@@ -175,30 +177,33 @@ const CalendarPage: React.FC = () => {
 
     return (
         <div className="bg-gray-100 min-h-screen">
-            <div className="max-w-[1350px] mx-auto px-4">
+            <div className="max-w-[1350px] mx-auto py-8 px-4">
                 {/* Заголовок страницы */}
                 <div
-                    className="flex flex-col md:flex-row items-center md:items-center justify-start mb-10 mt-10 lg:mt-16 lg:mb-14  relative">
+                    className="flex flex-col md:flex-row items-center md:items-center justify-start mb-8 md:mb-16 mt-10 relative">
                     {/* Заголовок */}
                     <div className="flex items-center">
-                        <h1 className="text-3xl font-bold rounded-2xl text-white lg:text-3xl md:text-2xl inline-block px-4 py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
+                        <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
                             {t("Календарь мероприятий")}
-                            <CalendarDays className="w-12 h-12 text-white ml-3"/>
+                            <CalendarDays
+                                className="w-10 h-10 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white ml-3" />
                         </h1>
                     </div>
 
                     {/* Текст рядом с заголовком */}
-                    <div className="flex items-center mt-6 ml-4 md:mt-0">
-                        <p className="text-black  text-sm md:text-base ml-0 md:ml-4 text-center md:text-left leading-tight lg:max-w-80">
+                    <div className="flex items-center mt-2 ml-4 md:mt-0">
+                        <p className="text-black text-sm md:text-base text-center md:text-left leading-tight max-w-full md:max-w-[300px]">
                             {t("Используйте фильтры ниже, чтобы найти интересующие вас мероприятия.")}
-
                         </p>
                         {/*<Search className="w-9 h-9 text-black ml-2 mt-[2px]" />*/}
                     </div>
                 </div>
 
 
-                {/* Панель фильтров */}
+
+
+
+    {/* Панель фильтров */}
                 <div className="bg-lightGray p-4 md:p-6 rounded-3xl shadow-xl mb-16">
                     {/* Фильтры */}
                     <div className="flex flex-wrap justify-between text-center gap-4">
@@ -243,9 +248,8 @@ const CalendarPage: React.FC = () => {
                             </select>
                         </div>
 
-                        {/* Календарь */}
-                        <div className="relative flex flex-col w-full lg:w-1/5">
-                            <label className="text-midGray font-semibold mb-2">{t("Выберите дату")}</label>
+                        <div className="relative flex flex-col w-full lg:w-1/3">
+                            <label className="text-midGray font-semibold mb-1">{t("Выберите дату")}</label> {/* Уменьшен отступ */}
                             <button
                                 onClick={() => setShowCalendar(!showCalendar)}
                                 className="px-4 py-3 bg-midGray text-left text-white rounded-2xl border border-white hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-white appearance-none"
@@ -261,29 +265,28 @@ const CalendarPage: React.FC = () => {
 
                             {showCalendar && (
                                 <div
-                                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                                    <div className="bg-white rounded-lg shadow-lg p-4 w-80">
-                                        <div className="flex justify-between items-center mb-4">
-                                            <h2 className="text-lg font-bold">{t("Выберите дату")}</h2>
-                                            <button
-                                                onClick={() => setShowCalendar(false)}
-                                                className="text-gray hover:text-gray-700"
-                                            >
-                                                ✕
-                                            </button>
-                                        </div>
-                                        <Calendar
-                                            selectedDate={selectedDate}
-                                            onSelect={(date) => {
-                                                setSelectedDate(date);
-                                                setShowCalendar(false);
-                                            }}
-                                            className="border rounded-md shadow"
-                                        />
+                                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-lg shadow-lg p-4 w-full lg:max-w-full sm:max-w-[75%] max-w-[95%] z-[10]">
+                                    <div className="flex justify-between items-center mb-3"> {/* Уменьшен отступ */}
+                                        <h2 className="text-md font-semibold">{t("Выберите дату")}</h2> {/* Уменьшен текст */}
+                                        <button
+                                            onClick={() => setShowCalendar(false)}
+                                            className="text-gray hover:text-gray-700"
+                                        >
+                                            ✕
+                                        </button>
                                     </div>
+                                    <Calendar
+                                        selectedDate={selectedDate}
+                                        onSelect={(date) => {
+                                            setSelectedDate(date);
+                                            setShowCalendar(false);
+                                        }}
+                                        className="border rounded-lg shadow-md text-sm"
+                                    />
                                 </div>
                             )}
                         </div>
+
 
                         {/* Кнопка очистить фильтры */}
                         <button

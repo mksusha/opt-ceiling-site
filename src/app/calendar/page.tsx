@@ -25,12 +25,14 @@ export default function Page() {
     return (
         <ClientWrapper>
 
-                {/* Хедер */}
-                <Header />
+            {/* Хедер */}
+            <Header/>
 
-                {/* Контент страницы */}
-                <CalendarPage />
-                <Footer />
+
+            <div data-aos="fade-up">
+                <CalendarPage/>
+            </div>
+            <Footer/>
 
         </ClientWrapper>
     );

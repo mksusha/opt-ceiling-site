@@ -2,77 +2,99 @@
 
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/app/components/ui/button";
 
 interface CalendarProps {
     selectedDate: Date | null;
     onSelect: (date: Date | null) => void;
-    className?: string; // Позволяет передавать классы
+    className?: string;
 }
 
+function Calendar({ selectedDate, onSelect, className }: CalendarProps) {
+    const [currentDate, setCurrentDate] = React.useState(
+        selectedDate || new Date()
+    );
+    const [currentMonth, setCurrentMonth] = React.useState(
+        selectedDate ? selectedDate.getMonth() : new Date().getMonth()
+    );
+    const [currentYear, setCurrentYear] = React.useState(
+        selectedDate ? selectedDate.getFullYear() : new Date().getFullYear()
+    );
 
-function Calendar({ selectedDate, onSelect }: CalendarProps) {
-    const [currentMonth, setCurrentMonth] = React.useState(new Date());
+    React.useEffect(() => {
+        const savedDate = localStorage.getItem("lastSelectedDate");
+        if (savedDate) {
+            const date = new Date(savedDate);
+            setCurrentDate(date);
+            setCurrentYear(date.getFullYear());
+            setCurrentMonth(date.getMonth());
+        }
+    }, []);
 
-    const daysInMonth = new Date(
-        currentMonth.getFullYear(),
-        currentMonth.getMonth() + 1,
-        0
-    ).getDate();
+    React.useEffect(() => {
+        if (selectedDate) {
+            localStorage.setItem("lastSelectedDate", selectedDate.toISOString());
+        }
+    }, [selectedDate]);
 
-    const firstDayOfMonth = new Date(
-        currentMonth.getFullYear(),
-        currentMonth.getMonth(),
-        1
-    ).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
     const handlePreviousMonth = () => {
-        setCurrentMonth(
-            new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
-        );
+        if (currentMonth === 0) {
+            setCurrentYear(currentYear - 1);
+            setCurrentMonth(11);
+        } else {
+            setCurrentMonth(currentMonth - 1);
+        }
     };
 
     const handleNextMonth = () => {
-        setCurrentMonth(
-            new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
-        );
+        if (currentMonth === 11) {
+            setCurrentYear(currentYear + 1);
+            setCurrentMonth(0);
+        } else {
+            setCurrentMonth(currentMonth + 1);
+        }
     };
 
     const handleSelectDate = (day: number) => {
-        const selected = new Date(
-            currentMonth.getFullYear(),
-            currentMonth.getMonth(),
-            day
-        );
+        const selected = new Date(currentYear, currentMonth, day);
         onSelect(selected);
+        setCurrentDate(selected);
+    };
+
+    const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setCurrentMonth(parseInt(event.target.value, 10));
+    };
+
+    const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setCurrentYear(parseInt(event.target.value, 10));
     };
 
     const renderDays = () => {
         const days = [];
 
-        // Заполняем пустые ячейки перед началом месяца
         for (let i = 0; i < firstDayOfMonth; i++) {
             days.push(<div key={`empty-${i}`} className="w-8 h-8" />);
         }
 
-        // Заполняем дни месяца
         for (let day = 1; day <= daysInMonth; day++) {
             const isSelected =
-                selectedDate &&
-                selectedDate.getDate() === day &&
-                selectedDate.getMonth() === currentMonth.getMonth() &&
-                selectedDate.getFullYear() === currentMonth.getFullYear();
+                currentDate &&
+                currentDate.getDate() === day &&
+                currentDate.getMonth() === currentMonth &&
+                currentDate.getFullYear() === currentYear;
 
             days.push(
                 <button
                     key={day}
                     className={cn(
-                        "w-8 h-8 flex items-center justify-center rounded-md text-sm",
+                        "w-10 h-10 flex items-center justify-center rounded-full text-sm transition",
                         isSelected
-                            ? "bg-primary text-primary-foreground"
-                            : "hover:bg-accent hover:text-accent-foreground"
+                            ? "bg-orange text-white" // Оранжевый для выбранного числа
+                            : "hover:bg-lightGray" // Оранжевый ховер
                     )}
                     onClick={() => handleSelectDate(day)}
                 >
@@ -85,25 +107,54 @@ function Calendar({ selectedDate, onSelect }: CalendarProps) {
     };
 
     return (
-        <div className="p-3">
-            <div className="flex justify-between items-center mb-2">
+        <div
+            className={cn(
+                "p-4 shadow-md rounded-lg bg-white",
+                "lg:h-[400px]", // Уменьшенный размер на десктопе
+                className
+            )}
+        >
+            <div className="flex justify-between items-center mb-3">
                 <button
-                    className={cn(buttonVariants({ variant: "outline" }), "h-7 w-7")}
+                    className={cn(buttonVariants({ variant: "outline" }), "h-8 w-8 rounded-full")}
                     onClick={handlePreviousMonth}
                 >
-                    <ChevronLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-5 w-5" />
                 </button>
-                <span className="text-sm font-medium">
-          {currentMonth.toLocaleDateString("default", {
-              month: "long",
-              year: "numeric",
-          })}
-        </span>
+                <div className="flex items-center gap-2">
+                    <select
+                        value={currentMonth}
+                        onChange={handleMonthChange}
+                        className="border rounded-md px-2 py-1 text-sm"
+                    >
+                        {Array.from({ length: 12 }, (_, i) => (
+                            <option key={i} value={i}>
+                                {new Date(0, i).toLocaleDateString("default", {
+                                    month: "long",
+                                })}
+                            </option>
+                        ))}
+                    </select>
+                    <select
+                        value={currentYear}
+                        onChange={handleYearChange}
+                        className="border rounded-md px-2 py-1 text-sm"
+                    >
+                        {Array.from({ length: 10 }, (_, i) => {
+                            const year = new Date().getFullYear() - 5 + i;
+                            return (
+                                <option key={year} value={year}>
+                                    {year}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </div>
                 <button
-                    className={cn(buttonVariants({ variant: "outline" }), "h-7 w-7")}
+                    className={cn(buttonVariants({ variant: "outline" }), "h-8 w-8 rounded-full")}
                     onClick={handleNextMonth}
                 >
-                    <ChevronRight className="h-4 w-4" />
+                    <ChevronRight className="h-5 w-5" />
                 </button>
             </div>
             <div className="grid grid-cols-7 gap-1 text-center text-xs font-medium">
@@ -111,7 +162,7 @@ function Calendar({ selectedDate, onSelect }: CalendarProps) {
                     <div key={day}>{day}</div>
                 ))}
             </div>
-            <div className="grid grid-cols-7 gap-1 mt-2">{renderDays()}</div>
+            <div className="grid grid-cols-7 gap-1 mt-3">{renderDays()}</div>
         </div>
     );
 }
