@@ -50,7 +50,60 @@
   "Масштабные": "Large-scale",
   "Введите название": "Enter a name",
 
-  "Используйте фильтры ниже, чтобы найти интересующие вас мероприятия.": "Use the filters below to find the events that interest you."
+  "Используйте фильтры ниже, чтобы найти интересующие вас мероприятия.": "Use the filters below to find the events that interest you.",
+  "Информация для участников": "Information for participants",
+  "Уважаемые участники выставки! Мы рады предложить вам уникальные возможности для участия в нашем мероприятии! Воспользуйтесь комплексными рекламными и партнёрскими предложениями, которые мы разработали для решения различных маркетинговых задач вашей компании.": "Dear exhibition participants! We are pleased to offer you unique opportunities to participate in our event! Take advantage of comprehensive advertising and partnership offers that we have developed to address various marketing challenges of your company.",
+  "Почему стоит стать партнером или спонсором?": "Why should you become a partner or sponsor?",
+  "Выгодно выделиться на фоне конкурентов и привлечь внимание целевой аудитории.": "Stand out profitably against competitors and attract the attention of the target audience.",
+  "Повысить узнаваемость и лояльность к бренду, закрепить позиции на рынке.": "Increase brand awareness and loyalty, strengthening your position in the market.",
+  "Представить новый продукт или оборудование профессиональной аудитории.": "Present a new product or equipment to a professional audience.",
+  "Увеличить продажи через взаимодействие с целевой аудиторией.": "Increase sales through interaction with the target audience.",
+  "Привлечь внимание посетителей, создавая дополнительное информационное поле.": "Attract visitors' attention by creating additional informational space.",
+  "Провести рекламную кампанию, эффективно взаимодействуя с вашей целевой аудиторией.": "Conduct an advertising campaign, effectively interacting with your target audience.",
+  "Доступные эксклюзивные статусы спонсорства открывают для вашей компании широкие возможности для демонстрации её лидерства и уникальности в дни проведения выставки. Обратите внимание, что количество эксклюзивных статусов ограничено.": "Available exclusive sponsorship statuses open up broad opportunities for your company to demonstrate its leadership and uniqueness during the exhibition. Please note that the number of exclusive statuses is limited.",
+  "Если вам интересна возможность стать спонсором или партнером выставки, отправьте нам заявку.": "If you are interested in becoming a sponsor or partner of the exhibition, send us an application.",
+  "Эксклюзивные Спонсорские Статусы": "Exclusive Sponsorship Statuses",
+  "Партнерам": "For Partners",
+  "Заполнить заявку": "Submit Application",
+  "ПОРЯДОК УЧАСТИЯ": "PARTICIPATION PROCEDURE",
+  "Цель наших мероприятий — объединить начинающих мастеров с опытными экспертами, представить лучшие решения на рынке и показать их практическое применение.": "The purpose of our events is to connect aspiring professionals with experienced experts, showcase the best solutions on the market, and demonstrate their practical application.",
+  "Организатор сохраняет нейтралитет при определении состава участников выставки. Партнеры могут предложить состав участников, однако окончательное решение остается за организатором.": "The organizer remains neutral when determining the composition of exhibition participants. Partners can suggest participants, but the final decision rests with the organizer.",
+  "Организатор вправе отказать в участии, если счет не был оплачен в течение 5 рабочих дней.": "The organizer has the right to refuse participation if the invoice has not been paid within 5 business days.",
+  "Партнер обязуется занять выделенное место на выставке, согласно пакету. По завершении выставки необходимо привести место в порядок.": "The partner is obliged to occupy the allocated space at the exhibition according to the package. After the exhibition, the space must be left in order.",
+  "Для оформления участия необходимо отправить заявку в \"ОптСилингИвент\" (ссылка). Прием заявок закрывается за 1 месяц до мероприятия.": "To register for participation, an application must be submitted to \"OptSealingEvent\" (link). Applications close one month before the event.",
+  "После согласования всех условий участия между \"ОптСилингИвент\" и участником заключается договор, как правило, не позднее 90 дней до монтажа.": "After agreeing on all participation terms, a contract is concluded between \"OptSealingEvent\" and the participant, usually no later than 90 days before installation.",
+  "Участник оплачивает регистрационный сбор в размере, установленном ОптСилингИвент для конкретной выставки. Сбор взимается на общие рекламные и информационные расходы. При отказе от участия в выставке регистрационный сбор возврату не подлежит, если иное не оговорено в договоре.": "The participant pays a registration fee in the amount set by OptSealingEvent for the specific exhibition. The fee is charged for general advertising and informational expenses. If the participant withdraws from the exhibition, the registration fee is non-refundable unless otherwise specified in the contract.",
+  "АРЕНДА ПЛОЩАДИ НА ВЫСТАВКЕ": "EXHIBITION SPACE RENTAL",
+  "Стоимость аренды площади:": "Cost of space rental:",
+  "Стоимость аренды выставочных площадей зависит от статуса мероприятия, конфигурации и расположения стенда в павильоне. Более точную информацию можно получить после заполнения онлайн-заявки.": "The cost of renting exhibition spaces depends on the status of the event, the configuration, and the location of the booth in the pavilion. More detailed information can be obtained after filling out the online application.",
+  "Оплата:": "Payment:",
+  "Компаниям, не погасившим задолженность за аренду площади или заказанные услуги, не будет разрешен монтаж.": "Companies that have not cleared their debts for space rental or ordered services will not be allowed to proceed with installation.",
+  "Закрывающие документы:": "Closing documents:",
+  "Документы (акт сдачи-приемки, договор) выдаются в день мероприятия. Для получения документов представителю компании нужно подписать акт сдачи-приемки в период монтажа.": "Documents (acceptance certificate, contract) are issued on the day of the event. To receive the documents, the company representative must sign the acceptance certificate during the installation period.",
+  "Общие условия участия в мероприятии:": "General terms of participation in the event:",
+  "ОНЛАЙН-ЗАЯВКА ДЛЯ УЧАСТНИКОВ": "ONLINE APPLICATION FOR PARTICIPANTS",
+  "После отправки заявки с вами свяжется менеджер, который поможет вам с организационными вопросами участия вашей компании в выставке.": "After submitting the application, a manager will contact you to assist with the organizational aspects of your company's participation in the exhibition.",
+  "Название мероприятия": "Event name",
+  "Драйв": "Drive",
+
+  "День Потолочника": "Ceiling Day",
+
+  "Название компании": "Company name",
+  "Введите название компании": "Enter company name",
+  "Сайт": "Website",
+  "Введите сайт компании": "Enter company website",
+  "Контактное лицо (ФИО)": "Contact person (Full Name)",
+  "Введите ФИО": "Enter full name",
+  "Должность": "Position",
+  "Введите должность": "Enter position",
+
+  "Введите телефон": "Enter phone number",
+  "E-mail": "E-mail",
+  "Введите E-mail": "Enter e-mail",
+  "Даю согласие на обработку своих персональных данных": "I consent to the processing of my personal data",
+  "Отправить заявку": "Submit application"
+
+
 
 
 

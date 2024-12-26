@@ -10,14 +10,13 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-
-			black: "#000000",
-			gray: "#E0E9E9",
-			orange: "#FF551A",
-			darkGray: "#232323",
-			midGray: "#333333",
-			lightGray: "#ECECEC",
-			lightOrange: "#ffc186",
+  			black: '#000000',
+  			gray: '#E0E9E9',
+  			orange: '#FF551A',
+  			darkGray: '#232323',
+  			midGray: '#333333',
+  			lightGray: '#ECECEC',
+  			lightOrange: '#ffc186',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -63,7 +62,9 @@ const config: Config = {
   			]
   		},
   		animation: {
-  			'fade-in': 'fadeIn 0.2s ease-in-out'
+  			'fade-in': 'fadeIn 0.2s ease-in-out',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		keyframes: {
   			fadeIn: {
@@ -72,6 +73,22 @@ const config: Config = {
   				},
   				to: {
   					opacity: '1'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
   				}
   			}
   		},

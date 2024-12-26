@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 // import Flag from "react-world-flags";
 import { Search, Menu, X as Close } from "lucide-react"; // Иконки
 import Image from "next/image";
+import Link from "next/link";
 
 
 const Flag = dynamic(() => import("react-world-flags"), { ssr: false });
@@ -41,14 +42,15 @@ const Header: React.FC = () => {
         <header>
             <div className="bg-white text-black py-3 shadow-md fixed top-0 left-0 w-full z-50">
                 <div className="max-w-[1350px] container mx-auto flex justify-between items-center px-4">
-                    {/* Логотип */}
-                    <Image
-                        src="/logo4.svg"
-                        alt="Логотип Экспоцентр"
-                        width={120} // Ширина
-                        height={43} // Высота
-                        priority
-                    />
+                    <Link href="/" passHref>
+                        <Image
+                            src="/logo4.svg"
+                            alt="Логотип Экспоцентр"
+                            width={120} // Ширина
+                            height={43} // Высота
+                            priority
+                        />
+                    </Link>
 
 
 
@@ -61,7 +63,7 @@ const Header: React.FC = () => {
                             {t("Календарь мероприятий")}
                         </a>
                         <a
-                            href="#"
+                            href="/partners"
                             className="hover:bg-lightGray hover:bg-opacity-50 px-4 py-2 rounded-xl transition-all duration-300 ease-in-out inline-block"
                         >
                             {t("Партнёрам")}
@@ -159,10 +161,10 @@ const Header: React.FC = () => {
                         <Close size={28}/>
                     </button>
                     <nav className="flex flex-col items-center space-y-6 text-lg font-medium">
-                        <a href="#" onClick={toggleMobileMenu}>
+                        <a href="/calendar" onClick={toggleMobileMenu}>
                             {t("Календарь мероприятий")}
                         </a>
-                        <a href="#" onClick={toggleMobileMenu}>
+                        <a href="/partners" onClick={toggleMobileMenu}>
                             {t("Партнёрам")}
                         </a>
                         <a href="#" onClick={toggleMobileMenu}>
