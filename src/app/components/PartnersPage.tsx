@@ -23,9 +23,17 @@ const PartnersPage = () => {
     // Обработчик скролла к форме
     const handleScrollToForm = () => {
         if (formRef.current) {
-            formRef.current.scrollIntoView({ behavior: "smooth" });
+            const isMobile = window.innerWidth <= 768; // Определяем, является ли устройство мобильным
+            const offset = isMobile ? 100 : 30; // 100px для мобильных, 50px для десктопа
+            const top = formRef.current.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({
+                top,
+                behavior: "smooth",
+            });
         }
     };
+
+
 
     return (
         <div className="min-h-screen">
@@ -129,7 +137,7 @@ const PartnersPage = () => {
 
                         {/* Кнопка для скролла */}
                         <button
-                            className="bg-orange mt-5 mb-5 text-white lg:text-lg border-2 border-transparent hover:bg-transparent hover:border-orange hover:text-orange px-4 py-3 w-full lg:w-1/4 rounded-2xl text-sm lg:text-base transition-all lg:mt-3 duration-300 ease-in-out"
+                            className=" bg-orange mt-5 mb-5 text-white lg:text-lg border-2 border-transparent hover:bg-transparent hover:border-orange hover:text-orange px-4 py-3 w-full lg:w-1/4 rounded-2xl text-sm lg:text-base transition-all lg:mt-3 duration-300 ease-in-out"
                             onClick={handleScrollToForm}
                         >
                             {t("Заполнить заявку")}
