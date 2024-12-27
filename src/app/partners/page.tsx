@@ -33,43 +33,44 @@ export default function Page() {
     }, []);
 
     useEffect(() => {
-        if (!hydrated || isMobile) return; // Пропускаем логику скролла на мобильных устройствах
+        if (!hydrated) return; // Пропускаем, если страница ещё не гидрирована
 
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
 
-            // Логика для десктопа: синхронное движение
-            if (scrollPosition <= 56) {
-                // Навигация движется плавно вверх
-                const newTop = desktopStartTop - scrollPosition;
-                setScrollTop(newTop);
-            } else {
-                // Навигация фиксируется под хедером
-                setScrollTop(desktopStickyTop);
+            if (!isMobile) {
+                // Логика для десктопа: синхронное движение
+                if (scrollPosition <= 56) {
+                    const newTop = desktopStartTop - scrollPosition;
+                    setScrollTop(newTop);
+                } else {
+                    setScrollTop(desktopStickyTop);
+                }
             }
 
+            // Общая логика определения активной секции
             const sections = [
                 {
                     id: "#partners",
-                    offset: document.querySelector("#partners") ? (document.querySelector("#partners") as HTMLElement).offsetTop : undefined
+                    offset: (document.querySelector("#partners") as HTMLElement)?.offsetTop || 0,
                 },
                 {
                     id: "#participation",
-                    offset: document.querySelector("#participation") ? (document.querySelector("#participation") as HTMLElement).offsetTop : undefined
+                    offset: (document.querySelector("#participation") as HTMLElement)?.offsetTop || 0,
                 },
                 {
                     id: "#application",
-                    offset: document.querySelector("#application") ? (document.querySelector("#application") as HTMLElement).offsetTop : undefined
+                    offset: (document.querySelector("#application") as HTMLElement)?.offsetTop || 0,
                 },
             ];
 
-
+            const offsetAdjustment = isMobile
+                ? mobileTop + 100 // Смещение для мобильных устройств
+                : desktopStickyTop + 58; // Смещение для десктопов
 
             const currentSection = sections
                 .reverse()
-                .find((section) =>
-                    scrollPosition >= (section.offset || 0) - (desktopStickyTop + 58)
-                );
+                .find((section) => scrollPosition >= section.offset - offsetAdjustment);
 
             if (currentSection) {
                 setActiveSection(currentSection.id);
@@ -81,6 +82,7 @@ export default function Page() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [hydrated, isMobile]);
+
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
