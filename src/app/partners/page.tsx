@@ -84,11 +84,13 @@ export default function Page() {
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
+        const mobileTop = 67  ; // Увеличенное фиксированное положение на мобильных
 
         const targetElement = document.querySelector(href) as HTMLElement;
         if (targetElement) {
             const elementPosition = targetElement.offsetTop;
-            const offsetPosition = elementPosition - (isMobile ? mobileTop : desktopStickyTop + 58);
+            const additionalOffset = isMobile ? 100 : 0; // Дополнительное смещение для мобильных
+            const offsetPosition = elementPosition - (isMobile ? mobileTop : desktopStickyTop + 38) - additionalOffset;
 
             window.scrollTo({
                 top: offsetPosition,
@@ -98,7 +100,8 @@ export default function Page() {
             setActiveSection(href);
         }
 
-    };
+
+};
 
 
     if (!hydrated) return null;
@@ -119,9 +122,9 @@ export default function Page() {
                 <div className="max-w-[1350px] w-full mx-auto flex px-4">
                     <nav className="flex justify-center gap-8 bg-transparent py-4">
                         {[
-                            { href: "#partners", label: t("For Partners") },
-                            { href: "#participation", label: t("Participation") },
-                            { href: "#application", label: t("Online Application") },
+                            { href: "#partners", label: t("Партнерам") },
+                            { href: "#participation", label: t("Порядок участия") },
+                            { href: "#application", label: t("Онлайн-заявка") },
                         ].map(({ href, label }) => (
                             <a
                                 key={href}

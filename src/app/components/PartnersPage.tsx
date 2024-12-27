@@ -37,29 +37,29 @@ const PartnersPage = () => {
 
     return (
         <div className="min-h-screen">
-            <div className="max-w-[1350px] mx-auto py-8 px-4">
+            <div id="partners" className="max-w-[1350px] mx-auto py-8 px-4">
                 <div
                     className="flex flex-col md:flex-row items-center md:items-center justify-start mb-4 md: mt-6 relative lg:mb-0">
-                    {/* Заголовок */}
-                    <div id="partners" className="flex items-center">
-                        <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
-                            {t("Партнерам")}
-                            <Handshake
-                                className="w-10 h-10 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white ml-3"
-                            />
-                        </h1>
-                    </div>
+                    {/*/!* Заголовок *!/*/}
+                    {/*<div id="partners" className="flex items-center">*/}
+                    {/*    <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">*/}
+                    {/*        {t("Партнерам")}*/}
+                    {/*        <Handshake*/}
+                    {/*            className="w-10 h-10 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white ml-3"*/}
+                    {/*        />*/}
+                    {/*    </h1>*/}
+                    {/*</div>*/}
 
 
                 </div>
 
                 <div className="max-w-7xl mx-auto py-8">
-                    <h2 className="text-2xl font-semibold text-midGray mb-6 text-center lg:text-left">
+                    <h2  className="text-2xl font-semibold text-midGray mb-6 text-center lg:text-left">
                         {t("Информация для участников")}
                     </h2>
 
 
-                <p className="text-xl text-midGray p-3 lg:text-left mb-8">
+                    <p className="text-xl text-midGray p-3 lg:text-left mb-8">
                         {t("Уважаемые участники выставки! Мы рады предложить вам уникальные возможности для участия в нашем мероприятии! Воспользуйтесь комплексными рекламными и партнёрскими предложениями, которые мы разработали для решения различных маркетинговых задач вашей компании.")}
                     </p>
                     <h2 className="text-2xl font-semibold text-center lg:text-left text-midGray mb-6">
@@ -144,7 +144,10 @@ const PartnersPage = () => {
                         </button>
                     </div>
                 </div>
-                <div id="participation" className="max-w-7xl mx-auto">
+                <h2  id="participation" className="text-2xl font-semibold text-midGray mt-5 p-4 mb-6 text-center lg:text-left">
+                    {t("Порядок участия")}
+                </h2>
+                <div  className="max-w-7xl mx-auto">
                     <Accordion type="single" collapsible className="space-y-6">
                         {/* Первый элемент аккордеона */}
                         <AccordionItem value="order">
@@ -238,6 +241,6 @@ const PartnersPage = () => {
         </div>
     )
         ;
-    };
+};
 
-    export default PartnersPage;
+export default PartnersPage;
