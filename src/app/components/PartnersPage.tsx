@@ -41,7 +41,7 @@ const PartnersPage = () => {
                 <div
                     className="flex flex-col md:flex-row items-center md:items-center justify-start mb-4 md: mt-6 relative lg:mb-0">
                     {/* Заголовок */}
-                    <div className="flex items-center">
+                    <div id="partners" className="flex items-center">
                         <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
                             {t("Партнерам")}
                             <Handshake
@@ -144,7 +144,7 @@ const PartnersPage = () => {
                         </button>
                     </div>
                 </div>
-                <div className="max-w-7xl mx-auto">
+                <div id="participation" className="max-w-7xl mx-auto">
                     <Accordion type="single" collapsible className="space-y-6">
                         {/* Первый элемент аккордеона */}
                         <AccordionItem value="order">
@@ -231,7 +231,7 @@ const PartnersPage = () => {
                     </Accordion>
 
                 </div>
-                <div ref={formRef}>
+                <div id="application" ref={formRef}>
                     <ParticipantForm/>
                 </div>
             </div>
