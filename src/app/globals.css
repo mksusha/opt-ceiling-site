@@ -129,3 +129,8 @@ body {
   overflow-x: hidden; /* Отключает горизонтальный скролл */
   width: 100%;        /* Устанавливает ширину на 100% */
 }
+@media (hover: none) and (pointer: coarse) {
+  .no-hover-on-mobile:hover {
+    color: inherit; /* Сбрасывает цвет при наведении */
+  }
+}
