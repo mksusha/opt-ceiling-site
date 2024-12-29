@@ -58,7 +58,7 @@ const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
 
                 image: item.image || undefined,
             }));
-            console.log(exhibitions);
+
 
             // Фильтруем актуальные (текущие + будущие) и прошедшие выставки
             const active = exhibitions.filter(

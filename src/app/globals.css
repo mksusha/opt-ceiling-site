@@ -134,3 +134,35 @@ body {
     color: inherit; /* Сбрасывает цвет при наведении */
   }
 }
+select {
+  -webkit-appearance: none; /* Убирает стандартный вид в Safari */
+  -moz-appearance: none; /* Убирает стандартный вид в Firefox */
+  appearance: none; /* Для остальных браузеров */
+}
+.clients-page .form-clients {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Одна колонка на мобильных */
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .clients-page .form-clients {
+    grid-template-columns: repeat(2, 1fr); /* Две колонки на sm */
+  }
+}
+
+@media (min-width: 1024px) {
+  .clients-page .form-clients {
+    grid-template-columns: repeat(3, 1fr); /* Три колонки на lg */
+  }
+}
+
+#partners {
+  margin-top: 60px; /* Чтобы добавить дополнительное пространство */
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+

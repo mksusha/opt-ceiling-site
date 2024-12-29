@@ -2,6 +2,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Checkbox } from "../components/ui/checkbox";
 
+import {ChevronDown} from "lucide-react"; // Импорт стрелки из react-icons
+
+
 const ParticipantForm = () => {
     const { t } = useTranslation();
 
@@ -22,20 +25,26 @@ const ParticipantForm = () => {
 
                 {/* Форма */}
                 <form className="w-full grid grid-cols-2 gap-x-8 gap-y-6">
-                    {/* Название мероприятия */}
-                    <div className="col-span-2 sm:col-span-1">
+
+                    <div className="col-span-2 sm:col-span-1 relative">
                         <label className="block text-lg font-medium mb-2 text-gray-700">
                             {t("Название мероприятия")}
                         </label>
                         <select
-                            className="border border-black rounded-[14px] px-4 py-3 w-full text-black text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-orange"
+                            className="border border-black rounded-[14px] px-4 py-3 w-full text-black text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-orange appearance-none pr-10"
                         >
                             <option value="drive">{t("Драйв")}</option>
                             <option value="master-class">{t("Мастер-класс")}</option>
                             <option value="ceiling-day">{t("День Потолочника")}</option>
                             <option value="webinar">{t("Вебинар")}</option>
                         </select>
+                        {/* Стрелочка */}
+                        <span
+                            className="absolute bottom-0 top-8 right-4 flex items-center justify-center pointer-events-none">
+        <ChevronDown className="w-4 h-4 text-gray-500"/> {/* или иконка из react-icons */}
+    </span>
                     </div>
+
 
                     {/* Название компании */}
                     <div className="col-span-2 sm:col-span-1">
@@ -110,8 +119,9 @@ const ParticipantForm = () => {
                             />
                         </div>
                         <div className="mt-5 lg:mb-2 lg:ml-2.5">
-                            <Checkbox id="custom-checkbox" className="border-orange data-[state=checked]:bg-orange" />
-                            <label htmlFor="custom-checkbox" className="lg:text-lg text-sm text-gray-700 cursor-pointer">
+                            <Checkbox id="custom-checkbox" className="border-orange data-[state=checked]:bg-orange"/>
+                            <label htmlFor="custom-checkbox"
+                                   className="lg:text-lg text-sm text-gray-700 cursor-pointer">
                                 {t("Даю согласие на обработку своих персональных данных")}
                             </label>
                         </div>

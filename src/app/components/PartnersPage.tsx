@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
 import ParticipantForm from "@/app/components/ParticipantForm";
-import {Check, Handshake} from "lucide-react";
+// import {Check, Handshake} from "lucide-react";
 
 const PartnersPage = () => {
     const { t } = useTranslation();

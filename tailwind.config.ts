@@ -17,6 +17,7 @@ const config: Config = {
   			midGray: '#333333',
   			lightGray: '#ECECEC',
   			lightOrange: '#ffc186',
+			drive: '#1c1a1c',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'

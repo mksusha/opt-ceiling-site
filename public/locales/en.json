@@ -105,8 +105,51 @@
 
   "Порядок участия": "Participation order",
   "Для участников": "For participants",
-  "Онлайн-заявка": "Online application"
-
+  "Онлайн-заявка": "Online application",
+  "partners": {
+    "infoTitle": "INFORMATION FOR CLIENTS",
+    "eventSummary": "In 2024, we held 3 large-scale events and 6 workshops with company representatives. The number of event visitors exceeded 500 people from 30 cities in Russia, Belarus, and Kazakhstan.",
+    "mission": "The mission of our events is to develop the ceiling industry, unite professionals, explore market trends with manufacturers, and implement them to achieve the highest quality in project execution.",
+    "offer": "We offer personalized attention, reliable partnerships, and long-term collaboration to event clients!"
+  },
+  "Порядок участия": "Participation order",
+  "Для участников": "For participants",
+  "Онлайн-заявка": "Online application",
+  "ФИО заявителя": "Full name",
+  "Введите ФИО": "Enter full name",
+  "Название компании": "Company name",
+  "Введите название компании": "Enter company name",
+  "E-mail": "E-mail",
+  "Введите E-mail": "Enter E-mail",
+  "Телефон": "Phone number",
+  "Введите телефон": "Enter phone number",
+  "Форматы мероприятия": "Event formats",
+  "Конференция": "Conference",
+  "Выставка": "Exhibition",
+  "Мастер-класс": "Master class",
+  "Вебинар": "Webinar",
+  "Другое": "Other",
+  "Город проведения": "Event city",
+  "Введите город": "Enter city",
+  "Население города": "City population",
+  "Введите численность населения": "Enter population",
+  "Количество производств в городе (регионе)": "Number of productions in the city (region)",
+  "Введите количество": "Enter number",
+  "Цели и задачи мероприятия": "Event goals and objectives",
+  "Опишите цели и задачи": "Describe goals and objectives",
+  "Желаемый состав участников-партнеров": "Desired composition of participants-partners",
+  "Опишите состав участников": "Describe the participants",
+  "Дата проведения мероприятия": "Event date",
+  "Ориентировочное количество гостей": "Approximate number of guests",
+  "Введите количество": "Enter number",
+  "Статус": "Status",
+  "Соорганизатор": "Co-organizer",
+  "Партнер": "Partner",
+  "Участник": "Participant",
+  "Отправить заявку": "Submit application",
+  "ОНЛАЙН-ЗАЯВКА": "Online application",
+  "Фото с мероприятий": "Photos from events",
+  "Заказчикам": "For clients"
 
 
 

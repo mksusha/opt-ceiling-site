@@ -1,0 +1,57 @@
+.clip-shape {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    filter: blur(30px);
+    background: linear-gradient(
+            0deg,
+            #f60 0%,
+            rgba(250, 151, 30, 0.86) 20%,
+            #f24646 39%,
+            rgba(245, 115, 115, 0.88) 52%,
+            #eb6aba 71%,
+            rgba(187, 154, 227, 0.87) 100%,
+            rgba(217, 217, 217, 0.82) 100%
+    );
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-shape-alt {
+    clip-path: polygon(50% 0%, 100% 25%, 75% 100%, 25% 100%, 0% 25%);
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gradient-button {
+    background: linear-gradient(to right, #f60, #f24646, #eb6aba, #bb9ae3);
+    color: white;
+    padding: 16px 32px;
+    opacity: 60%;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gradient-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.gradient-button:active {
+    transform: scale(0.95);
+}
