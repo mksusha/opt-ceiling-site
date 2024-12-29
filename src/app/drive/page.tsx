@@ -29,7 +29,7 @@ const HomePage = () => {
                         <li className="font-bold text-[140px] leading-[110%] uppercase text-center">ДРАЙВ</li>
                         <div className="absolute w-full flex justify-center">
                             <button
-                                className="gradient-button"
+                                className="gradient-button "
                                 onClick={() =>
                                     window.open("https://optceiling.timepad.ru/event/3173857/", "_blank")
                                 }

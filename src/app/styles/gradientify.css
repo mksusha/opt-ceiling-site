@@ -33,15 +33,16 @@ body {
 }
 
 .gradient-button {
-    background: linear-gradient(to right, #f60, #f24646, #eb6aba, #bb9ae3);
+    background: linear-gradient(to right, #f60, #f24646, #eb6aba, #bb9ae3 );
     color: white;
     padding: 16px 32px;
-    opacity: 60%;
+    opacity: 70%;
+
     border-radius: 9999px;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.8);
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
