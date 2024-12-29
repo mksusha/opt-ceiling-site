@@ -35,7 +35,7 @@ const ClientsPage = () => {
     const [events, setEvents] = useState<Event[]>([]);
     const [loading, setLoading] = useState(true);
     const [hydrated, setHydrated] = useState(false);
-    const [activeSection, setActiveSection] = useState("#partners");
+    const [activeSection, setActiveSection] = useState("#clients");
     const [isMobile, setIsMobile] = useState(false);
     const [isScrolling, setIsScrolling] = useState(false);
     const navRef = useRef<HTMLDivElement | null>(null);
@@ -109,8 +109,8 @@ const ClientsPage = () => {
 
             const sections = [
                 {
-                    id: "#partners",
-                    offset: (document.querySelector("#partners") as HTMLElement)?.offsetTop || 0,
+                    id: "#clients",
+                    offset: (document.querySelector("#clients") as HTMLElement)?.offsetTop || 0,
                 },
                 {
                     id: "#application",
@@ -155,7 +155,7 @@ const ClientsPage = () => {
 
             // Устанавливаем индивидуальное смещение для каждой секции
             const additionalOffset = (() => {
-                if (href === "#partners" && !isMobile) {
+                if (href === "#clients" && !isMobile) {
                     return isAtTop ? 20 : 60; // Если пользователь на самом верху, смещение 20, иначе 60 пикселей
                 }
                 if (href === "#application") {
@@ -204,7 +204,7 @@ const ClientsPage = () => {
             >
                 <div className="max-w-[1350px] lg:!mx-0 !mx-auto lg:!px-5 !px-0 lg:!justify-start justify-evenly w-full flex ">
                     <nav className="flex sm:justify-items-start justify-center gap-8 bg-transparent py-4">
-                        {[{ href: "#partners", label: t("Партнерам") },
+                        {[{ href: "#clients", label: t("Заказчикам") },
                             { href: "#application", label: t("Онлайн-заявка") },
                             { href: "#events", label: t("Галерея")  }].map(({ href, label }) => (
                             <a
@@ -225,7 +225,7 @@ const ClientsPage = () => {
             </div>
 
             <div data-aos="fade-up" className="min-h-screen mt-20">
-                <div id="partners" className="max-w-[1350px] mx-auto py-8 px-4">
+                <div id="clients" className="max-w-[1350px] mx-auto py-8 px-4">
                     <div data-aos="fade-up" className="mb-8">
                         <h2 className="text-3xl font-bold">{t("partners.infoTitle")}</h2>
                         <p className="mt-4 text-lg">{t("partners.eventSummary")}</p>
