@@ -1,0 +1,328 @@
+.clip-shape {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    filter: blur(30px);
+    background: linear-gradient(
+            0deg,
+            #f60 0%,
+            rgba(250, 151, 30, 0.86) 20%,
+            #f24646 39%,
+            rgba(245, 115, 115, 0.88) 52%,
+            #eb6aba 71%,
+            rgba(187, 154, 227, 0.87) 100%,
+            rgba(217, 217, 217, 0.82) 100%
+    );
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-shape-alt {
+    clip-path: polygon(50% 0%, 100% 25%, 75% 100%, 25% 100%, 0% 25%);
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Основной стиль кнопки */
+.gradient-button {
+    background: linear-gradient(to right, rgba(246, 96, 70, 0.5), rgba(242, 70, 70, 0.5), rgba(235, 106, 186, 0.5), rgba(187, 154, 227, 0.5)); /* Полупрозрачный градиент */
+    color: white; /* Текст остается непрозрачным */
+    padding: 16px 32px;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid transparent; /* Начальный прозрачный бордер */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, opacity 0.4s ease, background 0.4s ease; /* Плавное изменение всех свойств */
+}
+
+/* Эффект при наведении - бордер анимируется */
+.gradient-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f60, #f24646, #eb6aba, #bb9ae3); /* Градиент для бордера */
+    z-index: -1;
+    border-radius: 9999px;
+    transform: scale(0); /* Бордер начинается с нулевого масштаба */
+    transition: transform 0.5s ease; /* Увеличена продолжительность анимации бордера */
+}
+
+/* При наведении анимация бордера */
+.gradient-button:hover::before {
+    transform: scale(1); /* Бордер расширяется */
+}
+
+/* При наведении на кнопку фон становится ярким */
+.gradient-button:hover {
+    transform: scale(1.05); /* Увеличение кнопки */
+    opacity: 1; /* Сделаем кнопку непрозрачной */
+    background: linear-gradient(to right, rgba(246, 96, 70, 1), rgba(242, 70, 70, 1), rgba(235, 106, 186, 1), rgba(187, 154, 227, 1)); /* Яркий градиент */
+}
+
+/* Эффект при клике */
+.gradient-button:active {
+    transform: scale(0.95); /* Уменьшаем размер при нажатии */
+}
+
+.gradient-button:active {
+    transform: scale(0.95);
+}
+
+.backdrop-blur-card {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(9px);
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.backdrop-blur-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* В файле CSS добавьте плавное изменение фона */
+.backdrop-blur-card {
+    transition: background 0.3s ease;
+}
+/* В файле CSS добавьте плавное изменение для шариков */
+.absolute {
+    transition: transform 0.1s ease-out;
+}
+/* Общий стиль для блока с размытой задней частью *
+/* Стиль для текста */
+.text-white {
+    color: white;
+}
+/* Стили для прозрачных блоков */
+.backdrop-blur-lg {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+/* Стили для текста */
+.text-white {
+    color: white;
+}
+/* Контейнер для карточек */
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряду */
+    gap: 16px;
+    max-width: 1350px;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Стили для карточек */
+.backdrop-blur-card {
+    width: 100%;
+    max-width: 450px; /* Увеличили ширину карточек */
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(9px);
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Эффект при наведении */
+.backdrop-blur-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для последней карточки, которая должна занимать ширину как 2 карточки */
+.event-container .col-span-2 {
+    grid-column: span 2; /* Карточка занимает 2 колонки */
+    max-width: 900px; /* Увеличиваем максимальную ширину для последней карточки */
+}
+/* Стили для текста */
+.event-text p {
+    font-size: 24px; /* Увеличенный шрифт */
+    font-weight: 700; /* Более жирный текст */
+    color: white; /* Белый цвет текста */
+    text-align: center; /* Центрирование текста */
+    text-transform: uppercase; /* Все буквы заглавные */
+    letter-spacing: 1.2px; /* Интервал между буквами */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Лёгкая тень для объёма */
+    padding: 10px; /* Отступы */
+}
+
+
+
+/* Стили для цифры с градиентом */
+.circle-number {
+    width: 60px; /* Немного увеличенный размер */
+    height: 60px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Оранжево-красный градиент */
+    border-radius: 50%;
+    color: white;
+    font-size: 24px; /* Увеличенный шрифт */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20px; /* Сдвиг вниз */
+    left: -20px; /* Сдвиг правее */
+    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5); /* Тень для объема */
+}
+
+
+/* Стили для второго ряда (2 карточки) */
+@media (max-width: 1024px) {
+    .event-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряду */
+    }
+}
+
+/* Стили для первого ряда (по умолчанию 3 карточки) */
+@media (max-width: 768px) {
+    .event-container {
+        grid-template-columns: 1fr; /* 1 карточка в ряду */
+    }
+}
+
+/* Стили для блока видео */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.video-card {
+    width: 100%;
+    max-width: 560px; /* Максимальная ширина видео */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(9px);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.video-card iframe {
+    width: 100%;
+    height: 315px;
+}
+
+.video-card .video-title {
+    padding: 1rem;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background-color: #222;
+    text-align: center;
+    margin-top: 8px;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Карточка с увеличенной шириной и стилями */
+.backdrop-blur-card-small {
+    width: 100%;
+    max-width: 350px; /* Увеличенная ширина */
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(9px);
+    background: rgba(255, 255, 255, 0.05);
+    position: relative; /* Для позиционирования кругов */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* SVG иконка с градиентом */
+.backdrop-blur-card-small svg {
+    width: 60px;
+    height: 60px;
+    z-index: 1; /* Поверх градиентного круга */
+    fill: url(#gradient); /* Градиент */
+}
+
+/* Анимация для SVG */
+.backdrop-blur-card-small svg {
+    animation: gradient-animation 4s infinite alternate;
+    fill: url(#svg-gradient);
+}
+
+/* Ключевые кадры для анимации */
+@keyframes gradient-animation {
+    0% {
+        fill: #f60;
+    }
+    20% {
+        fill: rgba(250, 151, 30, 0.86);
+    }
+    39% {
+        fill: #f24646;
+    }
+    52% {
+        fill: rgba(245, 115, 115, 0.88);
+    }
+    71% {
+        fill: #eb6aba;
+    }
+    100% {
+        fill: rgba(187, 154, 227, 0.87);
+    }
+}
+
+/* Текст внутри карточки */
+.backdrop-blur-card-small span {
+    font-size: 1.2rem; /* Увеличенный шрифт */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    z-index: 1; /* Поверх всего */
+}
+.vertical-timeline-element-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.vertical-timeline-element--work {
+    border-left: 3px solid #FFD700;
+}

@@ -170,8 +170,8 @@ const Header: React.FC = () => {
                         <a href="#" onClick={toggleMobileMenu}>
                             {t("Посетителям")}
                         </a>
-                        <a href="#" onClick={toggleMobileMenu}>
-                            {t("Организаторам")}
+                        <a href="/clients" onClick={toggleMobileMenu}>
+                            {t("Заказчикам")}
                         </a>
                         <a href="#" onClick={toggleMobileMenu}>
                             {t("О компании")}
