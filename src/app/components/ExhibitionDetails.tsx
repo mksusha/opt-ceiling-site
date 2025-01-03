@@ -27,8 +27,8 @@ interface Exhibition {
     video?: string;
     slider?: { _type: "image"; asset: { _ref: string } }[];
     redirectButton?: string;
-    theme?: string;
-    theme_en?: string;
+    theme?: string[]; // Массив строк
+    theme_en?: string[];
     banner?: { asset: { _ref: string } };
     image?: string | { asset: { _ref: string } };
 }
