@@ -112,7 +112,7 @@ const Header: React.FC = () => {
                             {t("О компании")}
                         </a>
                         <a
-                            href="#"
+                            href="/news"
                             className="hover:bg-lightGray hover:bg-opacity-10 px-2 py-1 rounded-xl transition-all duration-300 ease-in-out"
                         >
                             {t("Новости")}
@@ -176,7 +176,7 @@ const Header: React.FC = () => {
                         <a href="#" onClick={toggleMobileMenu}>
                             {t("О компании")}
                         </a>
-                        <a href="#" onClick={toggleMobileMenu}>
+                        <a href="/news" onClick={toggleMobileMenu}>
                             {t("Новости")}
                         </a>
                         <a href="#" onClick={toggleMobileMenu}>

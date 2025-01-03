@@ -67,26 +67,36 @@ const HomePage = () => {
                         }}
                     ></div>
                     <header
-                        className="fixed top-0 left-0 w-full bg-opacity-20 bg-white backdrop-blur-lg flex items-center justify-between px-8 py-4 z-50">
+                        className="fixed top-0 left-0 w-full bg-opacity-20 bg-white backdrop-blur-lg flex items-center justify-between px-4 sm:px-8 py-2 sm:py-4 z-50"
+                    >
                         <div className="flex items-center">
-                            <img src="/logo3.svg" alt="Logo OPT1" className="h-14 mr-4"/>
-                            <img src="/logo-opt2.png" alt="Logo2" className="h-14"/>
+                            <img src="/logo3.svg" alt="Logo OPT1" className="h-10 sm:h-14 mr-2 sm:mr-4"/>
+                            <img src="/logo-opt2.png" alt="Logo2" className="h-10 sm:h-14"/>
                         </div>
-                        <div>
-                            <p className="text-lg text-white font-bold">+7 (999) 123-45-67</p>
+                        <div className="hidden sm:block">
+                            <p className="text-sm sm:text-lg text-white font-bold">+7 (999) 123-45-67</p>
                         </div>
+                        <a
+                            href="tel:+79991234567"
+                            className="block sm:hidden text-sm text-white font-bold"
+                        >
+                            Позвонить
+                        </a>
                     </header>
-                    <main className="flex flex-col items-center justify-center h-full">
+
+                    <main className="flex flex-col items-center justify-center h-full px-4">
                         <div className="text-center text-white relative z-10">
-                            <h1 className="text-xl font-bold">1 марта Чебоксары</h1>
+                            <h1 className="text-base sm:text-lg font-bold">1 марта Чебоксары</h1>
                             <ul className="mt-4 space-y-2">
-                                <li className="font-bold text-[120px] leading-[110%] uppercase text-center">
+                                <li className="font-bold text-[50px] sm:text-[80px] md:text-[120px] leading-[110%] uppercase text-center">
                                     Волжский
                                 </li>
-                                <li className="font-bold text-[140px] leading-[110%] uppercase text-center">ДРАЙВ</li>
-                                <div className="absolute w-full flex justify-center">
+                                <li className="font-bold text-[60px] sm:text-[100px] md:text-[140px] leading-[110%] uppercase text-center">
+                                    ДРАЙВ
+                                </li>
+                                <div className="absolute w-full flex justify-center mt-4 sm:mt-6">
                                     <button
-                                        className="gradient-button"
+                                        className="gradient-button px-3 py-2 sm:px-6 sm:py-3 text-sm sm:text-base"
                                         onClick={() =>
                                             window.open("https://optceiling.timepad.ru/event/3173857/", "_blank")
                                         }
@@ -97,6 +107,8 @@ const HomePage = () => {
                             </ul>
                         </div>
                     </main>
+
+
                 </div>
                 <section className="mt-screen backdrop-blur-section px-8 py-8 max-w-[1350px] mx-auto">
                     <div className="w-full text-center">

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .clip-shape {
     width: 500px;
     height: 500px;
@@ -120,12 +124,7 @@ body {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
 }
-
-/* Стили для текста */
-.text-white {
-    color: white;
-}
-/* Контейнер для карточек */
+/* Общие стили для контейнера */
 .event-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряду */
@@ -139,7 +138,7 @@ body {
 /* Стили для карточек */
 .backdrop-blur-card {
     width: 100%;
-    max-width: 450px; /* Увеличили ширину карточек */
+    max-width: 450px;
     height: 250px;
     display: flex;
     flex-direction: column;
@@ -160,50 +159,72 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Стили для последней карточки, которая должна занимать ширину как 2 карточки */
-.event-container .col-span-2 {
-    grid-column: span 2; /* Карточка занимает 2 колонки */
-    max-width: 900px; /* Увеличиваем максимальную ширину для последней карточки */
+/* Стили для последней карточки */
+.backdrop-blur-card.last-card {
+    grid-column: span 2; /* Занимает две колонки */
+    max-width: 100%; /* Растягивается на всю ширину */
 }
+
 /* Стили для текста */
 .event-text p {
-    font-size: 24px; /* Увеличенный шрифт */
-    font-weight: 700; /* Более жирный текст */
-    color: white; /* Белый цвет текста */
-    text-align: center; /* Центрирование текста */
-    text-transform: uppercase; /* Все буквы заглавные */
-    letter-spacing: 1.2px; /* Интервал между буквами */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Лёгкая тень для объёма */
-    padding: 10px; /* Отступы */
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    padding: 10px;
 }
-
-
 
 /* Стили для цифры с градиентом */
 .circle-number {
-    width: 60px; /* Немного увеличенный размер */
+    width: 60px;
     height: 60px;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b); /* Оранжево-красный градиент */
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
     border-radius: 50%;
     color: white;
-    font-size: 24px; /* Увеличенный шрифт */
+    font-size: 24px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: -20px; /* Сдвиг вниз */
-    left: -20px; /* Сдвиг правее */
-    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5); /* Тень для объема */
+    top: -20px;
+    left: -20px;
+    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5);
 }
 
-
-/* Стили для второго ряда (2 карточки) */
+/* Стили для второго ряда на планшетах */
 @media (max-width: 1024px) {
     .event-container {
         grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряду */
     }
+    .backdrop-blur-card.last-card {
+        grid-column: span 2; /* Все равно занимает 2 колонки */
+    }
 }
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .event-container {
+        grid-template-columns: 1fr; /* Одна карточка в ряду */
+    }
+    .backdrop-blur-card.last-card {
+        grid-column: span 1; /* Возвращается к одной колонке */
+    }
+}
+.backdrop-blur-card {
+    width: 100%; /* По умолчанию */
+}
+
+@media (max-width: 640px) {
+    .backdrop-blur-card {
+        width: 95%; /* 80% ширины контейнера на мобильных */
+    }
+}
+
+
 
 /* Стили для первого ряда (по умолчанию 3 карточки) */
 @media (max-width: 768px) {
@@ -325,4 +346,37 @@ body {
 
 .vertical-timeline-element--work {
     border-left: 3px solid #FFD700;
+}
+@media (max-width: 640px) {
+    .timeline-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .timeline-time {
+        flex: 0 0 auto;
+        text-align: left;
+        font-size: 1rem;
+        margin-right: 8px;
+    }
+
+    .timeline-icon {
+        flex: 0 0 auto;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: linear-gradient(to bottom, #ff77a9, #ff4199);
+        margin-right: 8px;
+    }
+
+    .timeline-text {
+        flex: 1 1 auto;
+        text-align: left;
+        font-size: 1rem;
+    }
 }

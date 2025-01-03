@@ -35,15 +35,15 @@ const EventParticipants = () => {
     ];
 
     return (
-        <div className="mt-16 px-8 py-8 max-w-[1350px] mx-auto">
+        <div className="mt-16 px-4 py-8 max-w-[1350px] mx-auto">
             <div className="text-center mb-8">
-                <h2 className="text-white text-[50px] font-bold">Кто будет на мероприятии?</h2>
+                <h2 className="text-white text-[30px] sm:text-[50px] font-bold">Кто будет на мероприятии?</h2>
             </div>
-            <div className="event-container">
-                {participants.slice(0, 4).map((participant, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {participants.slice(0, 3).map((participant, index) => (
                     <div
                         key={index}
-                        className="backdrop-blur-card relative"
+                        className="backdrop-blur-card relative w-full sm:w-[90%] lg:w-full mx-auto"
                         data-aos={participant.aos}
                         data-aos-duration="1000"
                     >
@@ -53,21 +53,33 @@ const EventParticipants = () => {
                         </div>
                     </div>
                 ))}
-                {/* Последний блок, который занимает две колонки и имеет нужную форму */}
+                {participants.slice(3, 4).map((participant, index) => (
+                    <div
+                        key={index}
+                        className="backdrop-blur-card relative w-full sm:w-[90%] lg:w-full mx-auto"
+                        data-aos={participant.aos}
+                        data-aos-duration="1000"
+                    >
+                        <div className="circle-number">{participant.id}</div>
+                        <div className="event-text">
+                            <p>{participant.description}</p>
+                        </div>
+                    </div>
+                ))}
                 <div
-                    className="backdrop-blur-card relative col-span-2"
+                    className="backdrop-blur-card relative last-card w-full sm:w-[90%] lg:w-full mx-auto"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                 >
                     <div className="circle-number">05</div>
                     <div className="event-text">
-                        <p>
-                            Предприниматели, руководители строительных, ремонтных, монтажных организаций
-                        </p>
+                        <p>Предприниматели, руководители строительных, ремонтных, монтажных организаций</p>
                     </div>
                 </div>
             </div>
         </div>
+
+
     );
 };
 

@@ -40,23 +40,26 @@ const Timeline = () => {
     }, []);
 
     return (
-        <div className="mt-16 px-8 py-8 max-w-[1350px] mx-auto relative">
-            <h2 className="text-white text-5xl font-bold text-center mb-12">Программа</h2>
+        <div className="mt-16 px-4 sm:px-8 py-8 max-w-[1350px] mx-auto relative">
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12">
+                Программа
+            </h2>
             <div className="relative">
                 {timelineData.map((item, index) => (
                     <div
                         key={index}
-                        className="relative flex items-center mb-14 z-10"
-                        data-aos="fade-up" // Добавляем эффект появления
+                        className="relative flex flex-col items-center sm:flex-row sm:items-start mb-10 sm:mb-14 z-10"
+                        data-aos="fade-up"
                     >
                         {/* Время (слева) */}
-                        <div className="w-1/4 text-right pr-8">
-                            <p className="text-white font-extrabold text-2xl">{item.time}</p>
+                        <div className="w-full sm:w-1/4 text-center sm:text-right sm:pr-8 mb-2 sm:mb-0">
+                            <p className="text-white font-extrabold text-lg sm:text-2xl">{item.time}</p>
                         </div>
                         {/* Иконка */}
-                        <div className="relative w-16 h-16 flex justify-center items-center">
+                        <div
+                            className="relative w-10 h-10 sm:w-16 sm:h-16 flex justify-center items-center mb-4 sm:mb-0">
                             <div
-                                className={`w-16 h-16 flex justify-center items-center rounded-full shadow-2xl ${
+                                className={`w-full h-full flex justify-center items-center rounded-full shadow-2xl ${
                                     item.highlight
                                         ? "bg-gradient-to-b from-pink-300 to-pink-700"
                                         : "bg-gradient-to-b from-purple-400 to-pink-500"
@@ -70,14 +73,14 @@ const Timeline = () => {
                             {/* Линия соединения */}
                             {index !== timelineData.length - 1 && (
                                 <div
-                                    className="absolute left-1/2 transform -translate-x-1/2 top-16 w-[2px] h-[50px] bg-white"
+                                    className="absolute left-1/2 transform -translate-x-1/2 top-10 sm:top-16 w-[1px] sm:w-[2px] h-[30px] sm:h-[50px] bg-white hidden sm:block"
                                 ></div>
                             )}
                         </div>
                         {/* Событие (справа) */}
-                        <div className="w-2/4 pl-8">
+                        <div className="w-full sm:w-2/4 text-center sm:text-left sm:pl-8 mt-2 sm:mt-0">
                             <p
-                                className={`text-white text-2xl ${
+                                className={`text-white text-sm sm:text-2xl ${
                                     item.highlight ? "text-red-400 font-bold" : ""
                                 }`}
                             >
@@ -88,6 +91,8 @@ const Timeline = () => {
                 ))}
             </div>
         </div>
+
+
     );
 };
 

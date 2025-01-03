@@ -12,13 +12,36 @@ import ClientWrapper from "@/app/components/ClientWrapper";
 interface Exhibition {
     id: string;
     title: string;
-    description: string;
+    title_en?: string;
+    description?: string;
+    description_en?: string;
     startDate: string;
-    endDate: string;
-    organizer: string;
+    endDate?: string;
+    time?: string;
+    time_en?: string;
+    organizer?: string;
+    organizer_en?: string;
+    organizer2?: string;
+    organizer2_en?: string;
+    partner?: string;
+    partner_en?: string;
+    phoneNumber?: string;
+    website?: string;
     eventType: string;
-    image?: string;
+    location?: string;
+    location_en?: string;
+    mapCode?: string;
+    invitationLink?: string;
+    recording?: string;
+    video?: string;
+    slider?: { _type: "image"; asset: { _ref: string } }[];
+    redirectButton?: string;
+    theme?: string[];
+    theme_en?: string[];
+    banner?: { asset: { _ref: string } };
+    image?: { asset: { _ref: string } };
 }
+
 
 const ExhibitionPage: React.FC = () => {
     const { id } = useParams(); // Получение параметра id из URL
@@ -30,21 +53,40 @@ const ExhibitionPage: React.FC = () => {
         const fetchExhibition = async () => {
             try {
                 const query = `
-                    *[_type == "exhibition" && _id == $id][0] {
-                        _id,
-                        title,
-                        title_en,
-                        description,
-                        description_en,
-                        startDate,
-                        endDate,
-                        organizer,
-                        organizer_en,
-                        eventType,
-                        eventType_en,
-                        "image": image.asset->url
-                    }
-                `;
+    *[_type == "exhibition" && _id == $id][0] {
+        _id,
+        title,
+         title_en,
+        description,
+        description_en,
+        startDate,
+        endDate,
+        time,
+        time_en,
+        organizer,
+        organizer_en,
+        organizer2,
+        organizer2_en,
+        partner,
+        partner_en,
+        phoneNumber,
+        website,
+        eventType,
+        location,
+        location_en,
+        mapCode,
+        invitationLink,
+        recording,
+        video,
+        "photos": slider[].asset->url,
+        redirectButton,
+        theme,
+        theme_en,
+        "banner": banner.asset->url,
+        "image": image.asset->url
+    }
+`;
+
                 const data = await client.fetch(query, { id });
 
                 if (data) {
@@ -57,15 +99,30 @@ const ExhibitionPage: React.FC = () => {
                             : data.description || t("Описание отсутствует."),
                         startDate: data.startDate,
                         endDate: data.endDate,
+                        time: data.time,
+                        time_en: data.time_en,
                         organizer: isEnglish
                             ? data.organizer_en || t("Неизвестный организатор")
                             : data.organizer || t("Неизвестный организатор"),
-                        eventType: isEnglish
-                            ? data.eventType_en || t("Тип не указан")
-                            : data.eventType || t("Тип не указан"),
+                        organizer2: isEnglish ? data.organizer2_en : data.organizer2,
+                        partner: isEnglish ? data.partner_en : data.partner,
+                        phoneNumber: data.phoneNumber,
+                        website: data.website,
+                        eventType: data.eventType,
+                        location: data.location,
+                        location_en: data.location_en,
+                        mapCode: data.mapCode,
+                        invitationLink: data.invitationLink,
+                        recording: data.recording,
+                        video: data.video,
+                        slider: data.photos || [], // Убедитесь, что это соответствует вашему запросу
+                        redirectButton: data.redirectButton,
+                        theme: data.theme,
+                        theme_en: data.theme_en,
                         image: data.image || "/default-placeholder.png",
                     });
                 }
+
             } catch (error) {
                 console.error("Ошибка при загрузке данных выставки:", error);
             } finally {
@@ -106,6 +163,7 @@ const ExhibitionPage: React.FC = () => {
                 exhibition={exhibition}
                 formatDate={formatDate}
                 t={t}
+                language={i18n.language} // Добавляем language
             />
         </div>
         </ClientWrapper>
