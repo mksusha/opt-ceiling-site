@@ -2,381 +2,226 @@
 @tailwind components;
 @tailwind utilities;
 
-.clip-shape {
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    filter: blur(30px);
-    background: linear-gradient(
-            0deg,
-            #f60 0%,
-            rgba(250, 151, 30, 0.86) 20%,
-            #f24646 39%,
-            rgba(245, 115, 115, 0.88) 52%,
-            #eb6aba 71%,
-            rgba(187, 154, 227, 0.87) 100%,
-            rgba(217, 217, 217, 0.82) 100%
-    );
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+/* Градиенты и цвета */
+:root {
+    --gradient-bg: linear-gradient(205deg, #373737 0%, #2c2d2a 100%);
+    --orange: #FF4606;
+    --white: #ffffff;
+    --title-color: #3b3b3b;
+    --icon-bg: #FF4606;
+    --text-color: #242424;
 }
 
-.clip-shape-alt {
-    clip-path: polygon(50% 0%, 100% 25%, 75% 100%, 25% 100%, 0% 25%);
-}
-html,
+/* Сброс стилей */
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+
+    color: var(--white);
+}
+/* Кнопка */
+.button {
+    background-color: var(--orange);
+    color: var(--text-color); /* Черный текст */
+    font-weight: bold;
+    border-radius: 15px;
+    width: 100%; /* Полная ширина на мобильных устройствах */
+    max-width: 248px; /* Ограничение ширины на больших экранах */
+    height: 55px;
+    display: block;
+    text-align: center;
+    padding: 16px 24px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Плавный переход */
 }
 
-* {
+/* Ховер эффект */
+.button:hover {
+    background-color: var(--white); /* Белый фон при наведении */
+    color: var(--orange); /* Оранжевый текст при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Более глубокая тень */
+    transform: translateY(-2px); /* Легкий подъем кнопки */
+}
+
+/* Заголовки */
+.title-large {
+    font-weight: 600;
+    font-size: 10vw; /* Относительный размер для мобильных */
+    max-width: 100%; /* Не выходить за экран */
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.title-small {
+    font-weight: 300;
+    font-size: 6vw; /* Адаптивный размер для мобильных */
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+/* Адаптивность с помощью медиа-запросов */
+@media (min-width: 640px) {
+    .button {
+        width: auto; /* Обычный размер на планшетах и выше */
+    }
+
+    .title-large {
+        font-size: 48px; /* Фиксированный размер для планшетов */
+    }
+
+    .title-small {
+        font-size: 32px; /* Фиксированный размер для планшетов */
+    }
+}
+
+@media (min-width: 1024px) {
+    .title-large {
+        font-size: 131px !important; /* Максимальный размер на больших экранах */
+    }
+
+    .title-small {
+        font-size: 48px; /* Максимальный размер на больших экранах */
+    }
+}
+@media (min-width: 375px) {
+
+    .title-large {
+        font-size: 60px; /* Максимальный размер на больших экранах */
+    }
+
+    .title-small {
+        font-size: 40px; /* Максимальный размер на больших экранах */
+    }
+}
+/* Заголовок */
+.section-title {
+    font-weight: 600;
+    font-size: 48px;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #3b3b3b;
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+/* Карточка */
+.attendee-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px; /* Более округлые углы */
+    padding: 24px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fc); /* Мягкий градиент */
+    box-shadow:
+            0 4px 8px rgba(0, 0, 0, 0.1), /* Основная тень */
+            0 6px 12px rgba(0, 0, 0, 0.05); /* Дополнительная тень */
+    border: 1px solid transparent; /* Начальная рамка */
+    width: 390px; /* Фиксированная ширина */
+    height: 220px; /* Фиксированная высота */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.attendee-card:hover {
+    transform: translateY(-6px); /* Подъем при наведении */
+    box-shadow:
+            0 10px 20px rgba(0, 0, 0, 0.15), /* Более глубокая тень */
+            0 12px 24px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 70, 6, 0.8); /* Оранжевая рамка при наведении */
+    background: linear-gradient(145deg, #f9fafb, #ffffff); /* Светлый фон при наведении */
+}
+
+/* Номер */
+.attendee-number {
+    font-size: 56px; /* Уменьшен размер для сбалансированного дизайна */
+    font-weight: bold;
+    color: #FF4606; /* Оранжевый цвет */
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(255, 70, 6, 0.3); /* Легкая тень для акцента */
+}
+
+/* Текст */
+.attendee-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #3B3B3B; /* Темно-серый цвет текста */
+    line-height: 1.5;
+    max-width: 220px; /* Ограничение ширины текста */
+    text-align: center;
+}
+
+
+/* Медиа-запросы для телефонов с мин. шириной 375px */
+@media (min-width: 375px) and (max-width: 768px)  {
+    /* Заголовок */
+    .section-title {
+        font-size: 32px; /* Уменьшен размер текста */
+    /* Выравнивание по центру */
+    }
+
+    /* Карточка */
+    .attendee-card {
+        padding: 16px; /* Уменьшен отступ внутри карточек */
+        width: 100%; /* Карточки занимают 90% ширины */
+        height: auto;
+        margin: 0 auto; /* Центровка карточек */
+    }
+
+    /* Номер */
+    .attendee-number {
+        font-size: 36px; /* Еще меньше для мобильных */
+        margin-bottom: 8px;
+    }
+
+    /* Текст */
+    .attendee-text {
+        font-size: 14px; /* Уменьшен размер текста */
+        max-width: 100%; /* Увеличена ширина текста */
+    }
+}
+/* Медиа-запросы для телефонов с мин. шириной 375px */
+@media (min-width: 768px) and (max-width: 1228px) {
+    /* Заголовок */
+    .section-title {
+        font-size: 48px; /* Уменьшен размер текста */
+        text-align: left; /* Выравнивание по центру */
+    }
+
+    /* Карточка */
+    .attendee-card {
+        padding: 16px; /* Уменьшен отступ внутри карточек */
+        width: 100%; /* Карточки занимают 90% ширины */
+        height: auto;
+        margin: 0 auto; /* Центровка карточек */
+    }
+
+    /* Номер */
+    .attendee-number {
+        font-size: 36px; /* Размер текста для номера */
+        margin-bottom: 8px;
+    }
+
+    /* Текст */
+    .attendee-text {
+        font-size: 14px; /* Уменьшен размер текста */
+        max-width: 100%; /* Увеличена ширина текста */
+    }
+}
+
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-/* Основной стиль кнопки */
-.gradient-button {
-    background: linear-gradient(to right, rgba(246, 96, 70, 0.5), rgba(242, 70, 70, 0.5), rgba(235, 106, 186, 0.5), rgba(187, 154, 227, 0.5)); /* Полупрозрачный градиент */
-    color: white; /* Текст остается непрозрачным */
-    padding: 16px 32px;
-    border-radius: 9999px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    border: 2px solid transparent; /* Начальный прозрачный бордер */
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s ease, opacity 0.4s ease, background 0.4s ease; /* Плавное изменение всех свойств */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: var(--white);
+    /*background: white;*/
 }
-
-/* Эффект при наведении - бордер анимируется */
-.gradient-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #f60, #f24646, #eb6aba, #bb9ae3); /* Градиент для бордера */
-    z-index: -1;
-    border-radius: 9999px;
-    transform: scale(0); /* Бордер начинается с нулевого масштаба */
-    transition: transform 0.5s ease; /* Увеличена продолжительность анимации бордера */
-}
-
-/* При наведении анимация бордера */
-.gradient-button:hover::before {
-    transform: scale(1); /* Бордер расширяется */
-}
-
-/* При наведении на кнопку фон становится ярким */
-.gradient-button:hover {
-    transform: scale(1.05); /* Увеличение кнопки */
-    opacity: 1; /* Сделаем кнопку непрозрачной */
-    background: linear-gradient(to right, rgba(246, 96, 70, 1), rgba(242, 70, 70, 1), rgba(235, 106, 186, 1), rgba(187, 154, 227, 1)); /* Яркий градиент */
-}
-
-/* Эффект при клике */
-.gradient-button:active {
-    transform: scale(0.95); /* Уменьшаем размер при нажатии */
-}
-
-.gradient-button:active {
-    transform: scale(0.95);
-}
-
-.backdrop-blur-card {
-    width: 100%;
-    max-width: 300px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    backdrop-filter: blur(9px);
-    background: rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.backdrop-blur-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-/* В файле CSS добавьте плавное изменение фона */
-.backdrop-blur-card {
-    transition: background 0.3s ease;
-}
-/* В файле CSS добавьте плавное изменение для шариков */
-.absolute {
-    transition: transform 0.1s ease-out;
-}
-/* Общий стиль для блока с размытой задней частью *
-/* Стиль для текста */
-.text-white {
-    color: white;
-}
-/* Стили для прозрачных блоков */
-.backdrop-blur-lg {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-}
-/* Общие стили для контейнера */
-.event-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 карточки в ряду */
-    gap: 16px;
-    max-width: 1350px;
-    margin-top: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Стили для карточек */
-.backdrop-blur-card {
-    width: 100%;
-    max-width: 450px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    backdrop-filter: blur(9px);
-    background: rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Эффект при наведении */
-.backdrop-blur-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Стили для последней карточки */
-.backdrop-blur-card.last-card {
-    grid-column: span 2; /* Занимает две колонки */
-    max-width: 100%; /* Растягивается на всю ширину */
-}
-
-/* Стили для текста */
-.event-text p {
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-    padding: 10px;
-}
-
-/* Стили для цифры с градиентом */
-.circle-number {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(45deg, #ff7e5f, #feb47b);
-    border-radius: 50%;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5);
-}
-
-/* Стили для второго ряда на планшетах */
-@media (max-width: 1024px) {
-    .event-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряду */
-    }
-    .backdrop-blur-card.last-card {
-        grid-column: span 2; /* Все равно занимает 2 колонки */
-    }
-}
-
-/* Стили для мобильных устройств */
-@media (max-width: 768px) {
-    .event-container {
-        grid-template-columns: 1fr; /* Одна карточка в ряду */
-    }
-    .backdrop-blur-card.last-card {
-        grid-column: span 1; /* Возвращается к одной колонке */
-    }
-}
-.backdrop-blur-card {
-    width: 100%; /* По умолчанию */
-}
-
-@media (max-width: 640px) {
-    .backdrop-blur-card {
-        width: 95%; /* 80% ширины контейнера на мобильных */
-    }
-}
-
-
-
-/* Стили для первого ряда (по умолчанию 3 карточки) */
-@media (max-width: 768px) {
-    .event-container {
-        grid-template-columns: 1fr; /* 1 карточка в ряду */
-    }
-}
-
-/* Стили для блока видео */
-.video-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.video-card {
-    width: 100%;
-    max-width: 560px; /* Максимальная ширина видео */
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(9px);
-    text-align: center;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.video-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.video-card iframe {
-    width: 100%;
-    height: 315px;
-}
-
-.video-card .video-title {
-    padding: 1rem;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    background-color: #222;
-    text-align: center;
-    margin-top: 8px;
-    border-radius: 0 0 12px 12px;
-}
-
-/* Карточка с увеличенной шириной и стилями */
-.backdrop-blur-card-small {
-    width: 100%;
-    max-width: 350px; /* Увеличенная ширина */
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    backdrop-filter: blur(9px);
-    background: rgba(255, 255, 255, 0.05);
-    position: relative; /* Для позиционирования кругов */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* SVG иконка с градиентом */
-.backdrop-blur-card-small svg {
-    width: 60px;
-    height: 60px;
-    z-index: 1; /* Поверх градиентного круга */
-    fill: url(#gradient); /* Градиент */
-}
-
-/* Анимация для SVG */
-.backdrop-blur-card-small svg {
-    animation: gradient-animation 4s infinite alternate;
-    fill: url(#svg-gradient);
-}
-
-/* Ключевые кадры для анимации */
-@keyframes gradient-animation {
-    0% {
-        fill: #f60;
-    }
-    20% {
-        fill: rgba(250, 151, 30, 0.86);
-    }
-    39% {
-        fill: #f24646;
-    }
-    52% {
-        fill: rgba(245, 115, 115, 0.88);
-    }
-    71% {
-        fill: #eb6aba;
-    }
-    100% {
-        fill: rgba(187, 154, 227, 0.87);
-    }
-}
-
-/* Текст внутри карточки */
-.backdrop-blur-card-small span {
-    font-size: 1.2rem; /* Увеличенный шрифт */
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    margin-top: 10px;
-    z-index: 1; /* Поверх всего */
-}
-.vertical-timeline-element-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
-
-.vertical-timeline-element--work {
-    border-left: 3px solid #FFD700;
-}
-@media (max-width: 640px) {
-    .timeline-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .timeline-time {
-        flex: 0 0 auto;
-        text-align: left;
-        font-size: 1rem;
-        margin-right: 8px;
-    }
-
-    .timeline-icon {
-        flex: 0 0 auto;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        background: linear-gradient(to bottom, #ff77a9, #ff4199);
-        margin-right: 8px;
-    }
-
-    .timeline-text {
-        flex: 1 1 auto;
-        text-align: left;
-        font-size: 1rem;
-    }
+.gradient-page {
+    background: var(--gradient-bg) !important;
 }

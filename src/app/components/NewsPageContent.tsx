@@ -129,13 +129,13 @@ export default function NewsPageContent({ news, language }: NewsPageContentProps
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {currentNews.length > 0 ? (
                     currentNews.map((item, index) => (
                         <Link href={`/news/${item.slug}`} key={item.slug || `news-item-${index}`}>
                             <div
                                 data-aos="fade-up"
-                                className="border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-lg transition-shadow"
+                                className="border border-gray-200  rounded-lg p-4 shadow-sm hover:shadow-lg transition-shadow"
                             >
                                 {item.coverImageUrl ? (
                                     <img

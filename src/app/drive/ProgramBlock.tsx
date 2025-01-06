@@ -1,99 +1,36 @@
-"use client";
+import React from "react";
 
-import React, { useEffect } from "react";
-import { CheckCircle, PartyPopper, Calendar, Clock } from "lucide-react";
-import AOS from "aos";
-import "aos/dist/aos.css"; // Импортируем стили для AOS
-
-const Timeline = () => {
-    const timelineData = [
-        {
-            time: "11:00 – 12:00",
-            event: "Регистрация участников",
-            icon: <Calendar className="w-6 h-6 text-white" />,
-        },
-        {
-            time: "12:00 – 15:00",
-            event: "Презентация новинок, материалов и комплектующих",
-            icon: <CheckCircle className="w-6 h-6 text-white" />,
-        },
-        {
-            time: "15:00 – 19:00",
-            event: "Посещение выставки, участие в мастер-классах и конкурсах",
-            icon: <Clock className="w-6 h-6 text-white" />,
-        },
-        {
-            time: "19:00 – 22:00",
-            event: "Afterparty",
-            highlight: true,
-            icon: <PartyPopper className="w-6 h-6 text-white" />,
-        },
+export default function ProgramBlock() {
+    const programItems = [
+        { time: "11:00 – 12:00", description: "Регистрация участников" },
+        { time: "12:00 – 15:00", description: "Презентация новинок, материалов и комплектующих" },
+        { time: "15:00 – 19:00", description: "Посещение выставки, участие в мастер-классах и конкурсах" },
+        { time: "19:00 – 22:00", description: "Afterparty", isAfterparty: true },
     ];
 
-    // Инициализация AOS после монтирования компонента
-    useEffect(() => {
-        AOS.init({
-            duration: 1000, // Длительность анимации
-            easing: 'ease-in-out', // Тип анимации
-            once: true, // Анимация будет выполнена только один раз
-        });
-    }, []);
-
     return (
-        <div className="mt-16 px-4 sm:px-8 py-8 max-w-[1350px] mx-auto relative">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12">
+        <div className="bg-white px-5 max-w-[1350px] mx-auto py-10">
+            {/* Заголовок */}
+            <h2 className="font-semibold text-[32px] lg:text-[48px] uppercase text-[#3b3b3b] mb-10 text-left">
                 Программа
             </h2>
-            <div className="relative">
-                {timelineData.map((item, index) => (
+
+            {/* Расписание */}
+            <div className="flex flex-col w-full space-y-6">
+                {programItems.map((item, index) => (
                     <div
                         key={index}
-                        className="relative flex flex-col items-center sm:flex-row sm:items-start mb-10 sm:mb-14 z-10"
-                        data-aos="fade-up"
+                        className={`flex flex-col sm:flex-row justify-between items-start sm:items-center w-full px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg ${
+                            item.isAfterparty
+                                ? "bg-[#FF4606] text-white rounded-lg"
+                                : "text-[#3b3b3b] border-b border-[#dadada]"
+                        }`}
                     >
-                        {/* Время (слева) */}
-                        <div className="w-full sm:w-1/4 text-center sm:text-right sm:pr-8 mb-2 sm:mb-0">
-                            <p className="text-white font-extrabold text-lg sm:text-2xl">{item.time}</p>
-                        </div>
-                        {/* Иконка */}
-                        <div
-                            className="relative w-10 h-10 sm:w-16 sm:h-16 flex justify-center items-center mb-4 sm:mb-0">
-                            <div
-                                className={`w-full h-full flex justify-center items-center rounded-full shadow-2xl ${
-                                    item.highlight
-                                        ? "bg-gradient-to-b from-pink-300 to-pink-700"
-                                        : "bg-gradient-to-b from-purple-400 to-pink-500"
-                                }`}
-                                style={{
-                                    boxShadow: "0 3px 10px rgba(255, 105, 180, 0.2), 0 6px 20px rgba(255, 105, 180, 0.4)",
-                                }}
-                            >
-                                {item.icon}
-                            </div>
-                            {/* Линия соединения */}
-                            {index !== timelineData.length - 1 && (
-                                <div
-                                    className="absolute left-1/2 transform -translate-x-1/2 top-10 sm:top-16 w-[1px] sm:w-[2px] h-[30px] sm:h-[50px] bg-white hidden sm:block"
-                                ></div>
-                            )}
-                        </div>
-                        {/* Событие (справа) */}
-                        <div className="w-full sm:w-2/4 text-center sm:text-left sm:pl-8 mt-2 sm:mt-0">
-                            <p
-                                className={`text-white text-sm sm:text-2xl ${
-                                    item.highlight ? "text-red-400 font-bold" : ""
-                                }`}
-                            >
-                                {item.event}
-                            </p>
-                        </div>
+                        <span className="font-bold mb-2 sm:mb-0">{item.time}</span>
+                        <span className="font-light text-sm sm:text-base">{item.description}</span>
                     </div>
                 ))}
             </div>
         </div>
-
-
     );
-};
-
-export default Timeline;
+}
