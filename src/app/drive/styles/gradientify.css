@@ -282,7 +282,7 @@ body {
     background: linear-gradient(145deg, #f9fafb, #ffffff);
 }
 @media (hover: none) and (pointer: coarse) {
-    /* Отключаем эффекты ховера для partner-card-desktop */
+    /* Отключаем эффекты ховера */
     .partner-card-desktop:hover,
     .partner-card:hover,
     .attendee-card:hover,
@@ -290,7 +290,16 @@ body {
         background-color: inherit; /* Убираем изменение фона */
         color: inherit; /* Убираем изменение цвета текста */
         box-shadow: none; /* Убираем тень */
-        transform: none; /* Убираем эффекты трансформации, если есть */
+        transform: none; /* Убираем эффекты трансформации */
         border-color: inherit; /* Убираем изменение цвета границы */
+        background: inherit; /* Убираем фон */
+    }
+
+    /* Отключаем плавные переходы для ховера */
+    .partner-card-desktop,
+    .partner-card,
+    .attendee-card,
+    .button {
+        transition: none; /* Убираем все анимации */
     }
 }
