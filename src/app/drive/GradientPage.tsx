@@ -41,10 +41,10 @@ export default function GradientPage() {
                     {/* Номер телефона */}
                     <div className="flex items-center">
                         <a
-                            href="tel:+79991234567"
+                            href="tel:+79807155232"
                             className="text-white text-sm sm:text-lg font-light"
                         >
-                            8-800-300-06-00
+                            +7 (980) 715-52-32
                         </a>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export default function GradientPage() {
                 {/* Кнопка Зарегистрироваться */}
                 <div
                     data-aos="fade-up"
-                    className="w-full flex justify-center sm:justify-end mt-12 sm:mt-6"
+                    className="w-full flex justify-left   sm:justify-end mt-12 sm:mt-6"
                 >
                     <a
                         href="https://optceiling.timepad.ru/event/3173857/"

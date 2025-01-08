@@ -1,0 +1,72 @@
+import React from "react";
+import { Calendar, ArrowRight } from "lucide-react";
+
+const EventSection = () => {
+    const textStyle = { color: "#3b3b3b" }; // Общий стиль для текста
+
+    return (
+        <div className="px-4 sm:px-8 lg:px-16 py-12 bg-gradient-to-b from-gray-50 to-gray-100 relative">
+            {/* Заголовок слева сверху */}
+            <h2
+                className="font-semibold text-[32px] lg:text-[48px]  mb-20 sm:mb-20 mt-6 sm:mt-12 uppercase text-left "
+                style={{
+                    color: "#3b3b3b",
+                    fontWeight: 600,
+                    letterSpacing: "-0.05em",
+                    textTransform: "uppercase",
+                }}
+            >
+                Стань частью события
+            </h2>
+
+            {/* Карточка по центру */}
+            <div className="flex justify-center items-center mb-14">
+                <div className="w-full max-w-4xl p-8 bg-white rounded-3xl shadow-2xl text-center border border-gray-200 relative">
+                    <div
+                        className="absolute top-[-20px] left-[50%] transform -translate-x-[50%] bg-orange p-4 rounded-full shadow-lg"
+                    >
+                        <Calendar size={48} className="text-white" />
+                    </div>
+                    <h2
+                        className="font-bold text-[28px] lg:text-[36px] mt-12 mb-4"
+                        style={{
+                            letterSpacing: "-0.02em",
+                            ...textStyle, // Тёмный цвет текста
+                        }}
+                    >
+                        Регистрируйся на <span className="text-orange">мероприятие</span>
+                    </h2>
+                    <p
+                        className="font-bold text-[28px] lg:text-[36px] mt-4 mb-4"
+                        style={{
+                            letterSpacing: "-0.02em",
+                            ...textStyle, // Тёмный цвет текста
+                        }}
+                    >
+                        и приводи <span className="text-orange">друзей</span>
+                    </p>
+                    <p
+                        className="text-base font-semibold sm:text-lg mb-8"
+                        style={textStyle}
+                    >
+                        Следующее повышение цены:{" "}
+                        <span className="font-bold" style={textStyle}>
+                            _____
+                        </span>
+                    </p>
+                    <a
+                        href="https://optceiling.timepad.ru/event/3173857/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-3 bg-orange text-white font-semibold text-lg sm:text-xl px-10 py-4 rounded-full shadow-lg border border-transparent hover:bg-white hover:text-orange hover:border-orange transition-all duration-300"
+                    >
+                        Купить билет
+                        <ArrowRight size={24} />
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default EventSection;

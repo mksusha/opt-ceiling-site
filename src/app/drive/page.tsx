@@ -6,6 +6,10 @@ import ExpectBlock from "@/app/drive/ExpectBlock";
 import WhoWillAttend from "@/app/drive/WhoWillAttend";
 import ProgramBlock from "@/app/drive/ProgramBlock";
 import VideosBlock from "@/app/drive/VideosBlock";
+import EventPhotosBlock from "@/app/drive/EventPhotosBlock";
+import PartnersSection from "@/app/drive/PartnersSection";
+import EventSection from "@/app/drive/EventSection";
+import Footer from "@/app/drive/Footer";
 
 
 export default function HomePage() {
@@ -16,6 +20,10 @@ export default function HomePage() {
             <WhoWillAttend></WhoWillAttend>
             <ProgramBlock></ProgramBlock>
             <VideosBlock></VideosBlock>
+            <EventPhotosBlock></EventPhotosBlock>
+            <PartnersSection></PartnersSection>
+            <EventSection></EventSection>
+            <Footer />
         </div>
     );
 }

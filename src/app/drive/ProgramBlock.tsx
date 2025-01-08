@@ -11,7 +11,7 @@ export default function ProgramBlock() {
     return (
         <div className="bg-white px-5 max-w-[1350px] mx-auto py-10">
             {/* Заголовок */}
-            <h2 className="font-semibold text-[32px] lg:text-[48px] uppercase text-[#3b3b3b] mb-10 text-left">
+            <h2 className="font-semibold text-[32px] lg:text-[48px] uppercase text-[#3b3b3b] mb-12 text-left">
                 Программа
             </h2>
 
