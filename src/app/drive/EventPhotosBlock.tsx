@@ -16,11 +16,18 @@ export default function EventPhotosBlock() {
         "/drive/10.jpg",
         "/drive/11.jpg",
         "/drive/12.jpg",
+
+        "/drive/18.jpg",
+        "/drive/19.jpg",
+        "/drive/20.jpg",
         "/drive/13.jpg",
         "/drive/14.jpg",
         "/drive/15.jpg",
         "/drive/16.jpg",
         "/drive/17.jpg",
+        "/drive/21.jpg",
+        "/drive/22.jpg",
+        "/drive/23.jpg",
     ];
 
     return (

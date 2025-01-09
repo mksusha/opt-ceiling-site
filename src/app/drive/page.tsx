@@ -10,6 +10,7 @@ import EventPhotosBlock from "@/app/drive/EventPhotosBlock";
 import PartnersSection from "@/app/drive/PartnersSection";
 import EventSection from "@/app/drive/EventSection";
 import Footer from "@/app/drive/Footer";
+import MeetingPlace from "@/app/drive/MeetingPlace";
 
 
 export default function HomePage() {
@@ -22,6 +23,7 @@ export default function HomePage() {
             <VideosBlock></VideosBlock>
             <EventPhotosBlock></EventPhotosBlock>
             <PartnersSection></PartnersSection>
+            <MeetingPlace></MeetingPlace>
             <EventSection></EventSection>
             <Footer />
         </div>

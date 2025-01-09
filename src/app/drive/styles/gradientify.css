@@ -237,12 +237,16 @@ body {
     background: var(--gradient-bg) !important;
 }
 
+.partner-card-desktop img {
+    width: 100%;
+    height: auto;
+}
 .partner-card {
 
     text-align: center;
     border-radius: 20px; /* Более округлые углы */
     padding: 24px;
-    background: linear-gradient(145deg, #ffffff, #f8f9fc); /* Мягкий градиент */
+    background: white;
     box-shadow:
             0 4px 8px rgba(0, 0, 0, 0.1), /* Основная тень */
             0 6px 12px rgba(0, 0, 0, 0.05); /* Дополнительная тень */
@@ -262,13 +266,13 @@ body {
             0 10px 20px rgba(0, 0, 0, 0.15), /* Более глубокая тень */
             0 12px 24px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(255, 70, 6, 0.8); /* Оранжевая рамка при наведении */
-    background: linear-gradient(145deg, #f9fafb, #ffffff); /* Светлый фон при наведении */
+    background: white; /* Светлый фон при наведении */
 }
 .partner-card-desktop {
     text-align: center;
     border-radius: 15px;
-    padding: 16px;
-    background: linear-gradient(145deg, #ffffff, #f8f9fc);
+    padding: 12px;
+    background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     width: 300px !important;
@@ -279,7 +283,7 @@ body {
     transform: translateY(-6px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(255, 70, 6, 0.8);
-    background: linear-gradient(145deg, #f9fafb, #ffffff);
+    background: white;
 }
 @media (hover: none) and (pointer: coarse) {
     /* Отключаем любые изменения стилей при наведении и нажатии */

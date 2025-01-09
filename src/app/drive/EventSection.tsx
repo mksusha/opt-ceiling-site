@@ -28,7 +28,7 @@ const EventSection = () => {
                         <Calendar size={48} className="text-white" />
                     </div>
                     <h2
-                        className="font-bold text-[28px] lg:text-[36px] mt-12 mb-4"
+                        className="font-bold text-[28px] lg:text-[36px] mt-12 mb-1"
                         style={{
                             letterSpacing: "-0.02em",
                             ...textStyle, // Тёмный цвет текста
@@ -37,7 +37,7 @@ const EventSection = () => {
                         Регистрируйся на <span className="text-orange">мероприятие</span>
                     </h2>
                     <p
-                        className="font-bold text-[28px] lg:text-[36px] mt-4 mb-4"
+                        className="font-bold text-[28px] lg:text-[36px] mt-1 mb-6"
                         style={{
                             letterSpacing: "-0.02em",
                             ...textStyle, // Тёмный цвет текста
@@ -45,15 +45,7 @@ const EventSection = () => {
                     >
                         и приводи <span className="text-orange">друзей</span>
                     </p>
-                    <p
-                        className="text-base font-semibold sm:text-lg mb-8"
-                        style={textStyle}
-                    >
-                        Следующее повышение цены:{" "}
-                        <span className="font-bold" style={textStyle}>
-                            _____
-                        </span>
-                    </p>
+
                     <a
                         href="https://optceiling.timepad.ru/event/3173857/"
                         target="_blank"
