@@ -69,7 +69,7 @@ const Header: React.FC = () => {
                             {t("Партнёрам")}
                         </a>
                         <a
-                            href="#"
+                            href="/for-visitors"
                             className="hover:bg-lightGray hover:bg-opacity-50 px-4 py-2 rounded-xl transition-all duration-300 ease-in-out inline-block"
                         >
                             {t("Посетителям")}
@@ -118,7 +118,7 @@ const Header: React.FC = () => {
                             {t("Новости")}
                         </a>
                         <a
-                            href="#"
+                            href="/contacts"
                             className="hover:bg-lightGray hover:bg-opacity-10 px-2 py-1 rounded-xl transition-all duration-300 ease-in-out"
                         >
                             {t("Контакты")}
@@ -167,7 +167,7 @@ const Header: React.FC = () => {
                         <a href="/partners" onClick={toggleMobileMenu}>
                             {t("Партнёрам")}
                         </a>
-                        <a href="#" onClick={toggleMobileMenu}>
+                        <a href="/for-visitors" onClick={toggleMobileMenu}>
                             {t("Посетителям")}
                         </a>
                         <a href="/clients" onClick={toggleMobileMenu}>
@@ -179,7 +179,8 @@ const Header: React.FC = () => {
                         <a href="/news" onClick={toggleMobileMenu}>
                             {t("Новости")}
                         </a>
-                        <a href="#" onClick={toggleMobileMenu}>
+                        <a                             href="/contacts"
+                                                       onClick={toggleMobileMenu}>
                             {t("Контакты")}
                         </a>
                     </nav>
