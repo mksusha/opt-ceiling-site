@@ -74,23 +74,30 @@ const Contacts: React.FC = () => {
                 </div>
 
                 {/* Адрес и карта */}
-                <div className="mb-14 text-center lg:text-left">
-                    <h2 className="text-3xl font-semibold mb-4">
-                        {isEnglish ? "Address" : "Адрес"}
-                    </h2>
-                    <p className="text-xl mb-10">
-                        {isEnglish ? contactInfo.address_en : contactInfo.address_ru}
-                    </p>
+                <div className="mb-14">
+                    {/* Заголовок и адрес в одной строке */}
+                    <div className="text-center lg:text-left lg:flex lg:items-center  lg:gap-2">
+                        <h2 className="text-3xl font-semibold mb-4 lg:mb-0">
+                            {isEnglish ? "Address:" : "Адрес:"}
+                        </h2>
+                        <p className="text-2xl  lg:ml-2">
+                            {isEnglish ? contactInfo.address_en : contactInfo.address_ru}
+                        </p>
+                    </div>
+
+                    {/* Карта */}
                     {contactInfo.map_code && (
                         <div
                             id="map-container"
-                            className="w-full h-64 border rounded-lg overflow-hidden"
+                            className="w-full h-64 border rounded-lg overflow-hidden mt-12"
                             style={{ maxHeight: "400px", minHeight: "300px" }}
-                        ></div>
+                        >
+                            {/* Код для отображения карты */}
+                        </div>
                     )}
                 </div>
             </main>
-            <Footer />
+            <Footer/>
         </ClientWrapper>
     );
 };
