@@ -12,7 +12,7 @@ export default function PartnersSection() {
         { src: "/drive/ШТОК лого.svg", alt: "Партнер 7" },
         { src: "/drive/Копия DENKIRS_logo1.png", alt: "Официальный партнер" },
         { src: "/drive/U-line_логотип.svg", alt: "Партнер 2" },
-        { src: "/drive/LP.svg", alt: "Партнер 2" },
+        { src: "/drive/LL.png", alt: "Партнер 2" },
         { src: "/drive/s.png", alt: "Партнер 2" },
         { src: "/drive/D.png", alt: "Партнер 2" },
         { src: "/drive/RKK.svg", alt: "Партнер 5" },
@@ -26,6 +26,7 @@ export default function PartnersSection() {
         { src: "/drive/Bl.svg", alt: "Партнер 2" },
         { src: "/drive/DL.png", alt: "Партнер 2" },
         { src: "/drive/HS.png", alt: "Партнер 2" },
+        { src: "/drive/Pazzle-1.png", alt: "Партнер 2" },
 
     ];
 
