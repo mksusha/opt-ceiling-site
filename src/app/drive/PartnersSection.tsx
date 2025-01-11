@@ -13,7 +13,7 @@ export default function PartnersSection() {
         { src: "/drive/LL.png", alt: "Партнер 4" },
         { src: "/drive/s.png", alt: "Партнер 5" },
         { src: "/drive/D.png", alt: "Партнер 6" },
-        { src: "/drive/RRR.png", alt: "Партнер 7" }, // Этот партнер
+        { src: "/drive/RRRR.png", alt: "Партнер 7" }, // Этот партнер
         { src: "/drive/B.png", alt: "Партнер 8" },
         { src: "/drive/Копия лого.png", alt: "Партнер 9" },
         { src: "/drive/K.png", alt: "Партнер 10" },
