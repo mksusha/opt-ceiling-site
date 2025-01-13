@@ -13,11 +13,7 @@ export default function GradientPage() {
     }, []);
 
     return (
-        <div
-            style={{
-                background: "var(--gradient-bg)",
-            }}
-        >
+        <div className="background-gray">
             {/* Хедер */}
             <header
                 data-aos="fade-down"
@@ -57,7 +53,7 @@ export default function GradientPage() {
                 {/* Кнопка Зарегистрироваться */}
                 <div
                     data-aos="fade-up"
-                    className="w-full flex justify-left   sm:justify-end mt-12 sm:mt-6"
+                    className="w-full flex justify-left sm:justify-end mt-12 sm:mt-6"
                 >
                     <a
                         href="https://optceiling.timepad.ru/event/3173857/"
