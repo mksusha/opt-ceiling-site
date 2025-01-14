@@ -96,17 +96,17 @@ const Header: React.FC = () => {
                     <div className="font-normal text-lg hidden md:block">
                         {t("Справочный центр")}:{" "}
                         <a
-                            href="tel:+78007073799"
+                            href="tel:+79807155232"
                             className="hover:bg-lightGray hover:bg-opacity-10 px-2 py-1 rounded-xl transition-all duration-300 ease-in-out"
                         >
-                            8 (800) 707-37-99
+                            +7 980-715-52-32
                         </a>
                     </div>
 
                     {/* Навигация */}
                     <nav className="hidden md:flex items-center space-x-8">
                         <a
-                            href="#"
+                            href="/about"
                             className="hover:bg-lightGray hover:bg-opacity-10 px-2 py-1 rounded-xl transition-all duration-300 ease-in-out"
                         >
                             {t("О компании")}
@@ -173,7 +173,7 @@ const Header: React.FC = () => {
                         <a href="/clients" onClick={toggleMobileMenu}>
                             {t("Заказчикам")}
                         </a>
-                        <a href="#" onClick={toggleMobileMenu}>
+                        <a href="/about" onClick={toggleMobileMenu}>
                             {t("О компании")}
                         </a>
                         <a href="/news" onClick={toggleMobileMenu}>
