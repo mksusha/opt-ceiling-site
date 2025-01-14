@@ -6,6 +6,7 @@ import news from './news';
 import contactInfo from "@/sanity/schemaTypes/contactInfo";
 import partnersSlider from "@/sanity/schemaTypes/partnersSlider";
 import visitorsInfo from "@/sanity/schemaTypes/visitorsInfo";
+import aboutPage from "@/sanity/schemaTypes/aboutPage";
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [exhibition, slider, photoSection, news, contactInfo, partnersSlider, visitorsInfo],
+  types: [exhibition, slider, photoSection, news, contactInfo, partnersSlider, visitorsInfo, aboutPage],
 }

@@ -11,6 +11,8 @@ interface ContactInfo {
     address_ru: string;
     address_en: string;
     map_code: string;
+    phone: string;
+    email: string;
 }
 
 const Contacts: React.FC = () => {
@@ -24,7 +26,9 @@ const Contacts: React.FC = () => {
                 *[_type == "contactInfo"][0] {
                     address_ru,
                     address_en,
-                    map_code
+                    map_code,
+                    phone,
+                    email
                 }
                 `;
                 const data = await client.fetch(query);
@@ -73,31 +77,49 @@ const Contacts: React.FC = () => {
                     </h1>
                 </div>
 
-                {/* Адрес и карта */}
-                <div className="mb-14">
-                    {/* Заголовок и адрес в одной строке */}
-                    <div className="text-center lg:text-left lg:flex lg:items-center  lg:gap-2">
-                        <h2 className="text-3xl font-semibold mb-4 lg:mb-0">
-                            {isEnglish ? "Address:" : "Адрес:"}
-                        </h2>
-                        <p className="text-2xl  lg:ml-2">
-                            {isEnglish ? contactInfo.address_en : contactInfo.address_ru}
+                {/* Контактная информация */}
+                <div className="mb-14 space-y-6 lg:space-y-4 text-center lg:text-left">
+                    {/* Телефон */}
+                    <div className="flex flex-col lg:flex-row items-center text-lg lg:text-2xl">
+                        <h2 className="font-bold mr-2">{isEnglish ? "Phone:" : "Телефон:"}</h2>
+                        <p>
+                            <a href={`tel:${contactInfo.phone}`} className="text-orange hover:underline">
+                                {contactInfo.phone}
+                            </a>
                         </p>
                     </div>
 
-                    {/* Карта */}
-                    {contactInfo.map_code && (
-                        <div
-                            id="map-container"
-                            className="w-full h-64 border rounded-lg overflow-hidden mt-12"
-                            style={{ maxHeight: "400px", minHeight: "300px" }}
-                        >
-                            {/* Код для отображения карты */}
-                        </div>
-                    )}
+                    {/* Почта */}
+                    <div className="flex flex-col lg:flex-row items-center text-lg lg:text-2xl">
+                        <h2 className="font-bold mr-2">{isEnglish ? "Email:" : "Почта:"}</h2>
+                        <p>
+                            <a href={`mailto:${contactInfo.email}`} className="text-orange hover:underline">
+                                {contactInfo.email}
+                            </a>
+                        </p>
+                    </div>
+
+                    {/* Адрес */}
+                    <div className="flex flex-col lg:flex-row items-center text-lg lg:text-2xl">
+                        <h2 className="font-bold mr-2">{isEnglish ? "Address:" : "Адрес:"}</h2>
+                        <p>
+                            {isEnglish ? contactInfo.address_en : contactInfo.address_ru}
+                        </p>
+                    </div>
                 </div>
+
+                {/* Карта */}
+                {contactInfo.map_code && (
+                    <div
+                        id="map-container"
+                        className="w-full h-64 border rounded-lg overflow-hidden mt-12"
+                        style={{ maxHeight: "400px", minHeight: "300px" }}
+                    >
+                        {/* Код для отображения карты */}
+                    </div>
+                )}
             </main>
-            <Footer/>
+            <Footer />
         </ClientWrapper>
     );
 };

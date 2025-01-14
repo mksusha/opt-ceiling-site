@@ -21,6 +21,18 @@ export default {
             title: 'Код карты',
             type: 'text',
             description: 'Вставьте код карты (например, iframe)'
+        },
+        {
+            name: 'phone',
+            title: 'Номер телефона',
+            type: 'string',
+            description: 'Введите номер телефона'
+        },
+        {
+            name: 'email',
+            title: 'Электронная почта',
+            type: 'string',
+            description: 'Введите адрес электронной почты'
         }
     ]
 };
