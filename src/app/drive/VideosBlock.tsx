@@ -10,6 +10,10 @@ export default function VideosBlock() {
             src: "https://vk.com/video_ext.php?oid=-220635659&id=456239219&hd=2",
             title: "МОСКОВСКИЙ ДРАЙВ",
         },
+        {
+            src: "https://vk.com/video_ext.php?oid=-220635659&id=456239221&hd=2",
+            title: "ВЫСТАВКА ПОСТАВЩИКОВ",
+        },
     ];
 
     return (
@@ -20,7 +24,7 @@ export default function VideosBlock() {
             </h2>
 
             {/* Видео */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {videos.map((video, index) => (
                     <div key={index} className="flex flex-col items-center">
                         <iframe

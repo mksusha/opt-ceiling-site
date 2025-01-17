@@ -14,14 +14,13 @@ export default function PartnersSection() {
         { src: "/drive/s.png", alt: "Партнер 5" },
         { src: "/drive/D.png", alt: "Партнер 6" },
         { src: "/drive/RRRR.png", alt: "Партнер 7" }, // Этот партнер
-        { src: "/drive/B.png", alt: "Партнер 8" },
-        { src: "/drive/Копия лого.png", alt: "Партнер 9" },
+
         { src: "/drive/K.png", alt: "Партнер 10" },
         { src: "/drive/Da.png", alt: "Партнер 11" },
         { src: "/drive/V.png", alt: "Партнер 12" },
-        { src: "/drive/E.png", alt: "Партнер 13" },
+
         { src: "/drive/PQ.png", alt: "Партнер 14" },
-        { src: "/drive/Bl.svg", alt: "Партнер 15" },
+
         { src: "/drive/DL.png", alt: "Партнер 16" },
         { src: "/drive/HS.png", alt: "Партнер 17" },
         { src: "/drive/Pazzle-1.png", alt: "Партнер 18" },

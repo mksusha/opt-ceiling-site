@@ -59,8 +59,9 @@ const NewsDetails: React.FC = () => {
     }, [slug]);
 
     if (!newsItem) {
-        return <p className="text-center text-lg">Загрузка...</p>;
+        return null;
     }
+
 
     const isEnglish = i18n.language === "en";
 

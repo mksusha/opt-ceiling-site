@@ -7,6 +7,8 @@ import dynamic from "next/dynamic";
 import { Search, Menu, X as Close } from "lucide-react"; // Иконки
 import Image from "next/image";
 import Link from "next/link";
+import SearchComponent from "@/app/components/SearchComponent";
+import SearchModal from "@/app/components/SearchComponent";
 
 
 const Flag = dynamic(() => import("react-world-flags"), { ssr: false });
@@ -15,6 +17,7 @@ const Header: React.FC = () => {
     const { t, i18n } = useTranslation();
     const [currentLang, setCurrentLang] = useState("ru");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -34,6 +37,8 @@ const Header: React.FC = () => {
     };
 
 
+
+    const toggleSearchModal = () => setIsSearchModalOpen((prev) => !prev);
     const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
     const currentFlag = currentLang === "ru" ? "GB" : "RU";
@@ -125,12 +130,23 @@ const Header: React.FC = () => {
                         </a>
 
                         {/* Поиск */}
-                        <div className="flex items-center space-x-2">
-                            <Search
-                                size={20}
-                                className="text-white hover:text-gray-300 cursor-pointer transition duration-300"
+                        <div className="flex items-center ">
+                            {/* Кнопка для открытия модального окна */}
+                            <button
+                                onClick={toggleSearchModal}
+                                className="text-white hover:text-gray-600 transition duration-300 flex items-center"
+                            >
+                                <Search size={20} className="mr-2" />
+
+                            </button>
+
+                            {/* Модальное окно */}
+                            <SearchModal
+                                isOpen={isSearchModalOpen}
+                                onClose={toggleSearchModal}
                             />
                         </div>
+
 
                         {/* Кнопка переключения языка */}
                         <button
@@ -140,7 +156,7 @@ const Header: React.FC = () => {
                             <div className="w-8 h-8 rounded-full border-2 border-gray-300 overflow-hidden">
                                 <Flag
                                     code={currentFlag}
-                                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                                    style={{width: "100%", height: "100%", objectFit: "cover"}}
                                 />
                             </div>
                             <span className="text-lg">{currentLang === "ru" ? "EN" : "RU"}</span>

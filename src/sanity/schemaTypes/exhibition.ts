@@ -117,6 +117,19 @@ export default defineType({
             description: 'Тип мероприятия',
         },
         {
+            name: 'eventType_en',
+            title: 'Event Type',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Large-scale', value: 'Large-scale' },
+                    { title: 'Masterclass', value: 'Masterclass' },
+                    { title: 'Webinar', value: 'Webinar' },
+                ],
+            },
+            description: 'Type of event',
+        },
+        {
             name: 'location',
             title: 'Location',
             type: 'string',
@@ -205,6 +218,32 @@ export default defineType({
             options: {
                 hotspot: true,
             },
+        },
+        {
+            name: 'videoList',
+            title: 'Video List',
+            type: 'array',
+            of: [
+                {
+                    type: 'text',
+                    description: 'Код видео с ВКонтакте или Дзена',
+                },
+            ],
+            description: 'Список видео по коду',
+        },
+        {
+            name: 'photoList',
+            title: 'Photo List',
+            type: 'array',
+            of: [
+                {
+                    type: 'image',
+                    options: {
+                        hotspot: true,
+                    },
+                },
+            ],
+            description: 'Список фотографий',
         },
     ],
 });

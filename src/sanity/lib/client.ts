@@ -1,9 +1,16 @@
 import { createClient } from 'next-sanity';
-import { apiVersion, dataset, projectId } from '../env';
+import imageUrlBuilder from '@sanity/image-url';
+import { apiVersion, dataset, projectId } from '../env'; // Ваши параметры из env
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // Используйте CDN для публичных данных
+  useCdn: false, // Включите true для кэширования, если данные статичны
 });
+
+const builder = imageUrlBuilder(client);
+
+export function urlFor(source: any) {
+  return builder.image(source);
+}

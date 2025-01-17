@@ -211,5 +211,20 @@
   "Бейдж выдается на стойке регистрации на входах в течение работы мероприятия.": "Badges are issued at the registration desk at the entrances during the event.",
   "Выдача бейджа подтверждает успешное завершение регистрации и предоставляет доступ на территорию выставки.": "Issuing a badge confirms the successful completion of registration and grants access to the exhibition grounds.",
   "Следуйте этим правилам для комфортного посещения мероприятия и беспрепятственного доступа к его сервисам.": "Follow these rules for a comfortable event experience and seamless access to its services.",
-  "Для посетителей": "For Visitors"
+  "Для посетителей": "For Visitors",
+  "Дата проведения": "Event Date",
+  "Время": "Time",
+  "Тип события": "Event Type",
+  "Место проведения": "Event Location",
+  "Тема": "Theme",
+  "Запись мероприятия": "Event Recording",
+  "Некорректное фото": "Incorrect Photo",
+  "Будут доступны после мероприятия.": "Will be available after the event.",
+  "Фотографии": "Photos",
+  "Видео": "Video",
+  "Видео недоступно": "Video unavailable",
+  "Запись вебинара будет доступна после мероприятия.": "The webinar recording will be available after the event.",
+  "Материалы мероприятия будут добавлены после мероприятия.": "Event materials will be added after the event.",
+  "Перейти на сайт мероприятия": "Go to the event website",
+  "Запись вебинара": "Webinar recording"
 }

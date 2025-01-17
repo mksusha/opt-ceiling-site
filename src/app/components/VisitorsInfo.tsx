@@ -39,8 +39,9 @@ const VisitorsInfo: React.FC = () => {
     }, []);
 
     if (loading) {
-        return <p className="text-center text-lg">{t("Загрузка...")}</p>;
+        return null;
     }
+
 
     if (!data) {
         return <p className="text-center text-lg text-red-500">{t("Информация не найдена.")}</p>;
