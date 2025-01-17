@@ -15,15 +15,15 @@ export default function PartnersSection() {
         { src: "/drive/D.png", alt: "Партнер 6" },
         { src: "/drive/RRRR.png", alt: "Партнер 7" }, // Этот партнер
 
-        { src: "/drive/K.png", alt: "Партнер 10" },
-        { src: "/drive/Da.png", alt: "Партнер 11" },
-        { src: "/drive/V.png", alt: "Партнер 12" },
+        { src: "/drive/K.png", alt: "Партнер 8" },
+        { src: "/drive/Da.png", alt: "Партнер 9" },
+        { src: "/drive/V.png", alt: "Партнер 10" },
 
-        { src: "/drive/PQ.png", alt: "Партнер 14" },
+        { src: "/drive/PQ.png", alt: "Партнер 11" },
 
-        { src: "/drive/DL.png", alt: "Партнер 16" },
-        { src: "/drive/HS.png", alt: "Партнер 17" },
-        { src: "/drive/Pazzle-1.png", alt: "Партнер 18" },
+        { src: "/drive/DL.png", alt: "Партнер 12" },
+        { src: "/drive/HS.png", alt: "Партнер 13" },
+        { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
     ];
 
     return (
@@ -78,6 +78,8 @@ export default function PartnersSection() {
                             src={logo.src}
                             alt={logo.alt}
                             className={`partner-card-desktop rounded-[19px] ${
+                                logo.alt === "Партнер 2" ? "partner-2" : ""
+                            } ${logo.alt === "Партнер 4" ? "partner-4" : ""} ${
                                 logo.alt === "Партнер 7" ? "partner-7-bg" : ""
                             }`}
                             style={{
@@ -88,6 +90,7 @@ export default function PartnersSection() {
                         />
                     ))}
                 </div>
+
             </div>
         </div>
     );
