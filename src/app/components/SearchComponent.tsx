@@ -79,14 +79,14 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpe
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
-            <div className="bg-white rounded-3xl shadow-xl w-11/12 max-w-lg p-8 relative">
+            <div className="bg-white rounded-3xl shadow-xl w-full max-w-lg p-6 relative mx-4 sm:mx-auto sm:p-8">
                 <button
                     className="absolute top-4 right-4 text-gray hover:text-black"
                     onClick={onClose}
                 >
                     <Close size={24} />
                 </button>
-                <h2 className="text-2xl font-bold mb-6 text-black">Поиск</h2>
+                <h2 className="text-2xl font-bold mb-6 text-black text-center">Поиск</h2>
                 <div className="flex flex-col gap-4">
                     <input
                         type="text"
@@ -104,7 +104,7 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpe
                         <option value="events">Мероприятия</option>
                         <option value="news">Новости</option>
                     </select>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4">
                         <button
                             onClick={handleSearch}
                             className="bg-orange text-white rounded-lg px-6 py-2 hover:text-black transition-all font-medium"
@@ -157,7 +157,7 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpe
                             </div>
                         </>
                     ) : (
-                        <p className="text-black">Нет результатов</p>
+                        <p className="text-black text-center">Нет результатов</p>
                     )}
                 </div>
             </div>

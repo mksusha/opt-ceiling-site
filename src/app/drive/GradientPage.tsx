@@ -26,11 +26,13 @@ export default function GradientPage() {
                             src="/logo3.svg"
                             alt="Logo OPT1"
                             className="h-8 sm:h-12 mr-2"
+                            loading="eager"
                         />
                         <img
                             src="/logo-opt2.png"
                             alt="Logo2"
                             className="h-8 sm:h-12"
+                            loading="eager"
                         />
                     </div>
 

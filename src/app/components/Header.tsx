@@ -195,12 +195,37 @@ const Header: React.FC = () => {
                         <a href="/news" onClick={toggleMobileMenu}>
                             {t("Новости")}
                         </a>
-                        <a                             href="/contacts"
-                                                       onClick={toggleMobileMenu}>
+                        <a href="/contacts"
+                           onClick={toggleMobileMenu}>
                             {t("Контакты")}
+                        </a>
+                        {/* Поиск */}
+                        <div className="flex items-center">
+                            {/* Кнопка для открытия модального окна */}
+                            <button
+                                onClick={toggleSearchModal}
+                                className="text-white hover:text-gray-600 transition duration-300 flex items-center"
+                            >
+                                <Search size={20} className="mr-2 text-black" />
+                                <span className="text-black">Поиск</span>
+                            </button>
+
+                            {/* Модальное окно */}
+                            <SearchModal
+                                isOpen={isSearchModalOpen}
+                                onClose={toggleSearchModal}
+                            />
+                        </div>
+
+                        <a
+                            href="tel:+79807155232"
+                            className="hover:bg-lightGray hover:bg-opacity-10 px-2 py-1 rounded-xl transition-all duration-300 ease-in-out"
+                        >
+                            +7 980-715-52-32
                         </a>
                     </nav>
                     {/* Кнопка переключения языка */}
+
                     <button
                         onClick={toggleLanguage}
                         className="flex items-center space-x-2 bg-gray-400 text-black px-4 py-2 font-semibold rounded-3xl hover:bg-lightGray hover:bg-opacity-10 transition-all duration-300 ease-in-out"
@@ -215,6 +240,8 @@ const Header: React.FC = () => {
                             <span className="text-lg font-bold">{currentLang === "ru" ? "EN" : "RU"}</span>
 
                         </div>
+
+
                     </button>
 
                 </div>

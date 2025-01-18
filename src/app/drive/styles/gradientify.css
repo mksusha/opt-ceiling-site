@@ -46,12 +46,12 @@ body {
 }
 @media (min-width: 375px) and (max-width: 768px) {
     .button {
-        display: flex;
-        justify-content: center;
+        display: flex !important;
+        justify-content: center!important;
         align-items: center;
         max-width: 220px; /* Уменьшаем максимальную ширину */
         height: 55px; /* Уменьшаем высоту */
-
+        margin-left: 5px;
         padding: 12px 20px; /* Уменьшаем внутренние отступы */
     }
 }
@@ -352,6 +352,10 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Затемнение с прозрачностью */
     z-index: -1; /* Затемнение тоже позади контента */
+}
+@keyframes preload-bg {
+    from { opacity: 0; }
+    to { opacity: 0; }
 }
 a {
     text-decoration: none;
