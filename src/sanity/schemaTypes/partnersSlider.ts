@@ -2,7 +2,7 @@ import { defineType, defineField } from 'sanity';
 
 export default defineType({
     name: 'partnersSlider',
-    title: 'Partners Slider',
+    title: 'Слайдер на странице парнерам',
     type: 'document',
     fields: [
         defineField({

@@ -288,7 +288,9 @@ const CalendarPage: React.FC = () => {
                         </div>
 
                         <div className="relative flex flex-col w-full lg:w-1/3">
-                            <label className="text-midGray font-semibold mb-1">Выберите дату</label>
+                            <label className="text-midGray font-semibold mb-1">
+                                {t("Выберите дату")}
+                            </label>
                             <button
                                 onClick={() => setShowCalendar(!showCalendar)}
                                 className="px-4 py-3 bg-midGray text-left text-white rounded-2xl border border-white hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-white appearance-none"
@@ -300,7 +302,7 @@ const CalendarPage: React.FC = () => {
                                     backgroundSize: "1.5em 1.5em",
                                 }}
                             >
-                            {selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
+                                {selectedDate ? selectedDate.toLocaleDateString() : "Выберите дату"}
                             </button>
 
                             {showCalendar && (
@@ -407,12 +409,17 @@ const CalendarPage: React.FC = () => {
                                             className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
                                             {formatDate(event.startDate)}
                                         </div>
-                                        <span className="text-gray-600">-</span>
-                                        <div
-                                            className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
-                                            {formatDate(event.endDate)}
-                                        </div>
+                                        {event.endDate && (
+                                            <>
+                                                <span className="text-gray-600">-</span>
+                                                <div
+                                                    className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
+                                                    {formatDate(event.endDate)}
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
+
                                     {/* Организатор */}
                                     <p className="text-gray-700 text-lg md:text-base lg:text-lg">
                                         <strong>{t("Организатор")}:</strong> {event.organizer}
@@ -431,7 +438,7 @@ const CalendarPage: React.FC = () => {
                     <div className="flex justify-center mt-4">
                         <Pagination>
                             <PaginationContent>
-                                {/* Кнопка "Назад" */}
+                            {/* Кнопка "Назад" */}
                                 <PaginationItem>
                                     <PaginationPrevious
                                         onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}

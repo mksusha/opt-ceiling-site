@@ -63,14 +63,19 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
 
                 {/* Даты */}
                 <div className="flex items-center justify-start mb-4 space-x-2">
-                    <span className="bg-orange text-white font-semibold px-4 py-1 rounded-lg">
-                        {formatDate(exhibition.startDate)}
-                    </span>
-                    <span className="text-gray-600">-</span>
-                    <span className="bg-orange text-white font-semibold px-4 py-1 rounded-lg">
-                        {formatDate(exhibition.endDate)}
-                    </span>
+    <span className="bg-orange text-white font-semibold px-4 py-1 rounded-lg">
+        {formatDate(exhibition.startDate)}
+    </span>
+                    {exhibition.endDate && (
+                        <>
+                            <span className="text-gray-600">-</span>
+                            <span className="bg-orange text-white font-semibold px-4 py-1 rounded-lg">
+                {formatDate(exhibition.endDate)}
+            </span>
+                        </>
+                    )}
                 </div>
+
 
                 {/* Организатор */}
                 <p className="text-gray-600">
@@ -120,11 +125,16 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
                     <div className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
                         {formatDate(exhibition.startDate)}
                     </div>
-                    <span className="text-gray-600">-</span>
-                    <div className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
-                        {formatDate(exhibition.endDate)}
-                    </div>
+                    {exhibition.endDate && (
+                        <>
+                            <span className="text-gray-600">-</span>
+                            <div className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
+                                {formatDate(exhibition.endDate)}
+                            </div>
+                        </>
+                    )}
                 </div>
+
                 {/* Организатор */}
                 <p className="text-gray-700 text-lg md:text-base lg:text-lg">
                     <strong>{t("Организатор")}:</strong> {exhibition.organizer}

@@ -2,7 +2,7 @@ import { defineType } from 'sanity';
 
 export default defineType({
     name: 'exhibition',
-    title: 'Exhibition',
+    title: 'Выставки',
     type: 'document',
     fields: [
         {
