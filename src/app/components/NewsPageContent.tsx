@@ -77,7 +77,7 @@ export default function NewsPageContent({ news, language }: NewsPageContentProps
                 <div className="flex items-center">
                     <h1 className="text-3xl sm:text-2xl lg:text-4xl font-bold rounded-2xl text-white inline-block px-3 py-1 sm:px-2 sm:py-1.5 md:px-4 md:py-2 bg-orange border-dashed border-2 border-orange text-center flex items-center">
                         {t("Новости")}
-                        <FiFileText className="w-10 h-10 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white ml-3" />
+                        <FiFileText className="w-10 h-10 sm:w-8 sm:h-8 md:w-6 md:h-6 lg:w-8 lg:h-8 text-white ml-3"/>
                     </h1>
                 </div>
                 <div className="flex items-center mt-2 ml-4 md:mt-0">
@@ -129,13 +129,13 @@ export default function NewsPageContent({ news, language }: NewsPageContentProps
                 </div>
             </div>
 
-            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {currentNews.length > 0 ? (
                     currentNews.map((item, index) => (
                         <Link href={`/news/${item.slug}`} key={item.slug || `news-item-${index}`}>
                             <div
                                 data-aos="fade-up"
-                                className="border border-gray-200  rounded-lg p-4 shadow-sm hover:shadow-lg transition-shadow"
+                                className="border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-lg transition-shadow h-[22rem] flex flex-col"
                             >
                                 {item.coverImageUrl ? (
                                     <img
@@ -144,14 +144,15 @@ export default function NewsPageContent({ news, language }: NewsPageContentProps
                                         className="w-full h-48 object-cover rounded-t-lg"
                                     />
                                 ) : (
-                                    <div className="w-full h-48 bg-gray-300 rounded-t-lg flex items-center justify-center">
+                                    <div
+                                        className="w-full h-48 bg-gray-300 rounded-t-lg flex items-center justify-center">
                                         <span className="text-gray-500">{t("Нет изображения")}</span>
                                     </div>
                                 )}
-                                <h2 className="text-xl font-bold mt-4">
+                                <h2 className="text-xl font-bold mt-4 line-clamp-2">
                                     {language === "ru" ? item.title_ru : item.title_en}
                                 </h2>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 mt-auto">
                                     {new Date(item.date).toLocaleDateString()}
                                 </p>
                             </div>
@@ -172,7 +173,7 @@ export default function NewsPageContent({ news, language }: NewsPageContentProps
                                 />
                             </PaginationItem>
                             {Array.from(
-                                { length: Math.ceil(filteredNews.length / newsPerPage) },
+                                {length: Math.ceil(filteredNews.length / newsPerPage)},
                                 (_, index) => index + 1
                             ).map((page) => (
                                 <PaginationItem key={page}>

@@ -2,8 +2,8 @@ import React from "react";
 
 export default function ProgramBlock() {
     const programItems = [
-        { time: "11:00 – 12:00", description: "Регистрация участников" },
-        { time: "12:00 – 15:00", description: "Презентация новинок, материалов и комплектующих" },
+        { time: "10:00 – 11:00", description: "Регистрация участников" },
+        { time: "11:00 – 15:00", description: "Презентация новинок, материалов и комплектующих" },
         { time: "15:00 – 19:00", description: "Посещение выставки, участие в мастер-классах и конкурсах" },
         { time: "19:00 – 22:00", description: "Afterparty", isAfterparty: true },
     ];

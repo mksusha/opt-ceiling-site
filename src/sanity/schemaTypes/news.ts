@@ -1,4 +1,5 @@
-// schemas/news.js
+import { defineField } from 'sanity';
+
 export default {
     name: 'news',
     title: 'Новости',
@@ -42,15 +43,31 @@ export default {
             type: 'array',
             of: [{ type: 'image' }]
         },
-        {
-            name: 'text_ru',
-            title: 'Текст новости (RU)',
-            type: 'text'
-        },
-        {
-            name: 'text_en',
-            title: 'Текст новости (EN)',
-            type: 'text'
-        }
+        defineField({
+            name: "text_ru",
+            type: "object",
+            title: "Текст новости (RU)",
+            fields: [
+                defineField({
+                    name: "content",
+                    type: "array",
+                    title: "Контент",
+                    of: [{ type: "block" }],
+                }),
+            ],
+        }),
+        defineField({
+            name: "text_en",
+            type: "object",
+            title: "Текст новости (EN)",
+            fields: [
+                defineField({
+                    name: "content",
+                    type: "array",
+                    title: "Контент",
+                    of: [{ type: "block" }],
+                }),
+            ],
+        }),
     ]
 };
