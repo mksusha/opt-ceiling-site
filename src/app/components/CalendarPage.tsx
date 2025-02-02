@@ -396,7 +396,15 @@ const CalendarPage: React.FC = () => {
                                             {event.title}
                                         </h3>
                                         {/* Описание */}
-                                        <p className="text-gray-600 text-lg">
+                                        <p
+                                            className="w-full text-gray-600 text-lg"
+                                            style={{
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 2, // число строк, после которого будет троеточие
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden',
+                                            }}
+                                        >
                                             {event.description}
                                         </p>
                                     </div>

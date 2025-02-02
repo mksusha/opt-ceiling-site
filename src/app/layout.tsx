@@ -8,6 +8,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="ru">
+        <head>
+            <link rel="icon" href="/favicon.ico" />
+        </head>
         <body className="font-space-grotesk antialiased">{children}</body>
         </html>
     );

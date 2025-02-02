@@ -103,7 +103,8 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
                 <div className="flex flex-col justify-center">
                     {/* Тип мероприятия */}
                     <div className="inline-flex">
-                        <span className="bg-lightGray text-gray-700 uppercase font-medium text-base px-2 py-0.5 rounded-lg mb-4">
+                        <span
+                            className="bg-lightGray text-gray-700 uppercase font-medium text-base px-2 py-0.5 rounded-lg mb-4">
                             {exhibition.eventType}
                         </span>
                     </div>
@@ -112,17 +113,26 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
                     <h3 className="text-xl font-bold text-gray-800 mb-4">
                         {exhibition.title}
                     </h3>
-                    {/* Описание */}
-                    <p className="text-gray-600 text-lg">
+                    <p
+                        className="w-full text-gray-600 text-lg"
+                        style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2, // число строк, после которого будет троеточие
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                        }}
+                    >
                         {exhibition.description}
                     </p>
+
+
                 </div>
             </div>
 
             {/* Правая часть с датами и организатором */}
             <div className="w-full md:w-1/3 flex flex-col justify-center p-4">
                 <div className="flex flex-wrap items-center justify-start gap-2 mb-4">
-                    <div className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
+                <div className="bg-orange text-white px-4 py-1 rounded-md text-lg font-medium">
                         {formatDate(exhibition.startDate)}
                     </div>
                     {exhibition.endDate && (

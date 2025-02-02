@@ -24,7 +24,7 @@ export default function LatestNews({ news, language }: LatestNewsProps) {
     const { t } = useTranslation();
 
     return (
-        <div className="max-w-[1350px] mx-auto  p-4 ">
+        <div className="max-w-[1350px] mx-auto mt-12  p-4 ">
             {/* Заголовок новостей */}
             <h2 className="text-2xl font-bold rounded-2xl inline-block px-4 py-2 border-dashed border-2 border-orange mb-10">
                 {language === "ru" ? "Новости" : "News"}
