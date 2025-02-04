@@ -254,7 +254,7 @@ const ExhibitionDetails: React.FC<ExhibitionDetailsProps> = ({
                     </div>
                 )}
                 {/* Проверка типа мероприятия */}
-                {(localizedEventType === "Мастер-класс" || localizedEventType === "Масштабное мероприятие" ||
+                {(localizedEventType === "Мастер-класс" || localizedEventType === "Масштабное" ||
                     localizedEventType === "Masterclass" || localizedEventType === "Large-scale") && (
                     <>
                         {/* Фотографии */}
@@ -379,7 +379,7 @@ const ExhibitionDetails: React.FC<ExhibitionDetailsProps> = ({
 
 
                 {/* Если ни один из типов мероприятия не подходит */}
-                {!(localizedEventType === "Мастер-класс" || localizedEventType === "Масштабное мероприятие" ||
+                {!(localizedEventType === "Мастер-класс" || localizedEventType === "Масштабное" ||
                     localizedEventType === "Masterclass" || localizedEventType === "Large-scale" ||
                     localizedEventType === "Вебинар" || localizedEventType === "Webinar") && (
                     <p>{t("Материалы мероприятия будут добавлены после мероприятия.")}</p>
