@@ -12,8 +12,8 @@ import MySliderForNews from "@/app/components/MySliderForNews";
 interface NewsItem {
     title_ru: string;
     title_en: string;
-    text_ru: string;
-    text_en: string;
+    text_ru: string | { content: { text: string }[] };
+    text_en: string | { content: { text: string }[] };
     date: string;
     coverImageUrl: string;
     gallery: {
@@ -28,6 +28,36 @@ const NewsDetails: React.FC = () => {
     const { i18n, t } = useTranslation();
     const router = useRouter();
     const [newsItem, setNewsItem] = useState<NewsItem | null>(null);
+
+
+    const renderTextContent = (
+        textObject: string | { content: { [key: string]: any }[] } | undefined
+    ): string => {
+        if (!textObject) return "Нет текста";
+
+        // Если это строка, возвращаем её
+        if (typeof textObject === "string") return textObject;
+
+        // Если это объект с контентом, извлекаем текст из всех узлов
+        if ("content" in textObject && Array.isArray(textObject.content)) {
+            return textObject.content
+                .map((item) => {
+                    // Проверяем наличие текста в children или text
+                    if (item.children) {
+                        return item.children
+                            .map((child: any) => child.text || "")
+                            .join("");
+                    }
+                    return item.text || ""; // Если нет children, берём text
+                })
+                .join(" ");
+        }
+
+        return "Нет текста";
+    };
+
+
+
 
     useEffect(() => {
         const fetchNewsItem = async () => {
@@ -88,9 +118,13 @@ const NewsDetails: React.FC = () => {
                 )}
 
                 {/* Текст новости */}
+                {/* Текст новости */}
                 <p className="text-lg leading-7 mt-8 mb-10">
-                    {isEnglish ? newsItem.text_en : newsItem.text_ru}
+                    {isEnglish
+                        ? renderTextContent(newsItem.text_en)
+                        : renderTextContent(newsItem.text_ru)}
                 </p>
+
 
                 {/* Кнопка "Все новости" */}
                 <div className="flex justify-center">
@@ -102,7 +136,7 @@ const NewsDetails: React.FC = () => {
                     </button>
                 </div>
             </main>
-            <Footer />
+            <Footer/>
         </ClientWrapper>
     );
 };
