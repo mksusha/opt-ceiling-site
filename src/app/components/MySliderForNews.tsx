@@ -38,7 +38,7 @@ const MySliderForNews: React.FC<MySliderForNewsProps> = ({ gallery, coverImageUr
                 <img
                     src={images[currentImageIndex].asset.url}
                     alt={`Current image ${currentImageIndex + 1}`}
-                    className=" max-w-[800px] h-[600px] mx-auto rounded-lg shadow-lg object-cover"
+                    className="lg:max-w-[800px] lg:h-[600px] mx-auto rounded-lg shadow-lg object-cover max-w-[340px] h-[400px] "
                 />
                 <button
                     onClick={handlePrev}
