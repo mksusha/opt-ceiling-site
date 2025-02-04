@@ -53,13 +53,16 @@ const ExhibitionCard: React.FC<{ exhibition: Exhibition }> = ({ exhibition }) =>
             {/* Контент */}
             <div className="p-5">
                 {/* Тип мероприятия */}
-                <span className="inline-block bg-lightGray text-darkGray uppercase font-medium text-sm px-3 py-1 rounded-lg mb-3">
+                <span
+                    className="inline-block bg-lightGray text-darkGray uppercase font-medium text-sm px-3 py-1 rounded-lg mb-3">
                     {exhibition.eventType}
                 </span>
                 <h3 className="text-2xl font-bold mb-3 text-gray-800">{exhibition.title}</h3>
 
                 {/* Описание */}
-                <p className="text-gray-600 mb-4">{exhibition.description}</p>
+                <p className="text-gray-600 mb-4 line-clamp-6">
+                    {exhibition.description}
+                </p>
 
                 {/* Даты */}
                 <div className="flex items-center justify-start mb-4 space-x-2">

@@ -26,26 +26,26 @@ const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
     const fetchExhibitions = async (locale: string): Promise<void> => {
         try {
             const query = `
-            *[_type == "exhibition"]{
-                _id,
-                title,
-                title_en,
-                description,
-                description_en,
-                startDate,
-                endDate,
-                organizer,
-                organizer_en,
-                eventType,
-                eventType_en,
-                "image": image.asset->url
-            }
-            `;
+        *[_type == "exhibition"]{
+            _id,
+            title,
+            title_en,
+            description,
+            description_en,
+            startDate,
+            endDate,
+            organizer,
+            organizer_en,
+            eventType,
+            eventType_en,
+            "image": image.asset->url
+        }
+        `;
             const data = await client.fetch(query);
 
             const now = new Date();
 
-            const exhibitions = data.map((item: any) => ({
+            const exhibitions: Exhibition[] = data.map((item: any) => ({
                 id: item._id,
                 title: locale === "en" ? item.title_en : item.title,
                 description: locale === "en" ? item.description_en : item.description,
@@ -55,29 +55,31 @@ const Exhibitions = forwardRef<HTMLDivElement>((_, ref) => {
                 eventType: locale === "en"
                     ? item.eventType_en
                     : (item.eventType || item.eventType_en),
-
                 image: item.image || undefined,
             }));
 
+            // Фильтруем актуальные и прошедшие выставки
+            const active: Exhibition[] = exhibitions
+                .filter((exhibition: Exhibition) => new Date(exhibition.endDate) >= now)
+                .sort((a: Exhibition, b: Exhibition) =>
+                    new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+                ); // От ближайших к поздним
 
-            // Фильтруем актуальные (текущие + будущие) и прошедшие выставки
-            const active = exhibitions.filter(
-                (exhibition: Exhibition) => new Date(exhibition.endDate) >= now
-            );
-
-            const past = exhibitions.filter(
-                (exhibition: Exhibition) => new Date(exhibition.endDate) < now
-            );
+            const past: Exhibition[] = exhibitions
+                .filter((exhibition: Exhibition) => new Date(exhibition.endDate) < now)
+                .sort((a: Exhibition, b: Exhibition) =>
+                    new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+                ); // От самых недавних к старым
 
             setActiveExhibitions(active);
             setPastExhibitions(past);
 
-            // Обновляем AOS
             AOS.refresh();
         } catch (error) {
             console.error("Ошибка при загрузке данных:", (error as Error).message);
         }
     };
+
 
     useEffect(() => {
         fetchExhibitions(i18n.language);
