@@ -8,12 +8,14 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ClientWrapper from "@/app/components/ClientWrapper";
 import MySliderForNews from "@/app/components/MySliderForNews";
+import { PortableText, PortableTextBlock } from "@portabletext/react";
+
 
 interface NewsItem {
     title_ru: string;
     title_en: string;
-    text_ru: string | { content: { text: string }[] };
-    text_en: string | { content: { text: string }[] };
+    text_ru: string | PortableTextBlock[];
+    text_en: string | PortableTextBlock[];
     date: string;
     coverImageUrl: string;
     gallery: {
@@ -35,26 +37,27 @@ const NewsDetails: React.FC = () => {
     ): string => {
         if (!textObject) return "Нет текста";
 
-        // Если это строка, возвращаем её
-        if (typeof textObject === "string") return textObject;
+        if (typeof textObject === "string") {
+            // Разделяем строки по символам новой строки и оборачиваем в <p>
+            return textObject.split("\n").map((line) => `<p>${line}</p>`).join("");
+        }
 
-        // Если это объект с контентом, извлекаем текст из всех узлов
         if ("content" in textObject && Array.isArray(textObject.content)) {
             return textObject.content
                 .map((item) => {
-                    // Проверяем наличие текста в children или text
                     if (item.children) {
-                        return item.children
+                        return `<p>${item.children
                             .map((child: any) => child.text || "")
-                            .join("");
+                            .join("")}</p>`;
                     }
-                    return item.text || ""; // Если нет children, берём text
+                    return `<p>${item.text || ""}</p>`;
                 })
-                .join(" ");
+                .join("");
         }
 
         return "Нет текста";
     };
+
 
 
 
@@ -119,12 +122,21 @@ const NewsDetails: React.FC = () => {
 
                 {/* Текст новости */}
                 {/* Текст новости */}
-                <p className="text-lg leading-7 mt-8 mb-10">
-                    {isEnglish
-                        ? renderTextContent(newsItem.text_en)
-                        : renderTextContent(newsItem.text_ru)}
-                </p>
+                <div className="text-lg leading-7 mt-8 mb-10">
+                    {(() => {
+                        const textData = isEnglish ? newsItem.text_en : newsItem.text_ru;
 
+                        if (typeof textData === "object" && textData !== null && "content" in textData) {
+                            // Приводим `content` к ожидаемому типу
+                            return <PortableText value={textData.content as PortableTextBlock[]}/>;
+                        } else if (typeof textData === "string") {
+                            // Если текст — это просто строка, разбиваем по переносам строк
+                            return textData.split("\n").map((line, index) => <p key={index}>{line}</p>);
+                        } else {
+                            return <p>Текст отсутствует</p>;
+                        }
+                    })()}
+                </div>
 
                 {/* Кнопка "Все новости" */}
                 <div className="flex justify-center">

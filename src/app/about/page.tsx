@@ -6,12 +6,13 @@ import { useTranslation } from "react-i18next";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import ClientWrapper from "@/app/components/ClientWrapper";
+import { PortableText } from "@portabletext/react"; // Импортируем обработчик блок-контента
 
 interface AboutPage {
     title_ru: string;
     title_en: string;
-    content_ru: string;
-    content_en: string;
+    content_ru: any[]; // Так как это массив блоков, указываем `any[]`
+    content_en: any[];
 }
 
 const About: React.FC = () => {
@@ -58,10 +59,8 @@ const About: React.FC = () => {
                 </div>
 
                 {/* Контент */}
-                <div className="mb-14 space-y-6 lg:space-y-4 text-center lg:text-left">
-                    <p className="text-lg lg:text-2xl text-gray-700 leading-relaxed">
-                        {isEnglish ? aboutPage.content_en : aboutPage.content_ru}
-                    </p>
+                <div className="mb-14 space-y-6 lg:space-y-4 text-center lg:text-left text-lg lg:text-xl text-gray-700 leading-relaxed">
+                    <PortableText value={isEnglish ? aboutPage.content_en : aboutPage.content_ru} />
                 </div>
             </main>
             <Footer />

@@ -1,32 +1,33 @@
+import { defineField } from "sanity";
 
-export default {
-    name: 'aboutPage',
-    title: 'О компании',
-    type: 'document',
+export default defineField({
+    name: "aboutPage",
+    title: "О компании",
+    type: "document",
     fields: [
-        {
-            name: 'title_ru',
-            title: 'Заголовок (RU)',
-            type: 'string',
-            description: 'Введите заголовок на русском языке',
-        },
-        {
-            name: 'title_en',
-            title: 'Title (EN)',
-            type: 'string',
-            description: 'Enter the title in English',
-        },
-        {
-            name: 'content_ru',
-            title: 'Текст (RU)',
-            type: 'text',
-            description: 'Введите текст на русском языке',
-        },
-        {
-            name: 'content_en',
-            title: 'Content (EN)',
-            type: 'text',
-            description: 'Enter the text in English',
-        },
+        defineField({
+            name: "title_ru",
+            title: "Заголовок (RU)",
+            type: "string",
+            description: "Введите заголовок на русском языке",
+        }),
+        defineField({
+            name: "title_en",
+            title: "Title (EN)",
+            type: "string",
+            description: "Enter the title in English",
+        }),
+        defineField({
+            name: "content_ru",
+            type: "array",
+            title: "Контент (RU)",
+            of: [{ type: "block" }],
+        }),
+        defineField({
+            name: "content_en",
+            type: "array",
+            title: "Контент (EN)",
+            of: [{ type: "block" }],
+        }),
     ],
-};
+});
