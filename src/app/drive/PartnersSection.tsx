@@ -24,6 +24,7 @@ export default function PartnersSection() {
         { src: "/drive/DL.png", alt: "Партнер 12" },
         { src: "/drive/HS.png", alt: "Партнер 13" },
         { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
+        { src: "/drive/Ч.png", alt: "Партнер 16" },
     ];
 
     return (
