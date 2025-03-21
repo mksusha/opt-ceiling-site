@@ -38,8 +38,7 @@ export default function EventPhotosBlock() {
                         textTransform: "uppercase",
                     }}
                 >
-                    Фото с предыдущих мероприятий
-                </h2>
+                    ФОТОГАЛЕРЕЯ ДРАЙВА                </h2>
 
                 {/* Карусель */}
                 <Carousel

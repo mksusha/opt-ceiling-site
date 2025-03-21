@@ -3,7 +3,7 @@ import React from "react";
 export default function PartnersSection() {
     const organizers = [
         { src: "/optlogo.svg", alt: "Организатор 1", padding: "p-0" },
-        { src: "/logo-opt-nevsky.svg", alt: "Организатор 2", padding: "p-16" },
+        { src: "/logo-opt-nevsky2.svg", alt: "Организатор 2", padding: "p-16" },
     ];
 
     return (

@@ -16,7 +16,7 @@ export default function VideoBlock() {
                 {/* Правый блок с видео и кнопками */}
                 <div className="flex-1 max-w-lg w-full">
                     {/* Встроенное видео (YouTube) */}
-                    <div className="relative w-full h-[250px] md:h-[335px] bg-black rounded-3xl overflow-hidden shadow-lg">
+                    <div className="relative w-full h-[250px] md:h-[385px] bg-black rounded-3xl overflow-hidden shadow-lg">
                         <iframe
                             className="w-full h-full"
                             src="https://www.youtube.com/embed/9o6xzpsSZe0?si=W4jLoCcmfhKyCrlx"
@@ -25,25 +25,7 @@ export default function VideoBlock() {
                         ></iframe>
                     </div>
 
-                    {/* Кнопки под видео */}
-                    <div className="flex justify-center items-center gap-4 mt-4 w-full">
-                        <a
-                            href="https://dzen.ru/video/watch/66efd0b478174c53520cc356"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-white text-black font-bold py-3 px-4 rounded-md hover:bg-gray-200 transition w-1/2 text-center"
-                        >
-                            Дзен
-                        </a>
-                        <a
-                            href="https://youtu.be/9o6xzpsSZe0?si=u1XxfnTfcKTelJZi"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-white text-black font-bold py-3 px-4 rounded-md hover:bg-gray-200 transition w-1/2 text-center"
-                        >
-                            YouTube
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>
