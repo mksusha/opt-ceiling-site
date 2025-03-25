@@ -25,7 +25,7 @@ const Footer = () => {
                 <div className="flex items-center space-x-6 mt-4 sm:mt-0">
                     {/* Ссылка на Telegram */}
                     <a
-                        href="https://t.me/+lkL6xGrUY-FjZTFi"
+                        href="https://t.me/+nC5GWp261JU4ZGEy"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-white text-sm sm:text-lg font-light"

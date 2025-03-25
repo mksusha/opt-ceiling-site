@@ -94,7 +94,7 @@ export default function GradientPage() {
 
                         {/* Кнопка "Telegram" */}
                         <a
-                            href="https://t.me/+lkL6xGrUY-FjZTFi"
+                            href="https://t.me/+nC5GWp261JU4ZGEy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="button w-full md:w-auto hover:bg-white hover:text-blue-500 hover:shadow-lg transition-all duration-300 text-center"
