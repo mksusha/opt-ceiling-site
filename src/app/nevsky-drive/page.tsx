@@ -9,10 +9,13 @@ import NevskyDriveBlock from "@/app/nevsky-drive/NevskyNew";
 import WhoWillAttend from "@/app/nevsky-drive/WhoWillAttend";
 import DriveAcrossCountry from "@/app/nevsky-drive/DriveAcrossCountry";
 import EventPhotosBlock from "./EventPhotosBlock";
-import PartnersSection from "./PartnersSection";
+
 import MeetingPlace from "@/app/nevsky-drive/MeetingPlace";
 import EventSection from "@/app/nevsky-drive/EventSection";
 import Footer from "@/app/nevsky-drive/Footer";
+import ProgramBlock from "@/app/nevsky-drive/ProgramBlock";
+import OrganaizersSection from "./OrganaizersSection";
+import PartnersSection from "@/app/nevsky-drive/PartnersSection";
 // import ExpectBlock from "@/app/drive/ExpectBlock";
 // import WhoWillAttend.tsx from "@/app/drive/WhoWillAttend.tsx";
 // import ProgramBlock from "@/app/drive/ProgramBlock";
@@ -30,6 +33,7 @@ export default function HomePage() {
             <GradientPage></GradientPage>
             <FirstBlock></FirstBlock>
             <QuoteVideoBlock></QuoteVideoBlock>
+            <ProgramBlock></ProgramBlock>
             <NevskyDriveBlock></NevskyDriveBlock>
             <WhoWillAttend></WhoWillAttend>
             <DriveAcrossCountry></DriveAcrossCountry>
@@ -38,9 +42,10 @@ export default function HomePage() {
             {/*<ProgramBlock></ProgramBlock>*/}
             {/*<VideosBlock></VideosBlock>*/}
             <EventPhotosBlock></EventPhotosBlock>
-            <PartnersSection></PartnersSection>
+            <OrganaizersSection></OrganaizersSection>
             <MeetingPlace></MeetingPlace>
             <EventSection></EventSection>
+            <PartnersSection></PartnersSection>
             <Footer />
             {/*<MeetingPlace></MeetingPlace>*/}
             {/*<EventSection></EventSection>*/}

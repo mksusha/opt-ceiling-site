@@ -7,6 +7,7 @@ export default function PartnersSection() {
     ];
 
     const partners = [
+
         { src: "/drive/ШТОК лого.svg", alt: "Партнер 1" },
         { src: "/drive/Копия DENKIRS_logo1.png", alt: "Партнер 2" },
         { src: "/drive/U-line_логотип.svg", alt: "Партнер 3" },

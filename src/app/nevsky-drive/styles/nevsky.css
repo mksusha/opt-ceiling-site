@@ -259,7 +259,30 @@ body {
     height: 300px; /* Фиксированная высота карточки */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
+.official-card {
 
+    text-align: center;
+    border-radius: 15px;
+    padding: 12px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    width: 600px !important;
+    height: 250px !important; ;
+}
+
+.official-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 12px 24px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 70, 6, 0.8);
+    background: white;
+}
+@media (max-width: 769px) {
+    .official-card {
+        height: 150px !important;
+        width: 100% !important;
+    }
+}
 .partner-card:hover {
     transform: translateY(-6px); /* Подъем при наведении */
     box-shadow:
