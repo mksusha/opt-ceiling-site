@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { client , urlFor} from "@/sanity/lib/client";
+import { client, urlFor } from "@/sanity/lib/client";
 import { useTranslation } from "react-i18next";
 import Header from "@/app/components/Header";
 import ExhibitionDetails from "@/app/components/ExhibitionDetails";
@@ -34,10 +34,10 @@ interface Exhibition {
     invitationLink?: string;
     recording?: string;
     videoList?: string[];
-    photoList?: { asset: { _ref: string } }[];    theme?: string[];
+    photoList?: { asset: { _ref: string } }[];
+    theme?: string[];
     theme_en?: string[];
     banner?: string | null;
-
     image?: string;
 }
 
@@ -91,7 +91,6 @@ const ExhibitionPage: React.FC = () => {
 }
 `;
 
-
                 const data = await client.fetch(query, { id });
 
                 if (data) {
@@ -140,10 +139,16 @@ const ExhibitionPage: React.FC = () => {
         fetchExhibition();
     }, [id, t, i18n.language]);
 
+    // Установка тайтла страницы
+    useEffect(() => {
+        if (exhibition?.title) {
+            document.title = `${exhibition.title} — OPT Ceiling`;
+        }
+    }, [exhibition]);
+
     if (loading) {
         return null;
     }
-
 
     if (!exhibition) {
         return <p className="text-center text-lg text-red-500">{t("Выставка не найдена.")}</p>;
@@ -168,8 +173,6 @@ const ExhibitionPage: React.FC = () => {
                     t={t}
                     language={i18n.language}
                 />
-
-
             </div>
         </ClientWrapper>
     );
