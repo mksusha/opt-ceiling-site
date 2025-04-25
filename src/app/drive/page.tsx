@@ -12,6 +12,10 @@ import EventSection from "@/app/drive/EventSection";
 import Footer from "@/app/drive/Footer";
 import MeetingPlace from "@/app/drive/MeetingPlace";
 
+export const metadata = {
+    title: "Волжский Драйв — OPT Ceiling",
+    description: "Узнайте всё о масштабном событии Волжский Драйв: программа, участники, партнёры и атмосфера драйва по всей стране.",
+};
 
 export default function HomePage() {
     return (
