@@ -8,12 +8,20 @@ export default function ProgramBlock() {
             description: "Форумная часть",
             subItems: [
                 { description: "Презентация многофункциональных продуктов от ведущих брендов рынка натяжных потолков" },
-                { description: "Как получать целевых клиентов на Авито Услугах. Спикер Анна Пастернацкая,  Авито" },
+                { description: "Как получать целевых клиентов на Авито Услугах. Спикер Анна Пастернацкая, Авито" },
             ],
         },
         { time: "14:00 – 15:00", description: "Обед “Шведский стол”" },
         { time: "15:00 – 18:00", description: "Открытие выставки, участие в мастер-классах и конкурсах" },
-        { time: "18:00 – 22:00", description: "Afterparty", isAfterparty: true },
+        {
+            time: "18:00 – 22:00",
+            description: "Afterparty",
+            isAfterparty: true,
+            subItems: [
+                { description: 'Ужин "Шведский стол"' },
+                { description: "Стендап" },
+            ],
+        },
     ];
 
     return (
@@ -28,7 +36,7 @@ export default function ProgramBlock() {
                         key={index}
                         className={`flex flex-col w-full px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg ${
                             item.isAfterparty
-                                ? "bg-[#FF4606] text-white rounded-lg"
+                                ? "bg-[#FF4606] text-white rounded-2xl"
                                 : "text-[#3b3b3b] border-b border-[#dadada]"
                         }`}
                     >
@@ -38,7 +46,9 @@ export default function ProgramBlock() {
                         </div>
 
                         {item.subItems && (
-                            <ul className=" list-disc list-inside text-sm sm:text-lg text-black/50 space-y-3 my-5">
+                            <ul className={`list-disc list-inside space-y-3 my-2 ${
+                                item.isAfterparty ? "text-white/80" : "text-black/50"
+                            }`}>
                                 {item.subItems.map((subItem, subIndex) => (
                                     <li key={subIndex}>{subItem.description}</li>
                                 ))}
