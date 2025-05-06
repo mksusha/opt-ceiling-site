@@ -10,34 +10,38 @@ export default function PartnersSection() {
         { src: "/drive/s.png", alt: "Официальный партнер 1" },
         { src: "/drive/K.png", alt: "Официальный партнер 2" },
         { src: "/drive/ELFLED.png", alt: "Официальный партнер 3" },
-        { src: "/drive/pro.png", alt: "Официальный партнер 4" },
+        // { src: "/drive/pro.png", alt: "Официальный партнер 4" },
     ];
 
     const partners = [
-        { src: "/drive/avito.png", alt: "Партнер 2" },
+        // { src: "/drive/avito.png", alt: "Партнер 2" },
         { src: "/drive/Копия DENKIRS_logo1.png", alt: "Партнер 2" },
 
         { src: "/drive/ШТОК лого.svg", alt: "Партнер 1" },
         { src: "/drive/U-line_логотип.svg", alt: "Партнер 3" },
         { src: "/drive/DL.png", alt: "Партнер 12" },
         { src: "/drive/D.png", alt: "Партнер 6" },
-        { src: "/drive/RRRR.png", alt: "Партнер 7" },
-        { src: "/drive/rondo.png", alt: "Партнер 2" },
+        // { src: "/drive/RRRR.png", alt: "Партнер 7" },
+        // { src: "/drive/rondo.png", alt: "Партнер 2" },
         { src: "/drive/HS.png", alt: "Партнер 13" },
         { src: "/drive/Da.png", alt: "Партнер 9" },
-        { src: "/drive/Ч.png", alt: "Партнер 16" },
-        { src: "/drive/V.png", alt: "Партнер 10" },
+        // { src: "/drive/Ч.png", alt: "Партнер 16" },
+        // { src: "/drive/V.png", alt: "Партнер 10" },
         { src: "/drive/PQ.png", alt: "Партнер 11" },
-        { src: "/drive/YOULED.png", alt: "Партнер 11" },
-        { src: "/drive/lumistar.png", alt: "Партнер 11" },
-        { src: "/drive/MSD1.png", alt: "Партнер 11" },
-        { src: "/drive/вмбик.png", alt: "Партнер 11" },
-        { src: "/drive/Lucisso.png", alt: "Партнер 11" },
-        { src: "/drive/lux.png", alt: "Партнер 11" },
-        { src: "/drive/sds.png", alt: "Партнер 11" },
-        { src: "/drive/rexant.png", alt: "Партнер 11" },
-        { src: "/drive/ST.png", alt: "Партнер 11" },
-        { src: "/drive/SKL.png", alt: "Партнер 11" },
+        { src: "/drive/EKS.png", alt: "Партнер 9" },
+        { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
+        { src: "/drive/Ч.png", alt: "Партнер 16" },
+
+        // { src: "/drive/YOULED.png", alt: "Партнер 11" },
+        // { src: "/drive/lumistar.png", alt: "Партнер 11" },
+        // { src: "/drive/MSD1.png", alt: "Партнер 11" },
+        // { src: "/drive/вмбик.png", alt: "Партнер 11" },
+        // { src: "/drive/Lucisso.png", alt: "Партнер 11" },
+        // { src: "/drive/lux.png", alt: "Партнер 11" },
+        // { src: "/drive/sds.png", alt: "Партнер 11" },
+        // { src: "/drive/rexant.png", alt: "Партнер 11" },
+        // { src: "/drive/ST.png", alt: "Партнер 11" },
+        // { src: "/drive/SKL.png", alt: "Партнер 11" },
 
 
     ];
@@ -73,11 +77,11 @@ export default function PartnersSection() {
             </div>
 
             {/* Официальные партнёры */}
-            <div className="mb-20">
+            <div className="mb-20 px-5 max-w-[1350px] mx-auto">
                 <h2 className="text-2xl md:text-3xl font-bold text-black/70 mb-8 md:mb-16 uppercase text-center">
                     Официальные партнёры
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center items-center">
                     {officialPartners.map((logo, index) => (
                         <img
                             key={index}
@@ -93,6 +97,7 @@ export default function PartnersSection() {
                     ))}
                 </div>
             </div>
+
 
             {/* Остальные партнёры */}
             <div className="mb-12">
