@@ -420,4 +420,15 @@ a {
     width: 120% !important; /* Занимают всю ширину контейнера */
     height: auto; /* Сохраняем пропорции */
 }
+.flame-mask {
+    -webkit-mask-image: url('/drive/flame-mask.svg');
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    mask-image: url('/drive/flame-mask.svg');
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
 

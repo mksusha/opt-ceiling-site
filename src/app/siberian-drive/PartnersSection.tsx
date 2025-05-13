@@ -29,8 +29,9 @@ export default function PartnersSection() {
         // { src: "/drive/V.png", alt: "Партнер 10" },
         { src: "/drive/PQ.png", alt: "Партнер 11" },
         { src: "/drive/EKS.png", alt: "Партнер 9" },
-        { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
+        // { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
         { src: "/drive/Ч.png", alt: "Партнер 16" },
+        { src: "/drive/LPP.png", alt: "Партнер 16" },
 
         // { src: "/drive/YOULED.png", alt: "Партнер 11" },
         // { src: "/drive/lumistar.png", alt: "Партнер 11" },
@@ -47,16 +48,17 @@ export default function PartnersSection() {
     ];
 
     return (
-        <div className="w-full max-w-[1350px] mx-auto px-5 pt-10 bg-white">
+        <div className="w-full  mx-auto px-5 pt-10 bg-midGray">
+            <div className='max-w-[1350px] w-full  mx-auto '>
             {/* Общий заголовок */}
-            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8 md:mb-12 uppercase text-center">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 md:mb-12 uppercase text-center">
 
                 Наши партнёры
             </h2>
 
             {/* Генеральный партнер */}
             <div className="mb-20">
-                <h2 className="text-2xl md:text-3xl font-bold text-black/70 mb-8 md:mb-16 uppercase text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-white  mb-8 md:mb-16 uppercase text-center">
                     Генеральный партнёр
                 </h2>
                 <div className="flex justify-center mb-5 p-6 rounded-lg partner-card">
@@ -78,7 +80,7 @@ export default function PartnersSection() {
 
             {/* Официальные партнёры */}
             <div className="mb-20 px-5 max-w-[1350px] mx-auto">
-                <h2 className="text-2xl md:text-3xl font-bold text-black/70 mb-8 md:mb-16 uppercase text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-white  mb-8 md:mb-16 uppercase text-center">
                     Официальные партнёры
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center items-center">
@@ -101,10 +103,10 @@ export default function PartnersSection() {
 
             {/* Остальные партнёры */}
             <div className="mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-black/70 mb-8 md:mb-16 uppercase text-center">
+                <h2 className="text-2xl md:text-3xl font-bold text-white  mb-8 md:mb-16 uppercase text-center">
                     Партнёры
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+                <div className="grid grid-cols-2 md:grid-cols-4 pb-20 gap-8 justify-items-center">
                     {partners.map((logo, index) => (
                         <img
                             key={index}
@@ -123,6 +125,8 @@ export default function PartnersSection() {
 
                 </div>
             </div>
+            </div>
+
         </div>
     );
 }

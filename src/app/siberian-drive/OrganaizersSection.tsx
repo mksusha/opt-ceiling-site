@@ -2,15 +2,16 @@ import React from "react";
 
 export default function OrganaizersSection() {
     const organizers = [
-        { src: "/optlogo.svg", alt: "Организатор 1", padding: "p-0" },
+        { src: "/drive/OPTd.png", alt: "Организатор 1", padding: "p-0" },
         { src: "/logo-opt-nevsky2.svg", alt: "Организатор 2", padding: "p-16" },
     ];
 
     return (
-        <div className="w-full max-w-[1350px] mx-auto px-5 pt-20 bg-white">
-            <div className="mb-12">
+        <div className="w-full mx-auto px-5 pt-20 bg-midGray">
+            <div className="max-w-[1350px] w-full mx-auto " >
+            <div className="">
                 <h3
-                    className="font-bold text-black text-4xl sm:text-6xl mb-10 sm:mb-16 uppercase text-center"
+                    className="font-bold text-white text-4xl pt-5 sm:text-6xl mb-10 sm:mb-16 uppercase text-center"
                     style={{
                         fontWeight: 600,
                         letterSpacing: "-0.05em",
@@ -19,7 +20,7 @@ export default function OrganaizersSection() {
                 >
                     Организаторы
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-5 p-6 rounded-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 pb-20  p-8 rounded-lg">
                     {organizers.map((logo, index) => (
                         <div key={index}
                              className={`flex justify-center p-4 bg-gray-100 rounded-lg partner-card shadow-md ${logo.padding}`}>
@@ -36,6 +37,7 @@ export default function OrganaizersSection() {
                         </div>
                     ))}
                 </div>
+            </div>
             </div>
         </div>
     );

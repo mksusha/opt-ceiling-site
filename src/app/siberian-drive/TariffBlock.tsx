@@ -93,7 +93,9 @@ export default function TariffBlock() {
                             <div className="text-center">
                                 <div className="text-xl font-bold text-gray-900 mb-2">
                                     {tariff.prices.map((price, i) => (
-                                        <div key={i}>{price}</div>
+                                        <div key={i} className={i > 0 ? "text-sm font-normal italic" : ""}>
+                                            {price}
+                                        </div>
                                     ))}
                                 </div>
                                 <a

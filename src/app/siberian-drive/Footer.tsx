@@ -14,7 +14,7 @@ const Footer = () => {
                         loading="eager"
                     />
                     <img
-                        src="/drive/VH.svg"
+                        src="/drive/wer.png"
                         alt="Logo2"
                         className="h-9 lg:h-12 sm:h-12"
                         loading="eager"

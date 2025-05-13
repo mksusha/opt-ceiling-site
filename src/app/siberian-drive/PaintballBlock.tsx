@@ -2,14 +2,15 @@ import React from "react";
 
 export default function PaintballBlock() {
     return (
-        <div className="bg-white px-5 py-10  lg:py-20 w-full flex justify-center">
+        <div className="bg-white px-5 py-10 lg:py-28 w-full flex justify-center">
             <div className="max-w-5xl w-full flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
+
                 {/* Фото слева */}
                 <div className="flex justify-center md:justify-start w-full md:w-auto">
                     <img
-                        src="/drive/paintball.jpeg" // замени на свой путь
+                        src="/drive/paintball.jpeg"
                         alt="Пейнтбол"
-                        className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-[#FF4606] shadow-xl transition-transform duration-300 hover:scale-105"
+                        className="w-full max-w-sm object-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105"
                     />
                 </div>
 
@@ -20,7 +21,7 @@ export default function PaintballBlock() {
                     </h3>
 
                     <div className="space-y-4 text-base md:text-lg leading-relaxed">
-                        <p>
+                        <p className="italic">
                             Учащенный пульс. Чувство тревоги и страха. Выброс адреналина. Усиленная работа мозга.
                             Короткая перебежка от дерева к дереву, от укрытия к укрытию. Падение. Маскировка в траве.
                             Попытки спрятаться за укрытиями. Выслеживание снайпера. Хлопки автоматов. Череда выстрелов…

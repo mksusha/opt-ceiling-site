@@ -26,11 +26,12 @@ import EventPhotosBlock from "./EventPhotosBlock";
 import PartnerCallBlock from "@/app/siberian-drive/PartnerCallBlock";
 import MeetingPlace from "./MeetingPlace";
 import Footer from "@/app/siberian-drive/Footer";
+import DriveBlock from "@/app/siberian-drive/DriveBlock";
 
 
 export const metadata = {
-    title: "Невский Драйв — OPT Ceiling",
-    description: "Узнайте всё о масштабном событии Невский Драйв: программа, участники, партнёры и атмосфера драйва по всей стране.",
+    title: "Сибирский Драйв — OPT Ceiling",
+    description: "Узнайте всё о масштабном событии Сибирский Драйв: программа, участники, партнёры и атмосфера драйва по всей стране.",
 };
 
 export default function HomePage() {
@@ -45,8 +46,9 @@ export default function HomePage() {
             <ProgramBlock></ProgramBlock>
 <PaintballBlock></PaintballBlock>
             <RelaxBlock></RelaxBlock>
-            <EventPhotosBlock></EventPhotosBlock>
 
+            <EventPhotosBlock></EventPhotosBlock>
+            <DriveBlock></DriveBlock>
             <TariffBlock></TariffBlock>
             <OrganaizersSection></OrganaizersSection>
             {/*<EventSection></EventSection>*/}

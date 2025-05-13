@@ -2,7 +2,7 @@
 
 export default function PartnerCallBlock() {
     return (
-        <section className="relative bg-gradient-to-r mt-24 from-[#f6431d] to-[#f9572a] py-16 px-4 md:px-8 overflow-hidden">
+        <section className="relative bg-gradient-to-r  from-[#f6431d] to-[#f9572a] py-16 px-4 md:px-8 overflow-hidden">
             {/* Верхний декоративный угол */}
             <div className="absolute top-0  left-0 w-full h-12 bg-white [clip-path:polygon(0_60%,100%_0,100%_100%,0_100%)] z-0" />
 
