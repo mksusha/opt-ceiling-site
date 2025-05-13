@@ -3,7 +3,7 @@ import React from "react";
 export default function OrganaizersSection() {
     const organizers = [
         { src: "/drive/OPTd.png", alt: "Организатор 1", padding: "p-0" },
-        { src: "/logo-opt-nevsky2.svg", alt: "Организатор 2", padding: "p-16" },
+        { src: "/drive/VerH.png", alt: "Организатор 2", padding: "p-16" },
     ];
 
     return (

@@ -19,8 +19,6 @@ export default function PartnersSection() {
 
         { src: "/drive/ШТОК лого.svg", alt: "Партнер 1" },
         { src: "/drive/U-line_логотип.svg", alt: "Партнер 3" },
-        { src: "/drive/DL.png", alt: "Партнер 12" },
-        { src: "/drive/D.png", alt: "Партнер 6" },
         // { src: "/drive/RRRR.png", alt: "Партнер 7" },
         // { src: "/drive/rondo.png", alt: "Партнер 2" },
         { src: "/drive/HS.png", alt: "Партнер 13" },
