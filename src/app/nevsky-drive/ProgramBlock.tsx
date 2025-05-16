@@ -19,7 +19,10 @@ export default function ProgramBlock() {
             isAfterparty: true,
             subItems: [
                 { description: 'Ужин "Шведский стол"' },
-                { description: "Стендап" },
+                { description: 'Выступление кавер-группы "UNDER FLY"' },
+                { description: "Интерактивные конкурсы от ведущего" },
+                { description: "Знаменитые треки от DJ" },
+                { description: "Большой розыгрыш призов" },
             ],
         },
     ];
@@ -46,9 +49,11 @@ export default function ProgramBlock() {
                         </div>
 
                         {item.subItems && (
-                            <ul className={`list-disc list-inside space-y-3 my-2 ${
-                                item.isAfterparty ? "text-white/80" : "text-black/50"
-                            }`}>
+                            <ul
+                                className={`list-disc list-inside space-y-3 my-2 ${
+                                    item.isAfterparty ? "text-white/80" : "text-black/50"
+                                }`}
+                            >
                                 {item.subItems.map((subItem, subIndex) => (
                                     <li key={subIndex}>{subItem.description}</li>
                                 ))}

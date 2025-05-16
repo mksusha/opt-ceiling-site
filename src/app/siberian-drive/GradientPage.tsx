@@ -77,7 +77,7 @@ export default function GradientPage() {
                     {/* Дата (по центру) */}
                     <div
                         className="text-white font-bold text-3xl  lg:mb-5 mt-2 lg:text-7xl sm:text-3xl uppercase text-center mb-8">
-                        <span>19 - 20 мая 2025</span>
+                        <span>19 - 20 июля 2025</span>
                     </div>
                     {/* Место (по центру) */}
                     <div

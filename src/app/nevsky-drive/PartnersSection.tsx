@@ -38,6 +38,8 @@ export default function PartnersSection() {
         { src: "/drive/rexant.png", alt: "Партнер 11" },
         { src: "/drive/ST.png", alt: "Партнер 11" },
         { src: "/drive/SKL.png", alt: "Партнер 11" },
+        { src: "/drive/Black.svg", alt: "Партнер 11" },
+
 
 
     ];
