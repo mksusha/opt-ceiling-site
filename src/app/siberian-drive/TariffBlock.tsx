@@ -12,7 +12,8 @@ const tariffs = [
             <del key="del2">Именной сертификат</del>,
         ],
         prices: [
-            "4 300 ₽",
+            "3 300 ₽",
+            "с 1 июня: 4 300 ₽",
             "с 1 июля: 5 300 ₽"
         ],
     },
@@ -27,7 +28,8 @@ const tariffs = [
             "Именной сертификат",
         ],
         prices: [
-            "6 300 ₽",
+            "5 300 ₽",
+            "с 1 июня: 6 300 ₽",
             "с 1 июля: 7 300 ₽"
         ],
     },
@@ -41,7 +43,8 @@ const tariffs = [
             "Afterparty с розыгрышем призов",
         ],
         prices: [
-            "6 700 ₽",
+            "5 700 ₽",
+            "с 1 июня: 6 700 ₽",
             "с 1 июля: 7 700 ₽"
         ],
     },
@@ -77,6 +80,7 @@ export default function TariffBlock() {
                                 {tariff.subtitle && (
                                     <p className="text-center text-sm mb-2 text-gray-600">{tariff.subtitle}</p>
                                 )}
+
                                 <ul className="text-base text-left space-y-2 mb-6">
                                     {tariff.description.map((item, idx) => (
                                         <li key={idx}>{item}</li>
