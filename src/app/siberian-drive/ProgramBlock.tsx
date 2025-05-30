@@ -15,7 +15,7 @@ export default function ProgramBlock() {
             time: "20 июля: Прокачка экспертизы и адреналин",
 
             subItems: [
-                { description: "Расширенное обучение от FLEXYPRO, SWG KRAAB, ШТОК и ELFLED с именными сертификатами" },
+                { description: "Расширенное обучение от FLEXYPRO, SWG, и ШТОК с именными сертификатами" },
                 { description: "Командный турнир по пейнтболу — разряжаем обстановку и укрепляем нетворкинг" },
             ],
         },

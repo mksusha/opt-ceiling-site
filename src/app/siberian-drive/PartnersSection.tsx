@@ -7,8 +7,7 @@ export default function PartnersSection() {
     ];
 
     const officialPartners = [
-        { src: "/drive/s.png", alt: "Официальный партнер 1" },
-        { src: "/drive/K.png", alt: "Официальный партнер 2" },
+        { src: "/drive/HS.png", alt: "Партнер 13" },
         { src: "/drive/ELFLED.png", alt: "Официальный партнер 3" },
         { src: "/drive/EKS.png", alt: "Партнер 9" },
 
@@ -23,7 +22,8 @@ export default function PartnersSection() {
         { src: "/drive/U-line_логотип.svg", alt: "Партнер 3" },
         // { src: "/drive/RRRR.png", alt: "Партнер 7" },
         // { src: "/drive/rondo.png", alt: "Партнер 2" },
-        { src: "/drive/HS.png", alt: "Партнер 13" },
+        { src: "/drive/s.png", alt: "Официальный партнер 1" },
+
         { src: "/drive/Da.png", alt: "Партнер 9" },
         // { src: "/drive/Ч.png", alt: "Партнер 16" },
         // { src: "/drive/V.png", alt: "Партнер 10" },
@@ -32,6 +32,8 @@ export default function PartnersSection() {
         // { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
         { src: "/drive/Ч.png", alt: "Партнер 16" },
         { src: "/drive/LPP.png", alt: "Партнер 16" },
+        { src: "/drive/luxolight.png", alt: "Партнер 16" },
+        { src: "/drive/prodiod.png", alt: "Партнер 16" },
 
         // { src: "/drive/YOULED.png", alt: "Партнер 11" },
         // { src: "/drive/lumistar.png", alt: "Партнер 11" },
@@ -83,7 +85,7 @@ export default function PartnersSection() {
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 md:mb-16 uppercase text-center">
                         Официальные партнёры
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center items-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-items-center items-center">
                         {officialPartners.map((logo, index) => (
                             <img
                                 key={index}

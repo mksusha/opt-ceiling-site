@@ -12,14 +12,12 @@ const tariffs = [
             <del key="del2">Именной сертификат</del>,
         ],
         prices: [
-            "3 300 ₽",
-            "с 1 июня: 4 300 ₽",
+            "4 300 ₽",
             "с 1 июля: 5 300 ₽"
         ],
     },
     {
         title: "ПОЛНЫЙ ХАРДКОР",
-        notice: "Продажа приостановлена. Откроем скоро – оставайтесь на связи!",
         description: [
             "Доступ на два дня (19–20 июля)",
             "Посещение выставки поставщиков",
@@ -29,8 +27,7 @@ const tariffs = [
             "Именной сертификат",
         ],
         prices: [
-            "5 300 ₽",
-            "с 1 июня: 6 300 ₽",
+            "6 300 ₽",
             "с 1 июля: 7 300 ₽"
         ],
     },
@@ -44,8 +41,7 @@ const tariffs = [
             "Afterparty с розыгрышем призов",
         ],
         prices: [
-            "5 700 ₽",
-            "с 1 июня: 6 700 ₽",
+            "6 700 ₽",
             "с 1 июля: 7 700 ₽"
         ],
     },
@@ -80,9 +76,6 @@ export default function TariffBlock() {
                                 <h3 className="text-2xl font-bold uppercase text-center text-[#FF4606] mb-2">{tariff.title}</h3>
                                 {tariff.subtitle && (
                                     <p className="text-center text-sm mb-2 text-gray-600">{tariff.subtitle}</p>
-                                )}
-                                {tariff.notice && (
-                                    <p className="text-sm text-red-600 text-center mb-4">{tariff.notice}</p>
                                 )}
                                 <ul className="text-base text-left space-y-2 mb-6">
                                     {tariff.description.map((item, idx) => (
