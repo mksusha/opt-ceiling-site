@@ -1,0 +1,65 @@
+import React from "react";
+
+export default function ProgramBlock() {
+    const programItems = [
+        { time: "10:00 – 11:00", description: "Регистрация участников" },
+        {
+            time: "11:00 – 19:00",
+            description:
+                "Презентации новинок, выступление экспертов, работа выставки, мастер-классов, соревнований, конкурсов",
+        },
+        { time: "14:00 – 15:00", description: "Обед «Шведский стол»" },
+        {
+            time: "19:00 – 22:00",
+            description: "Afterparty",
+            isAfterparty: true,
+            subItems: [
+                { description: 'Ужин "Шведский стол"' },
+                { description: "Выступление кавер-группы" },
+                { description: "Интерактивные конкурсы от ведущего" },
+                { description: "Знаменитые треки от DJ" },
+                { description: "Большой розыгрыш призов" },
+            ],
+        },
+    ];
+
+    return (
+        <div className="bg-white px-5 max-w-[1350px] mx-auto py-20">
+            {/* Заголовок */}
+            <h2 className="text-4xl md:text-6xl font-bold text-black mb-8 md:mb-12 uppercase text-center">
+                Программа
+            </h2>
+
+            {/* Расписание */}
+            <div className="flex flex-col w-full space-y-6">
+                {programItems.map((item, index) => (
+                    <div
+                        key={index}
+                        className={`flex flex-col w-full px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-lg ${
+                            item.isAfterparty
+                                ? "bg-[#FF4606] text-white rounded-2xl"
+                                : "text-[#3b3b3b] border-b border-[#dadada]"
+                        }`}
+                    >
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full">
+                            <span className="font-bold mb-2 sm:mb-0">{item.time}</span>
+                            <span className="font-light text-sm sm:text-base">{item.description}</span>
+                        </div>
+
+                        {item.subItems && (
+                            <ul
+                                className={`list-disc list-inside space-y-3 my-2 ${
+                                    item.isAfterparty ? "text-white/80" : "text-black/50"
+                                }`}
+                            >
+                                {item.subItems.map((subItem, subIndex) => (
+                                    <li key={subIndex}>{subItem.description}</li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}

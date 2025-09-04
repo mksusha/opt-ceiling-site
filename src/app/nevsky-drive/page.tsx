@@ -17,7 +17,7 @@ import ProgramBlock from "@/app/nevsky-drive/ProgramBlock";
 import OrganaizersSection from "./OrganaizersSection";
 import PartnersSection from "@/app/nevsky-drive/PartnersSection";
 // import ExpectBlock from "@/app/drive/ExpectBlock";
-// import WhoWillAttend.tsx from "@/app/drive/WhoWillAttend.tsx";
+// import WhoWillAttend.tsx.tsx from "@/app/drive/WhoWillAttend.tsx.tsx";
 // import ProgramBlock from "@/app/drive/ProgramBlock";
 // import VideosBlock from "@/app/drive/VideosBlock";
 // import EventPhotosBlock from "@/app/drive/EventPhotosBlock";
@@ -42,7 +42,7 @@ export default function HomePage() {
             <WhoWillAttend></WhoWillAttend>
             <DriveAcrossCountry></DriveAcrossCountry>
             {/*<ExpectBlock />*/}
-            {/*<WhoWillAttend.tsx></WhoWillAttend.tsx>*/}
+            {/*<WhoWillAttend.tsx.tsx></WhoWillAttend.tsx.tsx>*/}
             {/*<ProgramBlock></ProgramBlock>*/}
             {/*<VideosBlock></VideosBlock>*/}
             <EventPhotosBlock></EventPhotosBlock>

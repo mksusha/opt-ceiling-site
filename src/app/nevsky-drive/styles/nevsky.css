@@ -421,3 +421,136 @@ a {
     height: auto; /* Сохраняем пропорции */
 }
 
+.title-large-moscow {
+    font-weight: 600;
+    font-size: 9vw; /* Относительный размер для мобильных */
+    max-width: 100%; /* Не выходить за экран */
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+@media (min-width: 640px) {
+
+
+    .title-large-moscow {
+        font-size: 48px; /* Фиксированный размер для планшетов */
+    }
+
+    .title-small {
+        font-size: 32px; /* Фиксированный размер для планшетов */
+    }
+}
+
+@media (min-width: 1024px) {
+    .title-large-moscow {
+        font-size: 120px !important; /* Максимальный размер на больших экранах */
+    }
+
+    .title-small {
+        font-size: 48px; /* Максимальный размер на больших экранах */
+    }
+}
+@media (min-width: 375px) {
+
+    .title-large-moscow {
+        font-size: 60px; /* Максимальный размер на больших экранах */
+    }
+
+    .title-small {
+        font-size: 40px; /* Максимальный размер на больших экранах */
+    }
+}
+
+.background-moscow {
+    position: relative; /* Для корректной работы псевдоэлемента */
+    overflow: hidden; /* Чтобы псевдоэлемент не выходил за пределы контейнера */
+}
+
+.background-moscow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/bg-moscow.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: grayscale(1) blur(0.1px); /* Серый фильтр и небольшое размытие */
+    z-index: -1; /* Помещаем фон позади всего */
+}
+
+.background-moscow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Затемнение с прозрачностью */
+    z-index: -1; /* Затемнение тоже позади контента */
+}
+.attendee-card-moscow {
+    width: 100%;
+    max-width: none; /* позволяет растягиваться на 2 колонки */
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.attendee-card-moscow .attendee-text {
+    max-width: 100%;
+    font-size: 20px;
+}
+
+.attendee-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    padding: 24px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fc);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 12px rgba(0,0,0,0.05);
+    border: 1px solid transparent;
+    width: 100%; /* важно */
+    min-height: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.attendee-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255,70,6,0.8);
+    background: linear-gradient(145deg, #f9fafb, #ffffff);
+}
+
+.attendee-number {
+    font-size: 56px;
+    font-weight: bold;
+    color: #FF4606;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(255,70,6,0.3);
+}
+
+.attendee-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #3B3B3B;
+    line-height: 1.5;
+    max-width: 220px; /* сохраняем только для обычных карточек */
+    text-align: center;
+}
+
+/* Последняя карточка Москва */
+.attendee-card-moscow {
+    width: 100%;
+    max-width: 100%; /* растягивается на всю доступную ширину */
+}
+
+.attendee-card-moscow .attendee-text {
+    max-width: 100%; /* текст занимает всю ширину карточки */
+}

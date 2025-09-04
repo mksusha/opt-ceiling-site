@@ -6,7 +6,7 @@ import FirstBlock from "../siberian-drive/FirstBlock";
 // import {Quote} from "lucide-react";
 import QuoteVideoBlock from "../siberian-drive/QuoteVideoBlock";
 // import NevskyDriveBlock from "@/app/nevsky-drive/NevskyNew";
-// import WhoWillAttend from "@/app/nevsky-drive/WhoWillAttend";
+// import WhoWillAttend.tsx from "@/app/nevsky-drive/WhoWillAttend.tsx";
 // import DriveAcrossCountry from "@/app/nevsky-drive/DriveAcrossCountry";
 // import EventPhotosBlock from "./EventPhotosBlock";
 //

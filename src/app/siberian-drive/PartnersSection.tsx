@@ -7,7 +7,6 @@ export default function PartnersSection() {
     ];
 
     const officialPartners = [
-        { src: "/drive/HS.png", alt: "Партнер 13" },
         { src: "/drive/ELFLED.png", alt: "Официальный партнер 3" },
         { src: "/drive/EKS.png", alt: "Партнер 9" },
 
@@ -17,6 +16,7 @@ export default function PartnersSection() {
     const partners = [
         // { src: "/drive/avito.png", alt: "Партнер 2" },
         { src: "/drive/Копия DENKIRS_logo1.png", alt: "Партнер 2" },
+        { src: "/drive/HS.png", alt: "Партнер 13" },
 
         { src: "/drive/ШТОК лого.svg", alt: "Партнер 1" },
         { src: "/drive/U-line_логотип.svg", alt: "Партнер 3" },
@@ -27,7 +27,7 @@ export default function PartnersSection() {
         { src: "/drive/Da.png", alt: "Партнер 9" },
         // { src: "/drive/Ч.png", alt: "Партнер 16" },
         // { src: "/drive/V.png", alt: "Партнер 10" },
-        { src: "/drive/PQ.png", alt: "Партнер 11" },
+        // { src: "/drive/PQ.png", alt: "Партнер 11" },
         // { src: "/drive/EKS.png", alt: "Партнер 9" },
         // { src: "/drive/Pazzle-1.png", alt: "Партнер 14" },
         { src: "/drive/Ч.png", alt: "Партнер 16" },
@@ -37,9 +37,13 @@ export default function PartnersSection() {
 
         // { src: "/drive/YOULED.png", alt: "Партнер 11" },
         // { src: "/drive/lumistar.png", alt: "Партнер 11" },
-        // { src: "/drive/MSD1.png", alt: "Партнер 11" },
+        { src: "/drive/MSD1.png", alt: "Партнер 11" },
         // { src: "/drive/вмбик.png", alt: "Партнер 11" },
-        // { src: "/drive/Lucisso.png", alt: "Партнер 11" },
+        { src: "/drive/Lucisso.png", alt: "Партнер 11" },
+        { src: "/drive/F.png", alt: "Партнер 11" },
+        { src: "/drive/Bauf.png", alt: "Партнер 11" },
+        { src: "/drive/RRRR.png", alt: "Партнер 7" },
+
         // { src: "/drive/lux.png", alt: "Партнер 11" },
         // { src: "/drive/sds.png", alt: "Партнер 11" },
         // { src: "/drive/rexant.png", alt: "Партнер 11" },
@@ -85,7 +89,7 @@ export default function PartnersSection() {
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 md:mb-16 uppercase text-center">
                         Официальные партнёры
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 justify-items-center items-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center items-center">
                         {officialPartners.map((logo, index) => (
                             <img
                                 key={index}

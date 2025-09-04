@@ -1,8 +1,12 @@
-import BuilderDevTools from "@builder.io/dev-tools/next";
 import type { NextConfig } from "next";
 
-module.exports = {
+const nextConfig: NextConfig = {
     env: {
         SANITY_TOKEN: process.env.SANITY_TOKEN,
     },
+    images: {
+        domains: ["optceilingevent.ru"],
+    },
 };
+
+export default nextConfig;
