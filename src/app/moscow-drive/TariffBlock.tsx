@@ -49,7 +49,7 @@ export default function TariffBlock() {
 
                         <div className="mt-auto">
                             <a
-                                href="https://optceiling.timepad.ru/event/3348038/"
+                                href="https://optceilingdrive.timepad.ru/event/3575510/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block bg-[#FF4606] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#e54305] transition"
