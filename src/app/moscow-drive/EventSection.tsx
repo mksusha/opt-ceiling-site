@@ -35,7 +35,7 @@ const EventSection = () => {
                     </h2>
 
                     <a
-                        href="/"
+                        href="https://optceilingdrive.timepad.ru/event/3575510/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-3 bg-orange text-white font-semibold text-lg sm:text-xl px-10 py-4 rounded-full shadow-lg border border-transparent hover:bg-white hover:text-orange hover:border-orange transition-all duration-300 mt-6"

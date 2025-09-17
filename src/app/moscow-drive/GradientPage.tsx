@@ -77,7 +77,7 @@ export default function GradientPage() {
                     >
                         {/* Купить билет */}
                         <a
-                            href="#"
+                            href="https://optceilingdrive.timepad.ru/event/3575510/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="button w-full md:w-auto hover:bg-white hover:text-orange hover:shadow-lg transition-all duration-300 text-center"

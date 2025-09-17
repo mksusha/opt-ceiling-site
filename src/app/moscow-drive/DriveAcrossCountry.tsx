@@ -50,11 +50,14 @@ export default function DriveAcrossCountry() {
                             ></iframe>
                         ) : item.registration ? (
                             <a
-                                href="#" // вставишь ссылку на Timepad
+                                href="https://optceilingdrive.timepad.ru/event/3575510/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="flex items-center justify-center w-full h-[300px] bg-[#FF551A] rounded-2xl text-white text-3xl font-bold hover:opacity-90 transition"
                             >
                                 Регистрируйся
                             </a>
+
                         ) : null}
                         <h3 className="mt-2 text-lg sm:text-xl font-bold text-black">
                             {item.city}

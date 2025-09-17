@@ -19,7 +19,7 @@ export default function Home() {
                 {/* Текстовый блок справа */}
                 <div className="flex-1 max-w-xl text-center md:text-left">
                     <h2 className="text-3xl md:text-5xl font-bold uppercase leading-tight">
-                        ВЫСТАВКА? НЕТ!{" "}
+                        ПРОСТО ВЫСТАВКА? НЕТ!{" "}
                         <span className="text-[#FF551A]">ЭТО ЭНЕРГИЯ, АТМОСФЕРА, ДРАЙВ!</span>
                     </h2>
                     <p className="text-base md:text-lg text-gray-700 mt-4 md:mt-6">
